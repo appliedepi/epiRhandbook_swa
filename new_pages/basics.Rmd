@@ -1,16 +1,23 @@
-# R Basics
+---
+output:
+  html_document: default
+  word_document: default
+  pdf_document: default
+---
+
+# Misingi ya R
 
 ```{r out.width = "100%", fig.align = "center", echo=F}
 knitr::include_graphics(here::here("images", "basics_header_close.png"))
 ```
 
-Welcome!
+Karibu!
 
-Esta página analisa o essencial do R. Não pretende ser um tutorial abrangente, mas fornece o básico e pode ser útil para refrescar a sua memória. A secção sobre Recursos para a aprendizagem contém links para tutoriais mais abrangentes.
+Ukurasa huu unakagua mambo muhimu ya R. Haikusudiwi kuwa mafunzo ya kina, lakini inatoa misingi na inaweza kuwa muhimu kwa kuburudisha kumbukumbu yako. Sehemu ya Nyenzo kwa ajili ya kujifunza inaunganisha kwa mafunzo ya kina zaidi.
 
-Parts of this page have been adapted with permission from the [R4Epis project](https://r4epis.netlify.app/).
+PSehemu za ukurasa huu zimerekebishwa kwa ruhusa kutoka kwa mradi wa [R4Epis project](https://r4epis.netlify.app/).
 
-See the page on [Transition to R] for tips on switching to R from STATA, SAS, or Excel.
+Tazama ukurasa wa Badilisha hadi R kwa vidokezo vya kubadilisha hadi R kutoka STATA, SAS, au Excel.
 
 ```{r, echo=F}
 # import the cleaned ebola linelist
@@ -20,142 +27,165 @@ pacman::p_load(apyramid)
 
 <!-- ======================================================= -->
 
-## Why use R?
+## Kwanini Utumie R?
 
-As stated on the [R project website](https://www.r-project.org/about.html), R is a programming language and environment for statistical computing and graphics. It is highly versatile, extendable, and community-driven.
+Kama ilivyoelezwa kwenye tovuti ya mradi wa R, R ni lugha ya programu na mazingira ya kompyuta ya takwimu na michoro. Inatumika sana, inaweza kupanuliwa, na inaendeshwa na jamii.
 
-**Cost**
+**Gharama**
 
-R is free to use! There is a strong ethic in the community of free and open-source material.
+R ni bure kutumia! Kuna maadili dhabiti katika jamii ya nyenzo huria na huria.
 
-**Reproducibility**
+**Uzalishaji**
 
-Conducting your data management and analysis through a programming language (compared to Excel or another primarily point-click/manual tool) enhances **reproducibility**, makes **error-detection** easier, and eases your workload.
+Kufanya usimamizi na uchanganuzi wako wa data kupitia lugha ya programu (ikilinganishwa na Excel au zana nyingine ya kubofya-aina/kujitolea) huboresha uzalishaji tena, hurahisisha ugunduzi wa makosa, na kurahisisha mzigo wako wa kazi.
 
-**Community**
+**Jumuiya**
 
-The R community of users is enormous and collaborative. New packages and tools to address real-life problems are developed daily, and vetted by the community of users. As one example, [R-Ladies](https://rladies.org/) is a worldwide organization whose mission is to promote gender diversity in the R community, and is one of the largest organizations of R users. It likely has a chapter near you!
+Jumuiya ya R ya watumiaji ni kubwa na inashirikiana. Vifurushi vipya na zana za kushughulikia matatizo ya maisha halisi hutengenezwa kila siku, na kukaguliwa na jumuiya ya watumiaji. Kwa mfano, [R-Ladies](https://rladies.org/) ni shirika la ulimwenguni pote ambalo dhamira yake ni kukuza tofauti za kijinsia katika jumuiya ya R, na ni mojawapo ya mashirika makubwa ya watumiaji wa R. Inawezekana ina sura karibu nawe!
 
-## Key terms
+## Masharti muhimu
 
-**RStudio** - RStudio is a Graphical User Interface (GUI) for easier use of **R**. Read more [in the RStudio section](#rstudio).
+**RStudio** - RStudio ni Kiolesura cha Mchoro cha Mtumiaji (GUI) kwa matumizi rahisi ya R. Soma zaidi katika [sehemu ya RStudio](#rstudio).
 
-**Objects** - Everything you store in R - datasets, variables, a list of village names, a total population number, even outputs such as graphs - are *objects* which are *assigned a name* and *can be referenced* in later commands. Read more [in the Objects section](#objects).
+**Vitu -** Kila kitu unachohifadhi katika R - hifadhidata, vigeu, orodha ya majina ya vijiji, jumla ya idadi ya watu, hata matokeo kama vile grafu - ni vitu ambavyo vimepewa jina na vinaweza kurejelewa katika amri za baadaye. Soma zaidi katika [sehemu ya Vitu](#objects)
 
-**Functions** - A function is a code operation that accept inputs and returns a transformed output. Read more [in the Functions section](#functions).
+**Kazi za kukokotoa** - Chaguo za kukokotoa ni operesheni ya msimbo ambayo inakubali ingizo na kurejesha pato lililobadilishwa. Soma zaidi katika [sehemu ya Kazi](#functions).
 
-**Packages** - An R package is a shareable bundle of functions. Read more [in the Packages section](#packages).
+**Vifurushi** - Kifurushi cha R ni kifurushi cha vipengele vinavyoweza kushirikiwa. Soma zaidi katika[sehemu ya Vifurushi](#packages).
 
-**Scripts** - A script is the document file that hold your commands. Read more [in the Scripts section](#scripts)
+**Hati** - Hati ni faili ya hati inayoshikilia amri zako. Soma zaidikatika [sehemu ya Hati](#scripts)
 
-## Resources for learning {#learning}
+## Rasilimali za kujifunza {#learning}
 
-### Resources within RStudio {.unnumbered}
+### Rasimilali ya RStudio {.unnumbered}
 
-**Help documentation**
+**Nyaraka za Usaidizi**
 
-Search the RStudio "Help" tab for documentation on R packages and specific functions. This is within the pane that also contains Files, Plots, and Packages (typically in the lower-right pane). As a shortcut, you can also type the name of a package or function into the R console after a question-mark to open the relevant Help page. Do not include parentheses.
+Tafuta kichupo cha"Msaada" cha RStudio kwa nyaraka kwenye vifurushi vya R na vipengele maalum. Hii ni ndani ya kidirisha ambacho pia kina Faili, Viwanja, na Vifurushi (kawaida kwenye kidirisha cha chini kulia). Kama njia ya mkato, unaweza pia kuandika jina la kifurushi au chaguo la kukokotoa kwenye dashibodi ya R baada ya alama ya kuuliza ili kufungua ukurasa wa Usaidizi husika. Usijumuishe mabano.
 
-For example: `?filter` or `?diagrammeR`.
+Kwa mfano: `?filter` or `?diagrammeR`.
 
-**Interactive tutorials**
+**Mafunzo maingiliano**
 
-There are several ways to learn R interactively *within* RStudio.
+Kuna njia kadhaa za kujifunza R kwa maingiliano ndani ya RStudio.
 
-RStudio itself offers a Tutorial pane that is powered by the [**learnr**](https://blog.rstudio.com/2020/02/25/rstudio-1-3-integrated-tutorials/) R package. Simply install this package and open a tutorial via the new "Tutorial" tab in the upper-right RStudio pane (which also contains Environment and History tabs).
+RStudio yenyewe inatoa kidirisha cha Mafunzo ambacho kinatumia kifurushi cha learnr. Sakinisha kifurushi hiki na ufungue mafunzo kupitia kichupo kipya cha "Mafunzo" kwenye kidirisha cha juu kulia cha RStudio (ambacho pia kina vichupo vya Mazingira na Historia).
 
-The R package [**swirl**](https://swirlstats.com/) offers interactive courses in the R Console. Install and load this package, then run the command `swirl()` (empty parentheses) in the R console. You will see prompts appear in the Console. Respond by typing in the Console. It will guide you through a course of your choice.
+Kifurushi cha [**swirl**](https://swirlstats.com/) kinatoa kozi shirikishi katika R Console. Sakinisha na upakie kifurushi hiki, kisha endesha amri `swirl()` (mabano tupu) kwenye koni ya R. Utaona vidokezo kutokea kwenye Dashibodi. Jibu kwa kuandika kwenye Dashibodi. Itakuongoza kupitia kozi ya chaguo lako.
 
 ### Cheatsheets {.unnumbered}
 
-There are many PDF "cheatsheets" available on the [RStudio website](https://rstudio.com/resources/cheatsheets/), for example:
+**Kuna "cheatsheets" nyingi za PDF zinazopatikana kwenye** [Tovuti ya RStudio](https://rstudio.com/resources/cheatsheets/), kwa mfano:
 
--   Factors with **forcats** package\
--   Dates and times with **lubridate** package\
--   Strings with **stringr** package\
--   iterative opertaions with **purrr** package\
--   Data import\
--   Data transformation cheatsheet with **dplyr** package\
--   R Markdown (to create documents like PDF, Word, Powerpoint...)\
--   Shiny (to build interactive web apps)\
--   Data visualization with **ggplot2** package\
--   Cartography (GIS)\
--   **leaflet** package (interactive maps)\
--   Python with R (**reticulate** package)
+-   Mambo na kifurushi cha **forcats**\
 
-This is an online R resource specifically for [Excel users](https://jules32.github.io/r-for-excel-users/)
+-   Tarehe na nyakatu na kifurushi cha **lubridate**\
+
+-   Minyororo na kifurushi cha **stringr**\
+
+-   shughuli za mara kwa mara na kifurushi cha **purrr**\
+
+-   Kuingiza data\
+
+-   "Cheatsheet" ya Kubadilisha data kifurushi cha **dplyr**\
+
+-   R Markdown (kuunda hati kama vile PDF, Word, Powerpoint...)
+
+-   Shiny (kuunda programu wasilianifu za wavuti)\
+
+-   Taswira ya data ukitumia kifurushi cha **ggplot2**
+
+-   Upigaji ramani (GIS)\
+
+-   kifurushi **leaflet** (ramani shirikishi)\
+
+-   Python na R (kifurushi **reticulate** )
+
+Hii ni rasilimali ya mtandaoni ya R mahususi kwa[watumiaji wa Excel](https://jules32.github.io/r-for-excel-users/)
 
 ### Twitter {.unnumbered}
 
-R has a vibrant twitter community where you can learn tips, shortcuts, and news - follow these accounts:
+R ina jumuia mahiri ya twitter ambapo unaweza kujifunza vidokezo, njia za mkato na habari - fuata akaunti hizi:
 
--   Follow us! [\@epiRhandbook](https://twitter.com/epirhandbook)\
--   R Function A Day [\@rfuntionaday](https://twitter.com/rfunctionaday) is an *incredible* resource\
--   R for Data Science [\@rstats4ds](https://twitter.com/rstats4ds?lang=en)\
+-   Tufuate! [\@epiRhandbook](https://twitter.com/epirhandbook)\
+-   R Kazi moja Kwa Siku [\@rfuntionaday](https://twitter.com/rfunctionaday) ni rarilimali ya ajabu\
+-   R ya Sayansi ya Data [\@rstats4ds](https://twitter.com/rstats4ds?lang=en)\
 -   RStudio [\@RStudio](https://twitter.com/rstudio?lang=en)\
--   RStudio Tips [\@rstudiotips](https://twitter.com/rstudiotips)\
--   R-Bloggers [\@Rbloggers](https://twitter.com/Rbloggers)\
--   R-ladies [\@RLadiesGlobal](https://twitter.com/RLadiesGlobal)\
+-   Vidokezo vya RStudio [\@rstudiotips](https://twitter.com/rstudiotips)\
+-   Wanablogu wa R [\@Rbloggers](https://twitter.com/Rbloggers)\
+-   Wanawake wa R [\@RLadiesGlobal](https://twitter.com/RLadiesGlobal)\
 -   Hadley Wickham [\@hadleywickham](https://twitter.com/hadleywickham?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor)
 
-Also:
+Pia:
 
-**\#epitwitter** and **\#rstats**
+**#epitwitter** and **#rstats**
 
-### Free online resources {.unnumbered}
+### Rasilimali za mtandaoni za bure {.unnumbered}
 
-A definitive text is the [R for Data Science](https://r4ds.had.co.nz/) book by Garrett Grolemund and Hadley Wickham
+Maandishi ya uhakika ni kitabu cha[R for Data Science](https://r4ds.had.co.nz/) cha Garrett Grolemund and Hadley Wickham
 
-The [R4Epis](https://r4epis.netlify.app/) project website aims to "develop standardised data cleaning, analysis and reporting tools to cover common types of outbreaks and population-based surveys that would be conducted in an MSF emergency response setting." You can find R basics training materials, templates for RMarkdown reports on outbreaks and surveys, and tutorials to help you set them up.
+Tovuti ya mradi wa [R4Epis](https://r4epis.netlify.app/) inalenga "kutayarisha zana sanifu za kusafisha data, uchanganuzi na kuripoti ili kushughulikia aina za kawaida za milipuko na tafiti zinazozingatia idadi ya watu ambazo zingefanywa katika mpangilio wa majibu ya dharura ya MSF." Unaweza kupata nyenzo za mafunzo ya misingi ya R, violezo vya ripoti za RMarkdown kuhusu milipuko na tafiti, na mafunzo ya kukusaidia kuziweka.
 
-### Languages other than English {.unnumbered}
+### **Lugha zingine isipokuwa Kiingereza** {.unnumbered}
 
-[Materiales de RStudio en Español](https://www.rstudio.com/collections/espanol/)
+[Nyenzo za Rstudio kwa Kihispania](https://www.rstudio.com/collections/espanol/)
 
-[Introduction à R et au tidyverse (Francais)](https://juba.github.io/tidyverse/index.html)
+[Utangulizi wa R na tidyverse (Kifaransa)](https://juba.github.io/tidyverse/index.html)
 
 <!-- ======================================================= -->
 
-## Installation
+## Ufungaji
 
-### R and RStudio {.unnumbered}
+### R na RStudio {.unnumbered}
 
-**How to install R**
+**Jinsi ya kufunga R**
 
-Visit this website <https://www.r-project.org/> and download the latest version of R suitable for your computer.
+Tembelea tovuti hii <https://www.r-project.org/> na upakue toleo jipya zaidi la R linalofaa kwa kompyuta yako.
 
-**How to install RStudio**
+**Jinsi ya kufunga RStudio**
 
-Visit this website <https://rstudio.com/products/rstudio/download/> and download the latest free Desktop version of RStudio suitable for your computer.
+Tembelea tovuti hii <https://rstudio.com/products/rstudio/download/> na upakue toleo jipya zaidi lisilolipishwa la Eneo-kazi la RStudio linalofaa kwa kompyuta yako.
 
-**Permissions**\
-Note that you should install R and RStudio to a drive where you have read and write permissions. Otherwise, your ability to install R packages (a frequent occurrence) will be impacted. If you encounter problems, try opening RStudio by right-clicking the icon and selecting "Run as administrator". Other tips can be found in the page [R on network drives].
+**Ruhusa**
+\
+Kumbuka kwamba unapaswa kusakinisha R na RStudio kwenye kiendeshi ambacho umesoma na
+kuandika ruhusa. Vinginevyo, uwezo wako wa kusakinisha vifurushi vya R (tukio la mara kwa mara) utaathiriwa. Ukikumbana na matatizo, jaribu kufungua RStudio kwa kubofya aikoni kulia na kuchagua "Endesha kama msimamizi". Vidokezo vingine vinaweza kupatikana katika ukurasa wa R kwenye anatoa za mtandao.
 
-**How to update R and RStudio**
+**Jinsi ya kusasisha R na RStudio**
 
-Your version of R is printed to the R Console at start-up. You can also run `sessionInfo()`.
+Toleo lako la R huchapishwa kwenye R Console wakati wa kuanza. Unaweza pia kuendesha
+sessionInfo().
 
-To update R, go to the website mentioned above and re-install R. Alternatively, you can use the **installr** package (on Windows) by running `installr::updateR()`. This will open dialog boxes to help you download the latest R version and update your packages to the new R version. More details can be found in the **installr** [documentation](https://www.r-project.org/nosvn/pandoc/installr.html).
+Ili kusasisha R, nenda kwenye tovuti iliyotajwa hapo juu na usakinishe upya R. Vinginevyo, unaweza kutumia kisakinishi kifurushi (kwenye Windows) kwa kuendesha kisakinishi::updateR(). Hii itafungua visanduku vya mazungumzo ili kukusaidia kupakua toleo jipya zaidi la R na kusasisha vifurushi vyako hadi toleo jipya la R. Maelezo zaidi yanaweza kupatikana katika hati za kisakinishi.
 
-Be aware that the old R version will still exist in your computer. You can temporarily run an older version (older "installation") of R by clicking "Tools" -\> "Global Options" in RStudio and choosing an R version. This can be useful if you want to use a package that has not been updated to work on the newest version of R.
+Fahamu kuwa toleo la zamani la R bado litakuwepo kwenye kompyuta yako. Unaweza
+kuendesha kwa muda toleo la zamani ("usakinishaji" wa zamani) wa R kwa kubofya "Tools" -> "Global Options" katika RStudio na kuchagua toleo la R. Hii inaweza kuwa muhimu ikiwa unataka kutumia kifurushi ambacho hakijasasishwa kufanya kazi kwenye toleo jipya zaidi la R. Maelezo zaidi yanaweza kupatikana hati za **installr**
 
-To update RStudio, you can go to the website above and re-download RStudio. Another option is to click "Help" -\> "Check for Updates" within RStudio, but this may not show the very latest updates.
+Ili kusasisha RStudio, unaweza kwenda kwenye tovuti iliyo hapo juu na upakue upya
+RStudio. Chaguo jingine ni kubofya "Help" -> "Check for Updates" kwenye RStudio, lakini hii inaweza isionyeshe masasisho ya hivi punde zaidi.
 
-To see which versions of R, RStudio, or packages were used when this Handbook as made, see the page on [Editorial and technical notes].
+Ili kuona ni matoleo yapi ya R, RStudio, au vifurushi vilivyotumika wakati Kitabu
+hiki cha Mwongozo kilipotengenezwa, angalia ukurasa kwenye Maelezo ya Uhariri
+na kiufundi.
 
-### Other software you *may* need to install {.unnumbered}
+### Programu nyingine unaweza kuhitaji kusakinisha {.unnumbered}
 
--   TinyTeX (*for compiling an RMarkdown document to PDF*)\
--   Pandoc (*for compiling RMarkdown documents*)\
--   RTools (*for building packages for R*)\
--   phantomjs (*for saving still images of animated networks, such as transmission chains*)
+-   TinyTeX (ya kuunda hati ya RMarkdown kwa PDF)
+
+-   Pandoc (ya kuunda hati za RMarkdown)
+
+-   RTools (za ujenzi wa vifurushi vya R)
+
+-   phantomjs (kwa kuhifadhi picha tuli za mitandao ya uhuishaji, kama vile
+    minyororo ya upokezaji)
 
 #### TinyTex {.unnumbered}
 
-TinyTex is a custom LaTeX distribution, useful when trying to produce PDFs from R.\
-See <https://yihui.org/tinytex/> for more informaton.
+-   TinyTex ni usambazaji maalum wa LaTeX, muhimu wakati wa kujaribu kutoa PDF
+    kutoka kwa R\
+    Tazama <https://yihui.org/tinytex/> kwa taarifa zaidi.
 
-To install TinyTex from R:
+    Ili kusakinisha TinyTex kutoka R:
 
 ```{r, eval=F}
 install.packages('tinytex')
@@ -165,64 +195,75 @@ tinytex::install_tinytex()
 
 #### Pandoc {.unnumbered}
 
-Pandoc is a document converter, a separate software from R. **It comes bundled with RStudio and should not need to be downloaded.** It helps the process of converting Rmarkdown documents to formats like .pdf and adding complex functionality.
+Pandoc ni kigeuzi cha hati, programu tofauti kutoka kwa R. Inakuja kuunganishwa na RStudio na haipaswi kuhitaji kupakuliwa. Husaidia mchakato wa kubadilisha hati za Rmarkdown hadi umbizo kama vile .pdf na kuongeza utendakazi changamano.RTools.
 
 #### RTools {.unnumbered}
 
-RTools is a collection of software for building packages for R
+RTools ni mkusanyiko wa programu ya ujenzi wa vifurushi vya R
 
-Install from this website: <https://cran.r-project.org/bin/windows/Rtools/>
+Sanikisha kutoka kwa tovuti hii: <https://cran.r-project.org/bin/windows/Rtools/>
 
 #### phantomjs {.unnumbered}
 
-This is often used to take "screenshots" of webpages. For example when you make a transmission chain with **epicontacts** package, an HTML file is produced that is interactive and dynamic. If you want a static image, it can be useful to use the [**webshot**](https://wch.github.io/webshot/articles/intro.html) package to automate this process. This will require the external program "phantomjs". You can install phantomjs via the **webshot** package with the command `webshot::install_phantomjs()`.
+Hii mara nyingi hutumiwa kupiga "picha za skrini" za kurasa za wavuti. Kwa mfano unapotengeneza msururu wa upokezaji na kifurushi cha epicontacts, faili ya HTML inatolewa ambayo inaingiliana na inayobadilika. Ikiwa unataka taswira tuli, inaweza kuwa muhimu kutumia kifurushi cha picha ya wavuti kugeuza mchakato huu kiotomatiki. Hii itahitaji programu ya nje
+"phantomjs". Unaweza kusakinisha phantomjs kupitia kifurushi cha webshot kwa amri `webshot::install_phantomjs()`.
 
 <!-- ======================================================= -->
 
 ## RStudio {#rstudio}
 
-### RStudio orientation {.unnumbered}
+### **Mwelekeo wa RStudio** {.unnumbered}
 
-**First, open RStudio.** As their icons can look very similar, be sure you are opening *RStudio* and not R.
+Kwanza, fungua RStudio. Kwa kuwa ikoni zao zinaweza kuonekana sawa, hakikisha unafungua RStudio na sio R.
 
-For RStudio to work you must also have R installed on the computer (see above for installation instructions).
+Ili RStudio ifanye kazi lazima pia uwe na R iliyosakinishwa kwenye kompyuta (tazama
+hapo juu kwa maagizo ya usakinishaji).
 
-**RStudio** is an interface (GUI) for easier use of **R**. You can think of R as being the engine of a vehicle, doing the crucial work, and RStudio as the body of the vehicle (with seats, accessories, etc.) that helps you actually use the engine to move forward! You can see the complete RStudio user-interface cheatsheet (PDF) [here](https://www.rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf)
+RStudio ni kiolesura (GUI) kwa matumizi rahisi ya R. Unaweza kufikiria R kama injini ya
+gari, kufanya kazi muhimu, na RStudio kama mwili wa gari (pamoja na viti, vifuasi, n.k.) ambayo husaidia. kweli unatumia injini kusonga mbele! Unaweza kuona cheatsheet kamili ya kiolesura cha mtumiaji ya RStudio (PDF)[hapa](https://www.rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf)
 
-By default RStudio displays four rectangle panes.
+Kwa chaguo-msingi RStudio huonyesha paneli nne za mstatili
 
 ```{r out.width = "100%", fig.align = "center", echo=F}
 knitr::include_graphics(here::here("images", "RStudio_overview.png"))
 ```
 
-[***TIP:*** If your RStudio displays only one left pane it is because you have no scripts open yet.]{style="color: black;"}
+[***KIDOKEZO:*** ]{style="color: black;"}Ikiwa RStudio yako inaonyesha kidirisha kimoja tu cha kushoto ni kwa sababu bado huna hati zilizofunguliwa[.]{style="color: black;"}
 
-**The Source Pane**\
-This pane, by default in the upper-left, is a space to edit, run, and save your [scripts](#scripts). Scripts contain the commands you want to run. This pane can also display datasets (data frames) for viewing.
+**Kidirisha Chanzo**\
+Kidirisha hiki, kwa chaguo-msingi katika sehemu ya juu kushoto, ni nafasi ya kuhariri,
+kuendesha, na kuhifadhi hati zako. Hati zina amri unazotaka kutekeleza. Kidirisha hiki kinaweza pia kuonyesha seti za data (fremu za data) za kutazamwa.
 
-For Stata users, this pane is similar to your Do-file and Data Editor windows.
+Kwa watumiaji wa Stata, kidirisha hiki ni sawa na madirisha yako ya Faili-Faili na
+Kihariri cha Data..
 
-**The R Console Pane**
+**Kidirisha cha R Console**
 
-The R Console, by default the left or lower-left pane in R Studio, is the home of the R "engine". This is where the commands are actually run and non-graphic outputs and error/warning messages appear. You can directly enter and run commands in the R Console, but realize that these commands are not saved as they are when running commands from a script.
+R Console, kwa chaguo-msingi kidirisha cha kushoto au cha chini kushoto katika R
+Studio, ndiyo nyumba ya "injini" ya R. Hapa ndipo amri zinaendeshwa
+na matokeo yasiyo ya picha na ujumbe wa hitilafu/onyo huonekana. Unaweza
+kuingiza na kuendesha amri moja kwa moja kwenye R Console, lakini tambua kuwa
+amri hizi hazijahifadhiwa jinsi zinavyofanya wakati wa kutekeleza amri kutoka
+kwa hati.
 
-If you are familiar with Stata, the R Console is like the Command Window and also the Results Window.
+Ikiwa unaifahamu Stata, R Console ni kama Dirisha la Amri na pia Dirisha la Matokeo..
 
-**The Environment Pane**\
-This pane, by default in the upper-right, is most often used to see brief summaries of [objects](#objects) in the R Environment in the current session. These objects could include imported, modified, or created datasets, parameters you have defined (e.g. a specific epi week for the analysis), or vectors or lists you have defined during analysis (e.g. names of regions). You can click on the arrow next to a data frame name to see its variables.
+**Kidirisha cha Mazingira**\
+Kidirisha hiki, kwa chaguo-msingi katika sehemu ya juu-kulia, mara nyingi hutumika kuona muhtasari mfupi wa vitu katika Mazingira ya R katika kipindi cha sasa. Vipengee hivi vinaweza kujumuisha seti za data zilizoingizwa, zilizorekebishwa au kuundwa, vigezo ulivyofafanua (k.m. wiki maalum ya uchanganuzi), au vekta au orodha ambazo umefafanua wakati wa uchanganuzi (k.m. majina ya maeneo). Unaweza kubofya kishale karibu na jina la fremu ya data ili kuona vigeu vyake.
 
-In Stata, this is most similar to the Variables Manager window.
+Katika Stata, hii inafanana zaidi na dirisha la Kidhibiti cha Vigezo.
 
-This pane also contains *History* where you can see commands that you can previously. It also has a "Tutorial" tab where you can complete interactive R tutorials if you have the **learnr** package installed. It also has a "Connections" pane for external connections, and can have a "Git" pane if you choose to interface with Github.
+Kidirisha hiki pia kina Historia ambapo unaweza kuona amri ambazo unaweza hapo awali. Pia ina kichupo cha "Mafunzo" ambapo unaweza kukamilisha mafunzo shirikishi ya R ikiwa umesakinisha kifurushi cha mwanafunzi. Pia ina kidirisha cha "Viunganisho" kwa miunganisho ya nje, na inaweza kuwa na kidirisha cha "Git" ukichagua kusano na Github..
 
-**Plots, Viewer, Packages, and Help Pane**\
-The lower-right pane includes several important tabs. Typical plot graphics including maps will display in the Plot pane. Interactive or HTML outputs will display in the Viewer pane. The Help pane can display documentation and help files. The Files pane is a browser which can be used to open or delete files. The Packages pane allows you to see, install, update, delete, load/unload R packages, and see which version of the package you have. To learn more about packages see the [packages section](#packages) below.
+**Viwanja, Kitazamaji, Vifurushi na Kidirisha cha Usaidizi**\
+Kidirisha cha chini kulia kinajumuisha tabo kadhaa muhimu. Michoro ya kawaida ya mpangilio ikijumuisha ramani itaonyeshwa kwenye kidirisha cha Njama. Matokeo shirikishi au HTML yataonyeshwa kwenye kidirisha cha Kitazamaji. Kidirisha cha Usaidizi kinaweza kuonyesha hati na faili za usaidizi. Kidirisha cha Faili ni kivinjari ambacho kinaweza kutumika kufungua au kufuta faili.
+Kidirisha cha Vifurushi hukuruhusu kuona, kusakinisha, kusasisha, kufuta, kupakia/kupakua vifurushi vya R, na kuona ni toleo gani la kifurushi ulicho nacho. Ili kujifunza zaidi kuhusu vifurushi tazama sehemu ya vifurushi hapa chini.
 
-This pane contains the Stata equivalents of the Plots Manager and Project Manager windows.
+Kidirisha hiki kina usawa wa Stata wa madirisha ya Kidhibiti cha Viwanja na Kidhibiti cha Mradi.
 
-### RStudio settings {.unnumbered}
+### Mipangilio ya RStudio {.unnumbered}
 
-Change RStudio settings and appearance in the *Tools* drop-down menu, by selecting *Global Options*. There you can change the default settings, including appearance/background color.
+Badilisha mipangilio na mwonekano wa RStudio kwenye menyu kunjuzi ya Zana, kwa kuchagua *Global Options*. Huko unaweza kubadilisha mipangilio chaguomsingi, ikijumuisha mwonekano/rangi ya usuli..
 
 ```{r out.width = c('50%'), fig.show='hold', echo=F}
 knitr::include_graphics(here::here("images", "RStudio_tools_options_1.png"))
@@ -230,108 +271,124 @@ knitr::include_graphics(here::here("images", "RStudio_tools_options_1.png"))
 knitr::include_graphics(here::here("images", "RStudio_tools_options.png"))
 ```
 
-**Restart**
+**Anzisha tena**
 
-If your R freezes, you can re-start R by going to the Session menu and clicking "Restart R". This avoids the hassle of closing and opening RStudio. Everything in your R environment will be removed when you do this.
+Ikiwa R yako itaganda, unaweza kuanzisha upya R kwa kwenda kwenye menyu ya Kipindi na
+kubofya "Anzisha upya R". Hii inaepuka shida ya kufunga na kufungua RStudio. Kila kitu katika mazingira yako ya R kitaondolewa ukifanya hivi.
 
 ### Keyboard shortcuts {.unnumbered}
 
-Some very useful keyboard shortcuts are below. See all the keyboard shortcuts for Windows, Max, and Linux in the second page of this RStudio [user interface cheatsheet](https://www.rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf).
+Baadhi
+ya njia za mkato za kibodi muhimu sana ziko hapa chini. Tazama mikato yote ya
+kibodi ya Windows, Max, na Linux katika ukurasa wa pili wa [kiolesura hiki cha RStudio](https://www.rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf).
 
-+----------------------------------+------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| Windows/Linux                    | Mac                    | Action                                                                                                                         |
-+==================================+========================+================================================================================================================================+
-| Esc                              | Esc                    | Interrupt current command (useful if you accidentally ran an incomplete command and cannot escape seeing "+" in the R console) |
-+----------------------------------+------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| Ctrl+s                           | Cmd+s                  | Save (script)                                                                                                                  |
-+----------------------------------+------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| Tab                              | Tab                    | Auto-complete                                                                                                                  |
-+----------------------------------+------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| Ctrl + Enter                     | Cmd + Enter            | Run current line(s)/selection of code                                                                                          |
-+----------------------------------+------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| Ctrl + Shift + C                 | Cmd + Shift + c        | comment/uncomment the highlighted lines                                                                                        |
-+----------------------------------+------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| Alt + -                          | Option + -             | Insert `<-`                                                                                                                    |
-+----------------------------------+------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| Ctrl + Shift + m                 | Cmd + Shift + m        | Insert `%>%`                                                                                                                   |
-+----------------------------------+------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| Ctrl + l                         | Cmd + l                | Clear the R console                                                                                                            |
-+----------------------------------+------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| Ctrl + Alt + b                   | Cmd + Option + b       | Run from start to current line                                                                                                 |
-+----------------------------------+------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| Ctrl + Alt + t                   | Cmd + Option + t       | Run the current code section (R Markdown)                                                                                      |
-+----------------------------------+------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| Ctrl + Alt + i                   | Cmd + Shift + r        | Insert code chunk (into R Markdown)                                                                                            |
-+----------------------------------+------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| Ctrl + Alt + c                   | Cmd + Option + c       | Run current code chunk (R Markdown)                                                                                            |
-+----------------------------------+------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| up/down arrows in R console      | Same                   | Toggle through recently run commands                                                                                           |
-+----------------------------------+------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| Shift + up/down arrows in script | Same                   | Select multiple code lines                                                                                                     |
-+----------------------------------+------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| Ctrl + f                         | Cmd + f                | Find and replace in current script                                                                                             |
-+----------------------------------+------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| Ctrl + Shift + f                 | Cmd + Shift + f        | Find in files (search/replace across many scripts)                                                                             |
-+----------------------------------+------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| Alt + l                          | Cmd + Option + l       | Fold selected code                                                                                                             |
-+----------------------------------+------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| Shift + Alt + l                  | Cmd + Shift + Option+l | Unfold selected code                                                                                                           |
-+----------------------------------+------------------------+--------------------------------------------------------------------------------------------------------------------------------+
++----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| Windows/Linux                    | Mac                    | Kitendo                                                                                                                         |
++==================================+========================+=================================================================================================================================+
+| Esc                              | Esc                    | Katisha amri ya sasa (inafaa ikiwa kwa bahati mbaya uliendesha amri isiyokamilika na huwezi kuepuka kuona "+" kwenye koni ya R) |
++----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| Ctrl+s                           | Cmd+s                  | Hifadhi(hati)                                                                                                                   |
++----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| Tab                              | Tab                    | Kamilisha kiotomatiki                                                                                                           |
++----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| Ctrl + Enter                     | Cmd + Enter            | Endesha laini za sasa/uteuzi wa msimbo                                                                                          |
++----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| Ctrl + Shift + C                 | Cmd + Shift + c        | toa maoni/toa maoni kwa mistari iliyoangaziwa                                                                                   |
++----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| Alt + -                          | Option + -             | Weka`<-`                                                                                                                        |
++----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| Ctrl + Shift + m                 | Cmd + Shift + m        | Weka `%>%`                                                                                                                      |
++----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| Ctrl + l                         | Cmd + l                | Futa koni ya R                                                                                                                  |
++----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| Ctrl + Alt + b                   | Cmd + Option + b       | Endesha kutoka mwanzo hadi mstari wa sasa                                                                                       |
++----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| Ctrl + Alt + t                   | Cmd + Option + t       | Endesha sehemu ya msimbo wa sasa (R Markdown)                                                                                   |
++----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| Ctrl + Alt + i                   | Cmd + Shift + r        | Ingiza sehemu ya msimbo (kwenye R Markdown)                                                                                     |
++----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| Ctrl + Alt + c                   | Cmd + Option + c       | Tekeleza sehemu ya msimbo wa sasa (R Markdown)                                                                                  |
++----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| up/down arrows in R console      | Same                   | Geuza kupitia amri zinazoendeshwa hivi karibuni                                                                                 |
++----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| Shift + up/down arrows in script | Same                   | Chagua mistari mingi ya msimbo                                                                                                  |
++----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| Ctrl + f                         | Cmd + f                | Tafuta na ubadilishe katika hati ya sasa                                                                                        |
++----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| Ctrl + Shift + f                 | Cmd + Shift + f        | Pata faili (tafuta / badilisha katika hati nyingi)                                                                              |
++----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| Alt + l                          | Cmd + Option + l       | Mara msimbo uliochaguliwa                                                                                                       |
++----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| Shift + Alt + l                  | Cmd + Shift + Option+l | Fungua msimbo uliochaguliwa                                                                                                     |
++----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
 
-[***TIP:*** Use your Tab key when typing to engage RStudio's auto-complete functionality. This can prevent spelling errors. Press Tab while typing to produce a drop-down menu of likely functions and objects, based on what you have typed so far.]{style="color: darkgreen;"}
-
-<!-- ======================================================= -->
-
-## Functions {#functions}
-
-Functions are at the core of using R. Functions are how you perform tasks and operations. Many functions come installed with R, many more are available for download in *packages* (explained in the [packages](#packages) section), and you can even write your own custom functions!
-
-This basics section on functions explains:
-
--   What a function is and how they work\
--   What function *arguments* are\
--   How to get help understanding a function
-
-*A quick note on syntax:* In this handbook, functions are written in code-text with open parentheses, like this: `filter()`. As explained in the [packages](#packages) section, functions are downloaded within *packages*. In this handbook, package names are written in **bold**, like **dplyr**. Sometimes in example code you may see the function name linked explicitly to the name of its package with two colons (`::`) like this: `dplyr::filter()`. The purpose of this linkage is explained in the packages section.
+[***TIP:*** ]{style="color: darkgreen;"}*Tumia ufunguo wako wa Kichupo unapoandika ili kuhusisha utendakazi wa kukamilisha
+kiotomatiki wa RStudio. Hii inaweza kuzuia makosa ya tahajia. Bonyeza Tab unapoandika ili kutoa menyu kunjuzi ya vitendaji na vipengee vinavyowezekana, kulingana na ulichoandika kufikia sasa*[.]{style="color: darkgreen;"}
 
 <!-- ======================================================= -->
 
-### Simple functions {.unnumbered}
+## Kazi {#functions}
 
-**A function is like a machine that receives inputs, does some action with those inputs, and produces an output.** What the output is depends on the function.
+Kazi ndizo msingi wa kutumia R. Kazi ni jinsi unavyofanya kazi na uendeshaji. Vipengele vingi vinakuja kusakinishwa na R, nyingi zaidi zinapatikana kwa kupakuliwa kwenye vifurushi (zilizofafanuliwa katika sehemu ya [vifurushi](#packages)), na unaweza hata kuandika kazi zako za
+desturi!
 
-**Functions typically operate upon some object placed within the function's parentheses**. For example, the function `sqrt()` calculates the square root of a number:
+Sehemu hii ya msingi juu ya kazi inaelezea:
+
+• Taratibu ni nini na jinsi zinavyofanya kazi
+
+• Je, hoja za utendaji ni zipi
+
+• Jinsi ya kupata usaidizi kuelewa utendaji
+
+Ujumbe wa haraka juu ya sintaksia: Katika kitabu hiki cha mwongozo, vitendaji vimeandikwa kwa maandishi ya msimbo na mabano yaliyo wazi, kama hii: chujio(). Kama ilivyoelezewa katika sehemu ya vifurushi, utendakazi hupakuliwa ndani ya vifurushi. Katika kitabu hiki cha mwongozo, majina ya vifurushi yameandikwa kwa herufi nzito, kama vile dplyr. Wakati mwingine katika msimbo wa mfano unaweza kuona jina la kazi likiwa limeunganishwa kwa uwazi na jina la kifurushi chake na koloni mbili (::) kama hii: dplyr::filter(). Madhumuni ya uunganisho huu yamefafanuliwa katika sehemu ya vifurushi.
+
+<!-- ======================================================= -->
+
+### Vitendaji Rahisi {.unnumbered}
+
+**Chaguo za kukokotoa ni kama mashine inayopokea pembejeo, hufanya kitendo fulani na ingizo hizo, na kutoa pato.** Pato ni nini inategemea kazi.
+
+**Utendakazi kwa kawaida hufanya kazi kwenye baadhi ya kitu kilichowekwa ndani ya mabano ya chaguo za kukokotoa.** Kwa mfano, chaguo za kukokotoa sqrt() hukokotoa mzizi wa mraba wa nambari.
 
 ```{r basics_function_sqrt}
 sqrt(49)
 ```
 
-The object provided to a function also can be a column in a dataset (see the [Objects](#objects) section for detail on all the kinds of objects). Because R can store multiple datasets, you will need to specify both the dataset and the column. One way to do this is using the `$` notation to link the name of the dataset and the name of the column (`dataset$column`). In the example below, the function `summary()` is applied to the numeric column `age` in the dataset `linelist`, and the output is a summary of the column's numeric and missing values.
+Kitu kilichotolewa kwa chaguo za kukokotoa pia kinaweza kuwa safu wima katika
+mkusanyiko wa data (tazama sehemu ya Vipengee kwa undani juu ya aina zote za
+vitu). Kwa sababu R inaweza kuhifadhi hifadhidata nyingi, utahitaji kubainisha
+mkusanyiko wa data na safu wima. Njia moja ya kufanya hivyo ni kutumia nukuu ya
+\$ kuunganisha jina la seti ya data na jina la safu wima (dataset\$column). Katika mfano ulio hapa chini, muhtasari wa chaguo la kukokotoa () unatumika kwa umri wa safu wima ya nambari katika orodha ya mkusanyiko wa data, na matokeo ni muhtasari wa nambari za safu wima na thamani zinazokosekana.
 
 ```{r basics_functions_summary}
 # Print summary statistics of column 'age' in the dataset 'linelist'
 summary(linelist$age)
 ```
 
-[***NOTE:*** Behind the scenes, a function represents complex additional code that has been wrapped up for the user into one easy command.]{style="color: black;"}
+[***KUMBUKA:*** Nyuma ya pazia, chaguo la kukokotoa linawakilisha msimbo changamano wa ziada ambao umefungwa kwa mtumiaji kuwa amri moja rahisi.]{style="color: black;"}
 
 <!-- ======================================================= -->
 
-### Functions with multiple arguments {.unnumbered}
+### **Hufanya kazi zenye hoja nyingi** {.unnumbered}
 
-Functions often ask for several inputs, called ***arguments***, located within the parentheses of the function, usually separated by commas.
+Mara nyingi utendakazi huomba pembejeo kadhaa, zinazoitwa **hoja**, ziko ndani ya mabano ya chaguo za kukokotoa, kwa kawaida hutenganishwa na koma.
 
--   Some arguments are required for the function to work correctly, others are optional\
--   Optional arguments have default settings\
--   Arguments can take character, numeric, logical (TRUE/FALSE), and other inputs
+• Baadhi ya hoja zinahitajika ili chaguo la kukokotoa lifanye kazi ipasavyo, zingine ni
+za hiari
 
-Here is a fun fictional function, called `oven_bake()`, as an example of a typical function. It takes an input object (e.g. a dataset, or in this example "dough") and performs operations on it as specified by additional arguments (`minutes =` and `temperature =`). The output can be printed to the console, or saved as an object using the assignment operator `<-`.
+• Hoja za hiari zina mipangilio chaguo-msingi
+
+• Hoja zinaweza kuchukua herufi, nambari, kimantiki (TRUE/FALSE), na michango mingine
+
+Hapa kuna kazi ya kubuni ya kufurahisha, inayoitwa oven_bake(), kama mfano wa utendaji wa kawaida. Huchukua kitu cha kuingiza (k.m. seti ya data, au katika mfano huu "unga") na kuifanyia shughuli kama ilivyobainishwa na hoja za ziada (dakika = na halijoto
+=). Matokeo yanaweza kuchapishwa kwa koni, au kuhifadhiwa kama kitu kwa kutumia
+opereta ya kazi `<-`.
 
 ```{r basics_functions_image, echo=F, out.width = "75%", fig.align = "center"}
 knitr::include_graphics(here::here("images", "Function_Bread_Example.png"))
 ```
 
-**In a more realistic example**, the `age_pyramid()` command below produces an age pyramid plot based on defined age groups and a binary split column, such as `gender`. The function is given three arguments within the parentheses, separated by commas. The values supplied to the arguments establish `linelist` as the dataframe to use, `age_cat5` as the column to count, and `gender` as the binary column to use for splitting the pyramid by color.
+**Katika mfano halisi zaidi**, age_pyramid() amri hapa chini hutoa piramidi ya umri kulingana na vikundi vya umri vilivyobainishwa na safu mgawanyiko ya jozi, kama vile jinsia. Chaguo za kukokotoa hupewa hoja tatu ndani ya mabano, zikitenganishwa na koma. Thamani zinazotolewa kwa hoja zinathibitisha orodha ya mstari kama mfumo wa data wa kutumia, age_cat5 kama safu wima ya kuhesabu, na jinsia kama safu ya jozi ya kutumia kugawanya piramidi kwa rangi.
 
 ```{r basics_functions_arguments, include=FALSE, results='hide', message=FALSE, warning=FALSE,}
 ## create an age group variable by specifying categorical breaks
@@ -343,7 +400,7 @@ linelist$age_group <- cut(linelist$age, breaks = c(0, 5, 10, 15, 20, 30, 45, 60)
 age_pyramid(data = linelist, age_group = "age_cat5", split_by = "gender")
 ```
 
-The above command can be equivalently written as below, in a longer style with a new line for each argument. This style can be easier to read, and easier to write "comments" with `#` to explain each part (commenting extensively is good practice!). To run this longer command you can highlight the entire command and click "Run", or just place your cursor in the first line and then press the Ctrl and Enter keys simultaneously.
+Amri iliyo hapo juu inaweza kuandikwa kwa usawa kama ilivyo hapo chini, kwa mtindo mrefu na mstari mpya kwa kila hoja. Mtindo huu unaweza kuwa rahisi kusoma, na rahisi kuandika "maoni" na \# kuelezea kila sehemu (kutoa maoni kwa upana ni mazoezi mazuri!). Ili kutekeleza amri hii ndefu unaweza kuonyesha amri nzima na ubofye "Run", au tu kuweka mshale wako kwenye mstari wa kwanza na kisha bonyeza Ctrl na Ingiza funguo wakati huo huo.
 
 ```{r message=FALSE, warning=FALSE,  out.width = "75%", out.height="75%"}
 # Create an age pyramid
@@ -354,19 +411,19 @@ age_pyramid(
   )
 ```
 
-The first half of an argument assignment (e.g. `data =`) does not need to be specified if the arguments are written in a specific order (specified in the function's documentation). The below code produces the exact same pyramid as above, because the function expects the argument order: data frame, `age_group` variable, `split_by` variable.
+Nusu ya kwanza ya mgawo wa hoja (k.m. data =) haihitaji kubainishwa ikiwa hoja zimeandikwa kwa mpangilio maalum (uliobainishwa katika hati za chaguo la kukokotoa). Msimbo ulio hapa chini hutoa piramidi sawa na hapo juu, kwa sababu chaguo la kukokotoa linatarajia mpangilio wa hoja: fremu ya data, tofauti_ya kikundi, split_by kutofautiana.
 
 ```{r, basics_functions_pyramid2, eval = FALSE, warning=FALSE, message=FALSE, , out.width = "75%", out.height="75%", eval=F}
 # This command will produce the exact same graphic as above
 age_pyramid(linelist, "age_cat5", "gender")
 ```
 
-**A more complex `age_pyramid()` command might include the *optional* arguments to:**
+**Amri changamano zaidi age_pyramid() inaweza kujumuisha hoja za hiari kwa:**
 
--   Show proportions instead of counts (set `proportional = TRUE` when the default is `FALSE`)\
--   Specify the two colors to use (`pal =` is short for "palette" and is supplied with a vector of two color names. See the [objects](#objectstructure) page for how the function `c()` makes a vector)
+-   Onyesha uwiano badala ya hesabu (weka sawia = TRUE wakati chaguo-msingi ni FALSE)\
+-   Bainisha rangi mbili za kutumia (pal = ni kifupi cha "palette" na imetolewa na vekta ya majina mawili ya rangi. Angalia ukurasa wa[vipengee](#objectstructure) jinsi chaguo za kukokotoa c() hutengeneza yekta.)
 
-[***NOTE:*** For arguments that you specify with both parts of the argument (e.g. `proportional = TRUE`), their order among all the arguments does not matter.]{style="color: black;"}
+[***KUMBUKA:*** Kwa hoja ambazo unabainisha na sehemu zote mbili za hoja (k.m. proportional = TRUE), mpangilio wao kati ya hoja zote haujalishi.]{style="color: black;"}
 
 ```{r message=FALSE, warning=FALSE, out.width = "75%", out.height="75%"}
 age_pyramid(
@@ -380,15 +437,17 @@ age_pyramid(
 
 <!-- ======================================================= -->
 
-### Writing Functions {.unnumbered}
+### Kuandika Kazi {.unnumbered}
 
-R is a language that is oriented around functions, so you should feel empowered to write your own functions. Creating functions brings several advantages:
+R ni lugha inayoelekezwa kwenye vitendaji, kwa hivyo unapaswa kujisikia kuwa na uwezo wa kuandika vitendaji vyako mwenyewe. Kuunda kazi huleta faida kadhaa:
 
--   To facilitate modular programming - the separation of code in to independent and manageable pieces\
--   Replace repetitive copy-and-paste, which can be error prone\
--   Give pieces of code memorable names
+• Kuwezesha upangaji wa kawaida - utenganisho wa msimbo hadi vipande huru na vinavyoweza kudhibitiwa
 
-How to write a function is covered in-depth in the [Writing functions] page.
+• Badilisha nakala-na-kubandika inayorudiwa, ambayo inaweza kuwa na makosa
+
+• Taja vipande vya msimbo majina ya kukumbukwa
+
+Jinsi ya kuandika chaguo la kukokotoa imefunikwa kwa kina katika ukurasa wa vitendaji vya Kuandika. Ukurasa wa [Kuandika Kazi].
 
 <!-- A function is given a name and defined with the assignment operator `<-` to a special **base** R function called `function()`. Within the parentheses, the arguments that the function will accept are defined. This is followed by curly brackets `{ }`, within which the actual code of the function is written.     -->
 
@@ -462,53 +521,57 @@ ggplot(case_incidence, aes(x = dates))+
 
 <!-- ======================================================= -->
 
-## Packages {#packages}
+## Vifurushi {#packages}
 
-**Packages contain functions.**
+**Vifurushi vina vitendaji.**
 
-An R package is a shareable bundle of code and documentation that contains pre-defined functions. Users in the R community develop packages all the time catered to specific problems, it is likely that one can help with your work! You will install and use hundreds of packages in your use of R.
+Kifurushi cha R ni kifurushi cha msimbo na hati zinazoweza kushirikiwa ambazo zina vitendaji vilivyobainishwa awali. Watumiaji katika jumuiya ya R hutengeneza vifurushi kila wakati vinavyoshughulikia matatizo mahususi, kuna uwezekano kwamba mtu anaweza kukusaidia katika kazi yako! Utasakinisha na kutumia mamia ya vifurushi katika matumizi yako ya R.
 
-On installation, R contains **"base"** packages and functions that perform common elementary tasks. But many R users create specialized functions, which are verified by the R community and which you can download as a **package** for your own use. In this handbook, package names are written in **bold**. One of the more challenging aspects of R is that there are often many functions or packages to choose from to complete a given task.
+Wakati wa usakinishaji, R ina vifurushi vya "msingi" na kazi zinazofanya kazi za msingi za
+kawaida. Lakini watumiaji wengi wa R huunda vitendaji maalum, ambavyo vinathibitishwa na jumuiya ya R na ambavyo unaweza kupakua kama kifurushi kwa matumizi yako mwenyewe. Katika kijitabu hiki, majina ya vifurushi yameandikwa kwa herufi nzito. Mojawapo ya mambo yenye changamoto zaidi ya R ni kwamba mara nyingi kuna chaguo nyingi za kukokotoa au vifurushi ili kukamilisha kazi fulani.
 
-### Install and load {.unnumbered}
+### Sanikisha na upakie {.unnumbered}
 
-*Functions* are contained within **packages** which can be downloaded ("installed") to your computer from the internet. Once a package is downloaded, it is stored in your "library". You can then access the functions it contains during your current R session by "loading" the package.
+Kazi zimo ndani ya vifurushi ambavyo vinaweza kupakuliwa ("vimewekwa") kwenye kompyuta yako kutoka kwa mtandao. Mara kifurushi kinapopakuliwa, huhifadhiwa kwenye "maktaba" yako. Kisha unaweza kufikia vitendaji vilivyomo wakati wa kipindi chako cha sasa cha R kwa "kupakia" kifurushi.
 
-*Think of R as your personal library*: When you download a package, your library gains a new book of functions, but each time you want to use a function in that book, you must borrow ("load") that book from your library.
+Fikiria R kama maktaba yako ya kibinafsi: Unapopakua kifurushi, maktaba yako hupata kitabu kipya cha vitendaji, lakini kila wakati unapotaka kutumia chaguo la kukokotoa katika kitabu hicho, lazima uazima ("pakia") kitabu hicho kutoka kwa maktaba yako.
 
-In summary: to use the functions available in an R package, 2 steps must be implemented:
+Kwa muhtasari: kutumia kazi zinazopatikana kwenye kifurushi cha R, hatua 2 lazima
+zitekelezwe:
 
-1)  The package must be **installed** (once), *and*\
-2)  The package must be **loaded** (each R session)
+1\. Mfuko lazima umewekwa (mara moja), na
 
-#### Your library {.unnumbered}
+2\. Kifurushi lazima kipakiwe (kila kipindi cha R)
 
-Your "library" is actually a folder on your computer, containing a folder for each package that has been installed. Find out where R is installed in your computer, and look for a folder called "win-library". For example: `R\win-library\4.0` (the 4.0 is the R version - you'll have a different library for each R version you've downloaded).
+#### Maktaba yako {.unnumbered}
 
-You can print the file path to your library by entering `.libPaths()` (empty parentheses). This becomes especially important if working with [R on network drives].
+"Maktaba" yako ni folda kwenye kompyuta yako, iliyo na folda kwa kila kifurushi ambacho kimesakinishwa. Jua wapi R imewekwa kwenye kompyuta yako, na utafute folda inayoitwa "win-maktaba". Kwa mfano: R\\win-library\\4.0 (4.0 ni toleo la R - utakuwa na maktaba tofauti kwa kila
+toleo la R ambalo umepakua).
 
-#### Install from CRAN {.unnumbered}
+Unaweza kuchapisha njia ya faili kwenye maktaba yako kwa kuingiza .libPaths() (mabano tupu). Hii inakuwa muhimu hasa ikiwa unafanya kazi na R kwenye anatoa za mtandao.
 
-Most often, R users download packages from CRAN. CRAN (Comprehensive R Archive Network) is an online public warehouse of R packages that have been published by R community members.
+#### Sakinisha kutoka CRAN {.unnumbered}
 
-Are you worried about viruses and security when downloading a package from CRAN? Read [this article](https://support.rstudio.com/hc/en-us/articles/360042593974-R-and-R-Package-Security) on the topic.
+Mara nyingi, watumiaji wa R hupakua vifurushi kutoka kwa CRAN. CRAN (Comprehensive R Archive Network) ni ghala la mtandaoni la vifurushi vya R ambavyo vimechapishwa na wanajamii wa R..
 
-#### How to install and load {.unnumbered}
+*J*e, una wasiwasi kuhusu virusi na usalama unapopakua kifurushi kutoka kwa CRAN? Soma [makala hi](https://support.rstudio.com/hc/en-us/articles/360042593974-R-and-R-Package-Security)i uu ya mada.
 
-In this handbook, we suggest using the **pacman** package (short for "package manager"). It offers a convenient function `p_load()` which will install a package if necessary *and* load it for use in the current R session.
+#### Jinsi ya kufunga na kupakia {.unnumbered}
 
-The syntax quite simple. Just list the names of the packages within the `p_load()` parentheses, separated by commas. This command will install the **rio**, **tidyverse**, and **here** packages if they are not yet installed, and will load them for use. This makes the `p_load()` approach convenient and concise if sharing scripts with others. Note that package names are case-sensitive.
+Katika kitabu hiki cha mwongozo, tunapendekeza kutumia kifurushi cha pacman (kifupi cha "kidhibiti kifurushi"). Inatoa kazi rahisi p_load() ambayo itasakinisha kifurushi ikiwa ni lazima na kuipakia kwa matumizi katika kipindi cha sasa cha R.
+
+Syntax rahisi sana. Orodhesha tu majina ya vifurushi ndani ya p_load() mabano, yaliyotenganishwa na koma. Amri hii itasakinisha rio, tidyverse, na vifurushi hapa ikiwa bado hazijasakinishwa, na itapakia kwa matumizi. Hii inafanya p_load() mbinu kuwa rahisi na fupi ikiwa unashiriki hati na wengine. Kumbuka kuwa majina ya vifurushi ni nyeti kwa kadiri.
 
 ```{r}
 # Install (if necessary) and load packages for use
 pacman::p_load(rio, tidyverse, here)
 ```
 
-Note that we have used the syntax `pacman::p_load()` which explicitly writes the package name (**pacman**) prior to the function name (`p_load()`), connected by two colons `::`. This syntax is useful because it also loads the **pacman** package (assuming it is already installed).
+Kumbuka kuwa tumetumia syntax pacman::p_load() ambayo huandika kwa uwazi jina la kifurushi (pacman) kabla ya jina la chaguo-kazi (p_load()), iliyounganishwa na koloni mbili ::. Syntax hii ni muhimu kwa sababu pia inapakia kifurushi cha pacman (ikizingatiwa kuwa tayari kimewekwa).
 
-There are alternative **base** R functions that you will see often. The **base** R function for installing a package is `install.packages()`. The name of the package to install must be provided in the parentheses *in quotes*. If you want to install multiple packages in one command, they must be listed within a character vector `c()`.
+Kuna chaguo mbadala za msingi za R ambazo utaona mara nyingi. Chaguo za msingi za R za kusakinisha kifurushi ni install.packages(). Jina la kifurushi cha kusakinisha lazima litolewe kwenye mabano katika nukuu. Ikiwa unataka kusakinisha vifurushi vingi kwa amri moja, lazima ziorodheshwe ndani ya vekta ya herufi c().
 
-Note: this command *installs* a package, but does *not* load it for use in the current session.
+Kumbuka: amri hii husakinisha kifurushi, lakini haipakii kwa matumizi katika kipindi cha sasa.
 
 ```{r, eval=F}
 # install a single package with base R
@@ -518,9 +581,9 @@ install.packages("tidyverse")
 install.packages(c("tidyverse", "rio", "here"))
 ```
 
-Installation can also be accomplished point-and-click by going to the RStudio "Packages" pane and clicking "Install" and searching for the desired package name.
+Usakinishaji unaweza pia kukamilishwa kwa kubofya-na-kubonyeza kwa kwenda kwenye kidirisha cha "Vifurushi" cha RStudio na kubofya "Sakinisha" na kutafuta jina la kifurushi unachotaka.
 
-The **base** R function to **load** a package for use (after it has been installed) is `library()`. It can load only one package at a time (another reason to use `p_load()`). You can provide the package name with or without quotes.
+Kazi ya msingi ya R kupakia kifurushi kwa matumizi (baada ya kusakinishwa) ni maktaba(). Inaweza kupakia kifurushi kimoja tu kwa wakati mmoja (sababu nyingine ya kutumia p_load()). Unaweza kutoa jina la kifurushi na au bila manukuu.
 
 ```{r, eval=F}
 # load packages for use, with base R
@@ -529,62 +592,65 @@ library(rio)
 library(here)
 ```
 
-To check whether a package in installed and/or loaded, you can view the Packages pane in RStudio. If the package is installed, it is shown there with version number. If its box is checked, it is loaded for the current session.
+Ili kuangalia ikiwa kifurushi kimesakinishwa na/au kupakiwa, unaweza kutazama kidirisha cha Vifurushi katika RStudio. Ikiwa kifurushi kimewekwa, kinaonyeshwa hapo na nambari ya toleo. Ikiwa kisanduku chake kimeangaliwa, kinapakiwa kwa kikao cha sasa
 
-**Install from Github**
+**Sanikisha kutoka kwa Github**
 
-Sometimes, you need to install a package that is not yet available from CRAN. Or perhaps the package is available on CRAN but you want the *development version* with new features not yet offered in the more stable published CRAN version. These are often hosted on the website [github.com](https://github.com/) in a free, public-facing code "repository". Read more about Github in the handbook page on [Version control and collaboration with Git and Github].
+Wakati mwingine, unahitaji kusakinisha kifurushi ambacho bado hakipatikani kutoka kwa CRAN. Au labda kifurushi kinapatikana kwenye CRAN lakini unataka toleo la ukuzaji lenye vipengele vipya ambavyo bado havijatolewa katika toleo thabiti zaidi lililochapishwa la CRAN. Hizi mara nyingi hupangishwa kwenye tovuti ya [github.com](https://github.com/) katika msimbo wa bure, unaoangalia umma "hazina". Soma zaidi kuhusu Github kwenye ukurasa wa kitabu juu ya Udhibiti wa Toleo na ushirikiano na Git na Github.
 
-To download R packages from Github, you can use the function `p_load_gh()` from **pacman**, which will install the package if necessary, and load it for use in your current R session. Alternatives to install include using the **remotes** or **devtools** packages. Read more about all the **pacman** functions in the [package documentation](https://cran.r-project.org/web/packages/pacman/pacman.pdf).
+Ili kupakua vifurushi vya R kutoka Github, unaweza kutumia kazi p_load_gh() kutoka pacman, ambayo itasakinisha kifurushi ikiwa ni lazima, na kukipakia kwa matumizi katika kipindi chako cha sasa cha R. Njia mbadala za kusakinisha ni pamoja na kutumia vidhibiti vya mbali au vifurushi vya devtools. Soma zaidi juu ya kazi zote za pacman kwenye hati za kifurushi.
 
-To install from Github, you have to provide more information. You must provide:
+Ili kusakinisha kutoka kwa Github, lazima utoe maelezo zaidi. Lazima utoe:
 
-1)  The Github ID of the repository owner
-2)  The name of the repository that contains the package\
-3)  *(optional) The name of the "branch" (specific development version) you want to download*
+1\. Kitambulisho cha Github cha mmiliki wa hazina
 
-In the examples below, the first word in the quotation marks is the Github ID of the repository owner, after the slash is the name of the repository (the name of the package).
+2\. Jina la hazina ambayo ina kifurushi
+
+3\. (si lazima) Jina la "tawi" (toleo mahususi la ukuzaji) unalotaka kupakua.
+
+Katika mifano hapa chini, neno la kwanza katika alama za nukuu ni Kitambulisho cha Github cha mmiliki wa hifadhi, baada ya kufyeka ni jina la hazina (jina la kifurushi).
 
 ```{r, eval=F}
 # install/load the epicontacts package from its Github repository
 p_load_gh("reconhub/epicontacts")
 ```
 
-If you want to install from a "branch" (version) other than the main branch, add the branch name after an "\@", after the repository name.
+Ikiwa ungependa kusakinisha kutoka kwa "tawi" (toleo) isipokuwa tawi kuu, ongeza jina la tawi baada ya "\@", baada ya jina la hifadhi..
 
 ```{r, eval=F}
 # install the "timeline" branch of the epicontacts package from Github
 p_load_gh("reconhub/epicontacts@timeline")
 ```
 
-If there is no difference between the Github version and the version on your computer, no action will be taken. You can "force" a re-install by instead using `p_load_current_gh()` with the argument `update = TRUE`. Read more about **pacman** in this [online vignette](http://trinker.github.io/pacman/vignettes/Introduction_to_pacman.html)
+Ikiwa hakuna tofauti kati ya toleo la Github na toleo kwenye kompyuta yako, hakuna hatua itachukuliwa. Unaweza "kulazimisha" kusakinisha tena kwa kutumia p_load_current_gh() na sasisho la `update = TRUE`. Soma zaidi kuhusu **pacman** kwenye [vignette](http://trinker.github.io/pacman/vignettes/Introduction_to_pacman.html) mtandaoni.
 
-**Install from ZIP or TAR**
+**Sanikisha kutoka kwa ZIP au TAR**
 
-You could install the package from a URL:
+Unaweza kusanikisha kutoka mtandaoni ukitumia tovuti:
 
 ```{r, eval=F}
 packageurl <- "https://cran.r-project.org/src/contrib/Archive/dsr/dsr_0.2.2.tar.gz"
 install.packages(packageurl, repos=NULL, type="source")
 ```
 
-Or, download it to your computer in a zipped file:
+Au, pakua kwenye kompyuta yako katika faili iliyofungwa:
 
-Option 1: using `install_local()` from the **remotes** package
+Chaguo 1: kutumia install_local() kutoka kwa kifurushi cha **remotes**.
 
 ```{r, eval=F}
 remotes::install_local("~/Downloads/dplyr-master.zip")
 ```
 
-Option 2: using `install.packages()` from **base** R, providing the file path to the ZIP file and setting `type = "source` and `repos = NULL`.
+Chaguo la 2: kutumia install.packages() kutoka msingi R, kutoa njia ya faili kwa faili ya ZIP na mpangilio `type = "source` and `repos = NULL`.
 
 ```{r, eval=F}
 install.packages("~/Downloads/dplyr-master.zip", repos=NULL, type="source")
 ```
 
-### Code syntax {.unnumbered}
+### Sintaksia ya msimbo {.unnumbered}
 
-For clarity in this handbook, functions are sometimes preceded by the name of their package using the `::` symbol in the following way: `package_name::function_name()`
+Kwa uwazi katika kitabu hiki cha mwongozo, utendakazi wakati mwingine hutanguliwa
+na jina la kifurushi chao kwa kutumia :: ishara kwa njia ifuatayo: `package_name::function_name()`
 
 Once a package is loaded for a session, this explicit style is not necessary. One can just use `function_name()`. However writing the package name is useful when a function name is common and may exist in multiple packages (e.g. `plot()`). Writing the package name will also load the package if it is not already loaded.
 
@@ -655,7 +721,7 @@ Scripts are a fundamental part of programming. They are documents that hold your
 
 ### Commenting {.unnumbered}
 
-In a script you can also annotate ("comment") around your R code. Commenting is helpful to explain to yourself and other readers what you are doing. You can add a comment by typing the hash symbol (\#) and writing your comment after it. The commented text will appear in a different color than the R code.
+In a script you can also annotate ("comment") around your R code. Commenting is helpful to explain to yourself and other readers what you are doing. You can add a comment by typing the hash symbol (#) and writing your comment after it. The commented text will appear in a different color than the R code.
 
 Any code written after the \# will not be run. Therefore, placing a \# before code is also a useful way to temporarily block a line of code ("comment out") if you do not want to delete it). You can comment out/in multiple lines at once by highlighting them and pressing Ctrl+Shift+c (Cmd+Shift+c in Mac).
 
@@ -694,7 +760,7 @@ knitr::include_graphics(here::here("images", "example_script.png"))
 
 An R markdown script is a type of R script in which the script itself *becomes* an output document (PDF, Word, HTML, Powerpoint, etc.). These are incredibly useful and versatile tools often used to create dynamic and automated reports. Even this website and handbook is produced with R markdown scripts!
 
-It is worth noting that beginner R users can also use R Markdown - do not be intimidated! To learn more, see the handbook page on [Reports with R Markdown] documents.
+It is worth noting that beginner R users can also use R Markdown - do not be intimidated! To learn more, see the handbook page on \[Reports with R Markdown\] documents.
 
 <!-- ======================================================= -->
 
@@ -712,7 +778,7 @@ Shiny apps/websites are contained within one script, which must be named `app.R`
 2)  A server function\
 3)  A call to the `shinyApp` function
 
-See the handbook page on [Dashboards with Shiny], or this online tutorial: [Shiny tutorial](https://shiny.rstudio.com/tutorial/written-tutorial/lesson1/)
+See the handbook page on \[Dashboards with Shiny\], or this online tutorial: [Shiny tutorial](https://shiny.rstudio.com/tutorial/written-tutorial/lesson1/)
 
 *In older times, the above file was split into two files (`ui.R` and `server.R`)*
 
@@ -720,11 +786,11 @@ See the handbook page on [Dashboards with Shiny], or this online tutorial: [Shin
 
 You can collapse portions of code to make your script easier to read.
 
-To do this, create a text header with \#, write your header, and follow it with at least 4 of either dashes (-), hashes (\#) or equals (=). When you have done this, a small arrow will appear in the "gutter" to the left (by the row number). You can click this arrow and the code below until the next header will collapse and a dual-arrow icon will appear in its place.
+To do this, create a text header with #, write your header, and follow it with at least 4 of either dashes (-), hashes (#) or equals (=). When you have done this, a small arrow will appear in the "gutter" to the left (by the row number). You can click this arrow and the code below until the next header will collapse and a dual-arrow icon will appear in its place.
 
 To expand the code, either click the arrow in the gutter again, or the dual-arrow icon. There are also keyboard shortcuts as explained in the [RStudio section](#rstudio) of this page.
 
-By creating headers with \#, you will also activate the Table of Contents at the bottom of your script (see below) that you can use to navigate your script. You can create sub-headers by adding more \# symbols, for example \# for primary, \#\# for seconary, and \#\#\# for tertiary headers.
+By creating headers with #, you will also activate the Table of Contents at the bottom of your script (see below) that you can use to navigate your script. You can create sub-headers by adding more \# symbols, for example \# for primary, ## for seconary, and ##\# for tertiary headers.
 
 Below are two versions of an example script. On the left is the original with commented headers. On the right, four dashes have been written after each header, making them collapsible. Two of them have been collapsed, and you can see that the Table of Contents at the bottom now shows each section.
 
@@ -753,18 +819,18 @@ knitr::include_graphics(here::here("images", "working_directory_1.png"))
 
 ### Recommended approach {.unnumbered}
 
-**See the page on [R projects] for details on our recommended approach to managing your working directory.**\
-A common, efficient, and trouble-free way to manage your working directory and file paths is to combine these 3 elements in an [R project][R projects]-oriented workflow:
+**See the page on \[R projects\] for details on our recommended approach to managing your working directory.**\
+A common, efficient, and trouble-free way to manage your working directory and file paths is to combine these 3 elements in an \[R project\]\[R projects\]-oriented workflow:
 
-1)  An R Project to store all your files (see page on [R projects])\
-2)  The **here** package to locate files (see page on [Import and export])\
-3)  The **rio** package to import/export files (see page on [Import and export])
+1)  An R Project to store all your files (see page on \[R projects\])\
+2)  The **here** package to locate files (see page on \[Import and export\])\
+3)  The **rio** package to import/export files (see page on \[Import and export\])
 
 <!-- ======================================================= -->
 
 ### Set by command {.unnumbered}
 
-Until recently, many people learning R were taught to begin their scripts with a `setwd()` command. Please instead consider using an [R project][R projects]-oriented workflow and read the [reasons for not using `setwd()`](https://www.tidyverse.org/blog/2017/12/workflow-vs-script/). In brief, your work becomes specific to your computer, file paths used to import and export files become "brittle", and this severely hinders collaboration and use of your code on any other computer. There are easy alternatives!
+Until recently, many people learning R were taught to begin their scripts with a `setwd()` command. Please instead consider using an \[R project\]\[R projects\]-oriented workflow and read the [reasons for not using `setwd()`](https://www.tidyverse.org/blog/2017/12/workflow-vs-script/). In brief, your work becomes specific to your computer, file paths used to import and export files become "brittle", and this severely hinders collaboration and use of your code on any other computer. There are easy alternatives!
 
 As noted above, although we do not recommend this approach in most circumstances, you can use the command `setwd()` with the desired folder file path in quotations, for example:
 
@@ -772,7 +838,7 @@ As noted above, although we do not recommend this approach in most circumstances
 setwd("C:/Documents/R Files/My analysis")
 ```
 
-[***DANGER:*** Setting a working directory with `setwd()` *can* be "brittle" if the file path is specific to one computer. Instead, use file paths relative to an R Project root directory (with the **here** package). ]{style="color: red;"}
+[***DANGER:*** Setting a working directory with `setwd()` *can* be "brittle" if the file path is specific to one computer. Instead, use file paths relative to an R Project root directory (with the **here** package).]{style="color: red;"}
 
 <!-- ======================================================= -->
 
@@ -790,7 +856,7 @@ If using an R project, the working directory will default to the R project root 
 
 ### Working directory in an R markdown {.unnumbered}
 
-In an R markdown script, the default working directory is the folder the Rmarkdown file (`.Rmd`) is saved within. If using an R project and **here** package, this does not apply and the working directory will be `here()` as explained in the [R projects] page.
+In an R markdown script, the default working directory is the folder the Rmarkdown file (`.Rmd`) is saved within. If using an R project and **here** package, this does not apply and the working directory will be `here()` as explained in the \[R projects\] page.
 
 If you want to change the working directory of a stand-alone R markdown (not in an R project), if you use `setwd()` this will only apply to that specific code chunk. To make the change for all code chunks in an R markdown, edit the setup chunk to add the `root.dir =` parameter, such as below:
 
@@ -804,7 +870,7 @@ It is much easier to just use the R markdown within an R project and use the **h
 
 ### Providing file paths {.unnumbered}
 
-Perhaps the most common source of frustration for an R beginner (at least on a Windows machine) is typing in a file path to import or export data. There is a thorough explanation of how to best input file paths in the [Import and export] page, but here are a few key points:
+Perhaps the most common source of frustration for an R beginner (at least on a Windows machine) is typing in a file path to import or export data. There is a thorough explanation of how to best input file paths in the \[Import and export\] page, but here are a few key points:
 
 **Broken paths**
 
@@ -814,11 +880,11 @@ Below is an example of an "absolute" or "full address" file path. These will lik
 
 **Slash direction**
 
-*If typing in a file path, be aware the direction of the slashes.* Use *forward slashes* (`/`) to separate the components ("data/provincial.csv"). For Windows users, the default way that file paths are displayed is with *back slashes* (\\) - so you will need to change the direction of each slash. If you use the **here** package as described in the [R projects] page the slash direction is not an issue.
+*If typing in a file path, be aware the direction of the slashes.* Use *forward slashes* (`/`) to separate the components ("data/provincial.csv"). For Windows users, the default way that file paths are displayed is with *back slashes* (\\) - so you will need to change the direction of each slash. If you use the **here** package as described in the \[R projects\] page the slash direction is not an issue.
 
 **Relative file paths**
 
-We generally recommend providing "relative" filepaths instead - that is, the path *relative to* the root of your R Project. You can do this using the **here** package as explained in the [R projects] page. A relativel filepath might look like this:
+We generally recommend providing "relative" filepaths instead - that is, the path *relative to* the root of your R Project. You can do this using the **here** package as explained in the \[R projects\] page. A relativel filepath might look like this:
 
 ```{r, eval=F}
 # Import csv linelist from the data/linelist/clean/ sub-folders of an R project
@@ -893,7 +959,7 @@ Datasets are also objects (typically "dataframes") and must be assigned names wh
 linelist <- import("my_linelist.csv")
 ```
 
-You can read more about importing and exporting datasets with the section on [Import and export].
+You can read more about importing and exporting datasets with the section on \[Import and export\].
 
 [***CAUTION:*** A quick note on naming of objects:]{style="color: orange;"}
 
@@ -931,7 +997,7 @@ You can use the assignment operator from **base** R to create a new column. Belo
 linelist$bmi <- linelist$wt_kg / (linelist$ht_cm/100)^2
 ```
 
-However, in this handbook, we emphasize a different approach to defining columns, which uses the function `mutate()` from the **dplyr** package and *piping* with the pipe operator (`%>%`). The syntax is easier to read and there are other advantages explained in the page on [Cleaning data and core functions]. You can read more about *piping* in the Piping section below.
+However, in this handbook, we emphasize a different approach to defining columns, which uses the function `mutate()` from the **dplyr** package and *piping* with the pipe operator (`%>%`). The syntax is easier to read and there are other advantages explained in the page on \[Cleaning data and core functions\]. You can read more about *piping* in the Piping section below.
 
 ```{r, eval=F}
 # create new "bmi" column using dplyr syntax
@@ -945,7 +1011,7 @@ linelist <- linelist %>%
 
 **Objects can be a single piece of data (e.g. `my_number <- 24`), or they can consist of structured data.**
 
-The graphic below is borrowed from [this online R tutorial](http://venus.ifca.unican.es/Rintro/dataStruct.html). It shows some common data structures and their names. Not included in this image is spatial data, which is discussed in the [GIS basics] page.
+The graphic below is borrowed from [this online R tutorial](http://venus.ifca.unican.es/Rintro/dataStruct.html). It shows some common data structures and their names. Not included in this image is spatial data, which is discussed in the \[GIS basics\] page.
 
 ```{r basics_objects_structures, echo=F, out.width = "75%", out.height="50%", fig.align = "center"}
 knitr::include_graphics(here::here("images", "R_data_structures.png"))
@@ -980,7 +1046,7 @@ All the objects stored in R have a *class* which tells R how to handle the objec
 +------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
 | Factor     | These are vectors that have a **specified order** or hierarchy of values                                                                                                                | An variable of economic status with ordered values                                                    |
 +------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
-| Date       | **Once R is told that certain data are Dates**, these data can be manipulated and displayed in special ways. See the page on [Working with dates] for more information.                 | 2018-04-12 or 15/3/1954 or Wed 4 Jan 1980                                                             |
+| Date       | **Once R is told that certain data are Dates**, these data can be manipulated and displayed in special ways. See the page on \[Working with dates\] for more information.               | 2018-04-12 or 15/3/1954 or Wed 4 Jan 1980                                                             |
 +------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
 | Logical    | Values must be one of the two special values TRUE or FALSE (note these are **not** "TRUE" and "FALSE" in quotation marks)                                                               | TRUE or FALSE                                                                                         |
 +------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
@@ -1120,7 +1186,7 @@ View(linelist[2:20, "date_onset"])
 new_table <- linelist[2:20, c("date_onset")] 
 ```
 
-Note that you can also achieve the above row/column indexing on data frames and tibbles using **dplyr** syntax (functions `filter()` for rows, and `select()` for columns). Read more about these core functions in the [Cleaning data and core functions] page.
+Note that you can also achieve the above row/column indexing on data frames and tibbles using **dplyr** syntax (functions `filter()` for rows, and `select()` for columns). Read more about these core functions in the \[Cleaning data and core functions\] page.
 
 To filter based on "row number", you can use the **dplyr** function `row_number()` with open parentheses as part of a logical filtering statement. Often you will use the `%in%` operator and a range of numbers as part of that logical statement, as shown below. To see the *first* N rows, you can also use the special **dplyr** function `head()`.
 
@@ -1316,7 +1382,7 @@ This section details operators in R, such as:
 -   Relational operators (less than, equal too..)\
 -   Logical operators (and, or...)\
 -   Handling missing values\
--   Mathematical operators and functions (+/-, \>, sum(), median(), ...)\
+-   Mathematical operators and functions (+/-, >, sum(), median(), ...)\
 -   The `%in%` operator
 
 <!-- ======================================================= -->
@@ -1331,7 +1397,7 @@ We also advise surrounding such operators with spaces, for readability.
 
 **`<<-`**
 
-If [Writing functions], or using R in an interactive way with sourced scripts, then you may need to use this assignment operator `<<-` (from **base** R). This operator is used to define an object in a higher 'parent' R Environment. See this [online reference](https://stat.ethz.ch/R-manual/R-devel/library/base/html/assignOps.html).
+If [Kuandika Kazi], or using R in an interactive way with sourced scripts, then you may need to use this assignment operator `<<-` (from **base** R). This operator is used to define an object in a higher 'parent' R Environment. See this [online reference](https://stat.ethz.ch/R-manual/R-devel/library/base/html/assignOps.html).
 
 **`%<>%`**
 
@@ -1350,7 +1416,7 @@ linelist %<>% mutate(age_months = age_years * 12)
 
 **`%<+%`**
 
-This is used to add data to phylogenetic trees with the **ggtree** package. See the page on [Phylogenetic trees] or this online [resource book](https://yulab-smu.top/treedata-book/).
+This is used to add data to phylogenetic trees with the **ggtree** package. See the page on \[Phylogenetic trees\] or this online [resource book](https://yulab-smu.top/treedata-book/).
 
 <!-- ======================================================= -->
 
@@ -1373,22 +1439,22 @@ Relational operators compare values and are often used when defining new variabl
 +--------------------------+------------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Less than or equal to    | `<=`       | `6 <= 4`     | `FALSE`                                                                                                                                                |
 +--------------------------+------------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Value is missing         | `is.na()`  | `is.na(7)`   | `FALSE` (see page on [Missing data])                                                                                                                   |
+| Value is missing         | `is.na()`  | `is.na(7)`   | `FALSE` (see page on \[Missing data\])                                                                                                                 |
 +--------------------------+------------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Value is not missing     | `!is.na()` | `!is.na(7)`  | `TRUE`                                                                                                                                                 |
 +--------------------------+------------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Logical operators, such as AND and OR, are often used to connect relational operators and create more complicated criteria. Complex statements might require parentheses ( ) for grouping and order of application.
 
-+---------------------+-----------------------------------------------------------------------+
-| Meaning             | Operator                                                              |
-+=====================+=======================================================================+
-| AND                 | `&`                                                                   |
-+---------------------+-----------------------------------------------------------------------+
-| OR                  | `|` (vertical bar)                                                    |
-+---------------------+-----------------------------------------------------------------------+
-| Parentheses         | `( )` Used to group criteria together and clarify order of operations |
-+---------------------+-----------------------------------------------------------------------+
++-------------+-----------------------------------------------------------------------+
+| Meaning     | Operator                                                              |
++=============+=======================================================================+
+| AND         | `&`                                                                   |
++-------------+-----------------------------------------------------------------------+
+| OR          | `|` (vertical bar)                                                    |
++-------------+-----------------------------------------------------------------------+
+| Parentheses | `( )` Used to group criteria together and clarify order of operations |
++-------------+-----------------------------------------------------------------------+
 
 For example, below, we have a linelist with two variables we want to use to create our case definition, `hep_e_rdt`, a test result and `other_cases_in_hh`, which will tell us if there are other cases in the household. The command below uses the function `case_when()` to create the new variable `case_def` such that:
 
@@ -1420,7 +1486,7 @@ linelist_cleaned <- linelist %>%
 
 ### Missing values {.unnumbered}
 
-In R, missing values are represented by the special value `NA` (a "reserved" value) (capital letters N and A - not in quotation marks). If you import data that records missing data in another way (e.g. 99, "Missing", or .), you may want to re-code those values to `NA`. How to do this is addressed in the [Import and export] page.
+In R, missing values are represented by the special value `NA` (a "reserved" value) (capital letters N and A - not in quotation marks). If you import data that records missing data in another way (e.g. 99, "Missing", or .), you may want to re-code those values to `NA`. How to do this is addressed in the \[Import and export\] page.
 
 **To test whether a value is `NA`, use the special function `is.na()`**, which returns `TRUE` or `FALSE`.
 
@@ -1429,7 +1495,7 @@ rdt_result <- c("Positive", "Suspected", "Positive", NA)   # two positive cases,
 is.na(rdt_result)  # Tests whether the value of rdt_result is NA
 ```
 
-Read more about missing, infinite, `NULL`, and impossible values in the page on [Missing data]. Learn how to convert missing values when importing data in the page on [Import and export].
+Read more about missing, infinite, `NULL`, and impossible values in the page on \[Missing data\]. Learn how to convert missing values when importing data in the page on \[Import and export\].
 
 <!-- ======================================================= -->
 
@@ -1482,7 +1548,7 @@ options(scipen=999)
 
 #### Rounding {.unnumbered}
 
-[***DANGER:*** `round()` uses "banker's rounding" which rounds up from a .5 only if the upper number is even. Use `round_half_up()` from **janitor** to consistently round halves up to the nearest whole number. See [this explanation](https://cran.r-project.org/web/packages/janitor/vignettes/janitor.html#explore-records-with-duplicated-values-for-specific-combinations-of-variables-with-get_dupes) ]{style="color: red;"}
+[***DANGER:*** `round()` uses "banker's rounding" which rounds up from a .5 only if the upper number is even. Use `round_half_up()` from **janitor** to consistently round halves up to the nearest whole number. See [this explanation](https://cran.r-project.org/web/packages/janitor/vignettes/janitor.html#explore-records-with-duplicated-values-for-specific-combinations-of-variables-with-get_dupes)]{style="color: red;"}
 
 ```{r}
 # use the appropriate rounding function for your work
@@ -1569,7 +1635,7 @@ linelist <- linelist %>%
     TRUE                                      ~ "Not"))
 ```
 
-Note: If you want to detect a partial string, perhaps using `str_detect()` from **stringr**, it will not accept a character vector like `c("1", "Yes", "yes", "y")`. Instead, it must be given a *regular expression* - one condensed string with OR bars, such as "1\|Yes\|yes\|y". For example, `str_detect(hospitalized, "1|Yes|yes|y")`. See the page on [Characters and strings] for more information.
+Note: If you want to detect a partial string, perhaps using `str_detect()` from **stringr**, it will not accept a character vector like `c("1", "Yes", "yes", "y")`. Instead, it must be given a *regular expression* - one condensed string with OR bars, such as "1\|Yes\|yes\|y". For example, `str_detect(hospitalized, "1|Yes|yes|y")`. See the page on \[Characters and strings\] for more information.
 
 You can convert a character vector to a named regular expression with this command:
 
@@ -1598,7 +1664,7 @@ This section explains:
 -   General syntax tips for writing R code\
 -   Code assists
 
-Common errors and warnings and troubleshooting tips can be found in the page on [Errors and help].
+Common errors and warnings and troubleshooting tips can be found in the page on \[Errors and help\].
 
 <!-- ======================================================= -->
 
