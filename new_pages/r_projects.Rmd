@@ -82,47 +82,61 @@ knitr::include_graphics(here::here("images", "Rproject_dropdown.png"))
 
 ### Settings {.unnumbered}
 
-### Mpangilio  
+### Mipangilio  
 
 It is generally advised that you start RStudio each time with a "clean slate" - that is, with your workspace **not** preserved from your previous session. This will mean that your objects and results will not persist session-to-session (you must re-create them by running your scripts). This is good, because it will force you to write better scripts and avoid errors in the long run.  
 
+Inashauriwa kwa ujumla kuwa uanzishe RStudio kila wakati na "slate safi" - ambayo ni, na nafasi yako ya kazi ** sio ** iliyohifadhiwa kutoka kwa kikao chako cha hapo awali. Hii itamaanisha kuwa vitu na matokeo yako hayataendelea na kikao hadi kikao (lazima uvitengeneze upya kwa kuendesha hati zako). Hii ni nzuri, kwa sababu itakulazimisha kuandika maandiko bora na kuepuka makosa kwa muda mrefu.
+
 To set RStudio to have a "clean slate" each time at start-up:  
+Kuweka RStudio kuwa na "slate safi" kila wakati wakati wa kuanza:
 
 * Select "Project Options" from the Tools menu.  
 * In the "General" tab, set RStudio to **not** restore .RData into workspace at startup, and to **not** save workspace to .RData on exit.  
 
+* Chagua "Chaguo za Mradi" kutoka kwa menyu ya Zana.
+* Katika kichupo cha "Jumla", weka RStudio kuwa **si** kurejesha .RData kwenye nafasi ya kazi inapowashwa, na **si** kuhifadhi nafasi ya kazi kwa .RData wakati wa kuondoka.
 
 
 ### Organization {.unnumbered}  
 
+### Kupanga {.unnumbered}
+
 It is common to have subfolders in your project. Consider having folders such as "data", "scripts", "figures", "presentations". You can add folders in the typical way you would add a new folder for your computer. Alternatively, see the page on [Directory interactions] to learn how to create new folders with R commands.  
 
+Ni kawaida kuwa na folda ndogo katika mradi wako. Fikiria kuwa na folda kama vile "data", "scripts", "figures", "presentations". Unaweza kuongeza folda kwa njia ya kawaida ambayo ungeongeza folda mpya kwa kompyuta yako. Vinginevyo, angalia ukurasa kwenye [Maingiliano ya Saraka] ili kujifunza jinsi ya kuunda folda mpya kwa amri za R.
 
 ### Version control {.unnumbered}  
 
+### Udhibiti wa Toleo
+
 Consider a version control system. It could be something as simple as having dates on the names of scripts (e.g. "transmission_analysis_2020-10-03.R") and an "archive" folder. Consider also having commented header text at the top of each script with a description, tags, authors, and change log.  
+
+Fikiria mfumo wa udhibiti wa toleo. Inaweza kuwa kitu rahisi kama kuwa na tarehe kwenye majina ya hati (k.m. "transmission_analysis_2020-10-03.R") na folda ya "kumbukumbu". Zingatia pia kuwa na maandishi ya kichwa cha maoni juu ya kila hati yenye maelezo, lebo, waandishi na logi ya mabadiliko.
 
 A more complicated method would involve using Github or a similar platform for version control. See the page on [Version control and collaboration with Git and Github].  
 
+Njia ngumu zaidi itahusisha kutumia Github au jukwaa sawa la udhibiti wa toleo. Tazama ukurasa kwenye [Udhibiti wa toleo na ushirikiano na Git na Github].
+
 One tip is that you can search across an entire project or folder using the "Find in Files" tool (Edit menu). It can search and even replace strings across multiple files.  
 
-
-
-
-
+Kidokezo kimoja ni kwamba unaweza kutafuta kwenye mradi au folda nzima kwa kutumia zana ya "Tafuta katika Faili" (Menyu ya Kuhariri). Inaweza kutafuta na hata kubadilisha mifuatano kwenye faili nyingi.
 
 ## Examples  
 
+## Mifano
+
 Below are some examples of import/export/saving using `here()` from within an R projct. Read more about using the **here** package in the [Import and export] page.  
 
+Ifuatayo ni baadhi ya mifano ya kuagiza/kusafirisha nje/kuhifadhi kwa kutumia `hapa()` kutoka ndani ya mradi wa R. Soma zaidi kuhusu kutumia kifurushi cha **hapa** katika ukurasa wa [Ingiza na Hamisha].
 
-*Importing `linelist_raw.xlsx` from the "data" folder in your R project*  
+*Kuingiza `linelist_raw.xlsx` Kutoka kwenye "data" folda kwenye mradi wako wa R*  
 
 ```{r eval=F}
 linelist <- import(here("data", "linelist_raw.xlsx"))
 ```
 
-*Exporting the R object `linelist` as "my_linelist.rds" to the "clean" folder within the "data" folder in your R project.*   
+*Kuhamisha the R `linelist` as "my_linelist.rds" to the "clean" folder within the "data" folder in your R project.*   
 
 ```{r, eval=F}
 export(linelist, here("data","clean", "my_linelist.rds"))
