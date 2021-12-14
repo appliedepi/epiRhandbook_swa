@@ -25,15 +25,15 @@ A common, efficient, and trouble-free way to use R is to combine these 3 element
 
 ## Matumizi Yanayopendekezwa
 
-Njia ya kawaida, fanisi na isiyo na matatizo ya kutumia R ni kwa kuunganisha vipengele vitatu. Mradi mmoja wa kazi unaojitegeme unahifadhiwa ndani ya mradi mmoja wa R. Kila kipengele kinaelezwa katika sehemu hapa chini.
+Njia ya kawaida, fanisi na isiyo na matatizo ya kutumia R ni kwa kuunganisha vipengele vitatu vilivyoanishwa hapa chini. Mradi mmoja wa kazi unaojitegemea unahifadhiwa ndani ya mradi mmoja wa R. Kila kipengele kinaelezwa katika sehemu hapa chini.
 
 1)  **Mradi wa R**
 
     -   Mazingira ya kufanya kazi yanayojitosheleza yenye folda za data, hati, matokeo, n.k.\
 
-2)  Kifurushi cha **hapa** cha njia za faili za jamaa
+2)  Kifurushi cha **here** cha njia za faili za jamaa
 
-    -   Njia za faili zimeandikwa kuhusiana na folda ya mizizi ya mradi wa R - tazama [Ingiza na Hamisha] kwa habari zaidi
+    -   Njia za faili zimeandikwa kuhusiana na folda ya mizizi ya mradi wa R - tazama [Ingiza na Hamisha] kwa maelezo zaidi
 
 3)  Kifurushi cha **rio** cha kuingiza/kuhamisha
 
@@ -51,7 +51,7 @@ To create an R project, select "New Project" from the File menu.
 
 ## Kutengeneza Mradi wa R
 
-Kutengeneza Mradi wa R, Chagua "*New Project*" kutoka kwa menyu ya Faili ya Rstudio.
+Kutengeneza Mradi wa R, Chagua "*New Project*" kutoka kwa menyu ya "*File*" ya Rstudio.
 
 -   Endapo unataka kuunda folda mpya ya mradi, chagua "saraka mpya" na uonyeshe ni wapi unataka iundwe.
 -   Endapo unataka kuunda mradi ndani ya folda iliyopo, bofya "Saraka iliyopo" na uonyeshe folda.\
@@ -86,7 +86,7 @@ knitr::include_graphics(here::here("images", "Rproject_dropdown.png"))
 
 It is generally advised that you start RStudio each time with a "clean slate" - that is, with your workspace **not** preserved from your previous session. This will mean that your objects and results will not persist session-to-session (you must re-create them by running your scripts). This is good, because it will force you to write better scripts and avoid errors in the long run.  
 
-Inashauriwa kwa ujumla kuwa uanzishe RStudio kila wakati na "slate safi" - ambayo ni, na nafasi yako ya kazi ** sio ** iliyohifadhiwa kutoka kwa kikao chako cha hapo awali. Hii itamaanisha kuwa vitu na matokeo yako hayataendelea na kikao hadi kikao (lazima uvitengeneze upya kwa kuendesha hati zako). Hii ni nzuri, kwa sababu itakulazimisha kuandika maandiko bora na kuepuka makosa kwa muda mrefu.
+Inashauriwa kwa ujumla kuwa uanzishe RStudio kila wakati na "slate safi" - ambayo ni, na nafasi yako ya kazi **sio** iliyohifadhiwa kutoka kwa kikao chako cha hapo awali. Hii itamaanisha kuwa vitu na matokeo yako hayataendelea na kikao hadi kikao (lazima uvitengeneze upya kwa kuendesha hati zako). Hii ni nzuri, kwa sababu itakulazimisha kuandika maandiko bora na kuepuka makosa kwa muda mrefu.
 
 To set RStudio to have a "clean slate" each time at start-up:  
 Kuweka RStudio kuwa na "slate safi" kila wakati wakati wa kuanza:
@@ -136,25 +136,26 @@ Ifuatayo ni baadhi ya mifano ya kuagiza/kusafirisha nje/kuhifadhi kwa kutumia `h
 linelist <- import(here("data", "linelist_raw.xlsx"))
 ```
 
-*Kuhamisha the R `linelist` as "my_linelist.rds" to the "clean" folder within the "data" folder in your R project.*   
+*Kuhamisha R `linelist` kama "my_linelist.rds" kwenda kwenye folda iitwayo "clean" ndani ya "data" folda katika mradi wako wa R.*   
 
 ```{r, eval=F}
 export(linelist, here("data","clean", "my_linelist.rds"))
 ```
 
-*Saving the most recently printed plot as "epicurve_2021-02-15.png" within the "epicurves" folder in "outputs" folder in your R project.*  
+*Kuhidhi mchoro ulioprintiwa hivi karibuni kama  "epicurve_2021-02-15.png" ndani ya folda ya "epicurves" ndani ya folda ya "outputs" katika mradi wako wa R.*  
 
 ```{r, eval=F}
 ggsave(here("outputs", "epicurves", "epicurve_2021-02-15.png"))
 ```
 
-
-
-
 <!-- ======================================================= -->
+
+
 ## Resources {}
 
-RStudio webpage on [using R projects](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects)
+## Rasilimali {}
+
+Ukurasa wa Wavuti wa RStudio unaohusu [matumizi ya RStudio](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects)
 
 
 
