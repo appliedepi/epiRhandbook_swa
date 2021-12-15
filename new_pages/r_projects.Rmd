@@ -1,27 +1,6 @@
-
-# R projects
-
-An R project enables your work to be bundled in a portable, self-contained folder. Within the project, all the relevant scripts, data files, figures/outputs, and history are stored in sub-folders and importantly - the *working directory* is the project's root folder.
-
 # Miradi ya R
 
-Mradi wa R huwezesha kazi yako kuunganishwa katika folda inayojitosheleza. Ndani ya mradi, hati zote husika, faili za data, michoro/matokeo, na historia huhifadhiwa katika folda ndogo(saidizi), na muhimu zaidi - *saraka ya kufanyia kazi* ndiyo folda ya msingi ya mradi.
-
-## Suggested use
-
-A common, efficient, and trouble-free way to use R is to combine these 3 elements. One discrete work project is hosted within one R project. Each element is described in the sections below.
-
-1)  An **R project**
-
-    -   A self-contained working environment with folders for data, scripts, outputs, etc.\
-
-2)  The **here** package for relative filepaths
-
-    -   Filepaths are written relative to the root folder of the R project - see [Import and export] for more information\
-
-3)  The **rio** package for importing/exporting
-
-    -   `import()` and `export()` handle any file type by by its extension (e.g. .csv, .xlsx, .png)
+Mradi wa R huwezesha kazi yako kuunganishwa katika folda inayojitosheleza. Ndani ya mradi, hati zote husika, faili za data, michoro/matokeo, na historia huhifadhiwa katika folda ndogo(saidizi), na muhimu zaidi ni uwepo - *saraka ya kufanyia kazi* inayoitwa **working directory** ambayo ndiyo folda ya msingi ya mradi wa R.
 
 ## Matumizi Yanayopendekezwa
 
@@ -31,7 +10,7 @@ Njia ya kawaida, fanisi na isiyo na matatizo ya kutumia R ni kwa kuunganisha vip
 
     -   Mazingira ya kufanya kazi yanayojitosheleza yenye folda za data, hati, matokeo, n.k.\
 
-2)  Kifurushi cha **here** cha njia za faili za jamaa
+2)  Kifurushi cha **here** cha njia husiani za faili
 
     -   Njia za faili zimeandikwa kuhusiana na folda ya mizizi ya mradi wa R - tazama [Ingiza na Hamisha] kwa maelezo zaidi
 
@@ -41,38 +20,23 @@ Njia ya kawaida, fanisi na isiyo na matatizo ya kutumia R ni kwa kuunganisha vip
 
 <!-- ======================================================= -->
 
-## Creating an R project
-
-To create an R project, select "New Project" from the File menu.
-
--   If you want to create a new folder for the project, select "New directory" and indicate where you want it to be created.\
--   If you want to create the project within an existing folder, click "Existing directory" and indicate the folder.\
--   If you want to clone a Github repository, select the third option "Version Control" and then "Git". See the page on [Version control and collaboration with Git and Github] for further details.
-
 ## Kutengeneza Mradi wa R
 
 Kutengeneza Mradi wa R, Chagua "*New Project*" kutoka kwa menyu ya "*File*" ya Rstudio.
 
--   Endapo unataka kuunda folda mpya ya mradi, chagua "saraka mpya" na uonyeshe ni wapi unataka iundwe.
--   Endapo unataka kuunda mradi ndani ya folda iliyopo, bofya "Saraka iliyopo" na uonyeshe folda.\
--   Endapo unataka kuunda hazina ya Github, chagua chaguo la tatu "Udhibiti wa Toleo" na kisha "Git". Tazama ukurasa kwenye [Udhibiti wa toleo na ushirikiano kq Git na Github] kwa maelezo zaidi.
+-   Endapo unataka kuunda folda mpya ya mradi, chagua *"New Directory"* na uonyeshe ni wapi unataka iundwe.
+-   Endapo unataka kuunda mradi ndani ya folda iliyopo, bofya *"Existing Folder"* na uonyeshe folda gani itumike kuanziasha mradi wa R.\
+-   Endapo unataka kuunda hazina ya Github, chagua chaguo la tatu *"Version Control"* na kisha *"Git"*. Tazama ukurasa kwenye [Udhibiti wa toleo na ushirikiano kwa Git na Github] kwa maelezo zaidi.
 
 ```{r out.width = "75%", fig.align = "center", echo=F}
 knitr::include_graphics(here::here("images", "create_project.png"))
 ```
 
-The R project you create will come in the form of a folder containing a *.Rproj* file. This file is a shortcut and likely the primary way you will open your project. You can also open a project by selecting "Open Project" from the File menu. Alternatively on the far upper right side of RStudio you will see an R project icon and a drop-down menu of available R projects.
-
-Mradi wa R utakaotengeneza utakuwa katika folda iliyo na faili ya *.Rproj*. Faili hii ni njia ya mkato na kuna uwezekano kuwa ndiyo njia msingi utakayokuwa unatumia kufungua mradi wako. Unaweza pia kufungua mradi kwa kuchagua "Fungua Mradi" kutoka kwa menyu ya Faili. Vinginevyo kwenye upande wa juu kabisa wa kulia wa RStudio utaona ikoni ya mradi wa R na menyu kunjuzi ya miradi inayopatikana ya R.
+Mradi wa R utakaotengeneza utakuwa katika folda iliyo na faili yenye saraka *.Rproj*. Faili hii ni njia ya mkato na kufumgua mradi wa R na mara nyingi huwa ndiyo njia msingi utakayokuwa unatumia kufungua mradi wako. Unaweza pia kufungua mradi kwa kuchagua *"Open Project"* kutoka kwa menyu ya Faili. Vinginevyo kwenye upande wa juu kabisa wa kulia wa RStudio utaona ikoni ya mradi wa R na menyu kunjuzi ya miradi inayopatikana ya R.
 
 Unaweza kufunga mradi wa R ama kwa kufungua mradi mpya, au kwa kufunga mradi (*File - Close Project*)
 
-### Switch projects {.unnumbered}
-
 ### Kubadili Miradi {.unnumbered}
-
-To switch between projects, click the R project icon and drop-down menu at the very top-right of RStudio. You will see options to Close Project, Open Project, and a list of recent projects.
-
 
 Ili kubadilisha kati ya miradi, bofya ikoni ya mradi wa R na menyu kunjuzi iliyo juu kabisa kulia mwa RStudio. Utaona chaguo za Funga Mradi, Fungua Mradi, na orodha ya miradi ya hivi karibuni.
 
@@ -80,69 +44,46 @@ Ili kubadilisha kati ya miradi, bofya ikoni ya mradi wa R na menyu kunjuzi iliyo
 knitr::include_graphics(here::here("images", "Rproject_dropdown.png"))
 ```
 
-### Settings {.unnumbered}
+### Mipangilio
 
-### Mipangilio  
+Inashauriwa kwa ujumla kuwa uanzishe RStudio kila wakati na "slate safi" - ambayo ni, na nafasi yako ya kazi **sio** iliyohifadhiwa kutoka kwa kikao chako cha hapo awali. Hii itamaanisha kuwa vitu na matokeo yako hayataendelea kati kikao hadi kikao (lazima uvitengeneze upya kwa kuendesha hati zako). Hii ni nzuri, kwa sababu itakulazimisha kuandika maandiko bora na kuepuka makosa katika muda wote wa kufanya kazi kwa kutumia Rstudio.
 
-It is generally advised that you start RStudio each time with a "clean slate" - that is, with your workspace **not** preserved from your previous session. This will mean that your objects and results will not persist session-to-session (you must re-create them by running your scripts). This is good, because it will force you to write better scripts and avoid errors in the long run.  
-
-Inashauriwa kwa ujumla kuwa uanzishe RStudio kila wakati na "slate safi" - ambayo ni, na nafasi yako ya kazi **sio** iliyohifadhiwa kutoka kwa kikao chako cha hapo awali. Hii itamaanisha kuwa vitu na matokeo yako hayataendelea na kikao hadi kikao (lazima uvitengeneze upya kwa kuendesha hati zako). Hii ni nzuri, kwa sababu itakulazimisha kuandika maandiko bora na kuepuka makosa kwa muda mrefu.
-
-To set RStudio to have a "clean slate" each time at start-up:  
 Kuweka RStudio kuwa na "slate safi" kila wakati wakati wa kuanza:
 
-* Select "Project Options" from the Tools menu.  
-* In the "General" tab, set RStudio to **not** restore .RData into workspace at startup, and to **not** save workspace to .RData on exit.  
 
-* Chagua "Chaguo za Mradi" kutoka kwa menyu ya Zana.
-* Katika kichupo cha "Jumla", weka RStudio kuwa **si** kurejesha .RData kwenye nafasi ya kazi inapowashwa, na **si** kuhifadhi nafasi ya kazi kwa .RData wakati wa kuondoka.
+-   Chagua *"Project Options"* kutoka kwa menyu ya Zana.
 
-
-### Organization {.unnumbered}  
+-   Katika kichupo cha *"General"*, weka RStudio kuwa **si** kurejesha .RData kwenye nafasi ya kazi inapowashwa, na **si** kuhifadhi nafasi ya kazi kwa .RData wakati wa kuondoka.
 
 ### Kupanga {.unnumbered}
 
-It is common to have subfolders in your project. Consider having folders such as "data", "scripts", "figures", "presentations". You can add folders in the typical way you would add a new folder for your computer. Alternatively, see the page on [Directory interactions] to learn how to create new folders with R commands.  
-
 Ni kawaida kuwa na folda ndogo katika mradi wako. Fikiria kuwa na folda kama vile "data", "scripts", "figures", "presentations". Unaweza kuongeza folda kwa njia ya kawaida ambayo ungeongeza folda mpya kwa kompyuta yako. Vinginevyo, angalia ukurasa kwenye [Maingiliano ya Saraka] ili kujifunza jinsi ya kuunda folda mpya kwa amri za R.
-
-### Version control {.unnumbered}  
 
 ### Udhibiti wa Toleo
 
-Consider a version control system. It could be something as simple as having dates on the names of scripts (e.g. "transmission_analysis_2020-10-03.R") and an "archive" folder. Consider also having commented header text at the top of each script with a description, tags, authors, and change log.  
-
 Fikiria mfumo wa udhibiti wa toleo. Inaweza kuwa kitu rahisi kama kuwa na tarehe kwenye majina ya hati (k.m. "transmission_analysis_2020-10-03.R") na folda ya "kumbukumbu". Zingatia pia kuwa na maandishi ya kichwa cha maoni juu ya kila hati yenye maelezo, lebo, waandishi na logi ya mabadiliko.
 
-A more complicated method would involve using Github or a similar platform for version control. See the page on [Version control and collaboration with Git and Github].  
-
-Njia ngumu zaidi itahusisha kutumia Github au jukwaa sawa la udhibiti wa toleo. Tazama ukurasa kwenye [Udhibiti wa toleo na ushirikiano na Git na Github].
-
-One tip is that you can search across an entire project or folder using the "Find in Files" tool (Edit menu). It can search and even replace strings across multiple files.  
+Njia ngumu zaidi itahusisha kutumia Github au jukwaa sawa la udhibiti wa toleo. Tazama ukurasa kwenye [Udhibiti wa toleo na ushirikiano kwa Git na Github].
 
 Kidokezo kimoja ni kwamba unaweza kutafuta kwenye mradi au folda nzima kwa kutumia zana ya "Tafuta katika Faili" (Menyu ya Kuhariri). Inaweza kutafuta na hata kubadilisha mifuatano kwenye faili nyingi.
 
-## Examples  
-
 ## Mifano
-
-Below are some examples of import/export/saving using `here()` from within an R projct. Read more about using the **here** package in the [Import and export] page.  
 
 Ifuatayo ni baadhi ya mifano ya kuagiza/kusafirisha nje/kuhifadhi kwa kutumia `hapa()` kutoka ndani ya mradi wa R. Soma zaidi kuhusu kutumia kifurushi cha **hapa** katika ukurasa wa [Ingiza na Hamisha].
 
-*Kuingiza `linelist_raw.xlsx` Kutoka kwenye "data" folda kwenye mradi wako wa R*  
+*Kuingiza `linelist_raw.xlsx` Kutoka kwenye "data" folda kwenye mradi wako wa R*
 
 ```{r eval=F}
 linelist <- import(here("data", "linelist_raw.xlsx"))
 ```
 
-*Kuhamisha R `linelist` kama "my_linelist.rds" kwenda kwenye folda iitwayo "clean" ndani ya "data" folda katika mradi wako wa R.*   
+*Kuhamisha R `linelist` kama "my_linelist.rds" kwenda kwenye folda iitwayo "clean" ndani ya "data" folda katika mradi wako wa R.*
 
 ```{r, eval=F}
 export(linelist, here("data","clean", "my_linelist.rds"))
 ```
 
-*Kuhidhi mchoro ulioprintiwa hivi karibuni kama  "epicurve_2021-02-15.png" ndani ya folda ya "epicurves" ndani ya folda ya "outputs" katika mradi wako wa R.*  
+*Kuhidhi mchoro ulioprintiwa hivi karibuni kama "epicurve_2021-02-15.png" ndani ya folda ya "epicurves" ndani ya folda ya "outputs" katika mradi wako wa R.*
 
 ```{r, eval=F}
 ggsave(here("outputs", "epicurves", "epicurve_2021-02-15.png"))
@@ -150,13 +91,6 @@ ggsave(here("outputs", "epicurves", "epicurve_2021-02-15.png"))
 
 <!-- ======================================================= -->
 
-
-## Resources {}
-
-## Rasilimali {}
+## Rasilimali
 
 Ukurasa wa Wavuti wa RStudio unaohusu [matumizi ya RStudio](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects)
-
-
-
-
