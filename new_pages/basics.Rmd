@@ -114,7 +114,7 @@ The [R4Epis](https://r4epis.netlify.app/) project website aims to "develop stand
 
 [Nyenzo za RStudio kwa lugha ya kihispaniola](https://www.rstudio.com/collections/espanol/)
 
-[Introduction à R et au tidyverse (Francais)](https://juba.github.io/tidyverse/index.html)
+[Utangulizi à R et au tidyverse (Francais)](https://juba.github.io/tidyverse/index.html)
 
 <!-- ======================================================= -->
 
