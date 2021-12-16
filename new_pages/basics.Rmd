@@ -4,93 +4,93 @@
 knitr::include_graphics(here::here("images", "basics_header_close.png"))
 ```
 
-Welcome!
+Karibu!
 
-Esta página analisa o essencial do R. Não pretende ser um tutorial abrangente, mas fornece o básico e pode ser útil para refrescar a sua memória. A secção sobre Recursos para a aprendizagem contém links para tutoriais mais abrangentes.
+Ukurasa huu unaainisha mambo muhimu kuhusu R. Haikusudiwi kuwa mafunzo ya kina, bali inatoa misingi ambayo inaweza kusaidia kukumbusha. Sehemu ya [Rasilimali za kujifunzia](#learning) ina vipengele vyenye mafunzo zaidi ya kina.
 
-Parts of this page have been adapted with permission from the [R4Epis project](https://r4epis.netlify.app/).
+Sehemu za ukurasa huu zimetohorewa kwa ruhusa kutoka kwa [R4Epis project](https://r4epis.netlify.app/).
 
-See the page on [Transition to R] for tips on switching to R from STATA, SAS, or Excel.
+Tazama ukurasa wa [Transition to R](#transition_to_R.Rmd) kupata vidokezo vya kuhamia R kutoka STATA, SAS, or Excel.
 
 ```{r, echo=F}
-# import the cleaned ebola linelist
+# ingiza orodha ya data za ebola iliyosafishwa
 linelist <- rio::import(here::here("data", "case_linelists", "linelist_cleaned.rds"))
 pacman::p_load(apyramid)
 ```
 
 <!-- ======================================================= -->
 
-## Why use R?
+## Kwa nini utumie R?
 
-As stated on the [R project website](https://www.r-project.org/about.html), R is a programming language and environment for statistical computing and graphics. It is highly versatile, extendable, and community-driven.
+Kama ilivyoelezwa kwenye [tovuti ya mradi wa R](https://www.r-project.org/about.html), R ni lugha ya kiprogramu na kimazingira ya kompyuta ya takwimu na michoro. Ina uhodari mkubwa sana, inaweza kupanuliwa, na inaendeshwa kwa msukumo wa jamii.
 
-**Cost**
+**Gharama**
 
-R is free to use! There is a strong ethic in the community of free and open-source material.
+Ni bure kutumia R! Kuna maadili thabiti kwenye jumuiya huria na rasilimali za vyanzo huria (open-source material)
 
-**Reproducibility**
+**Uzalishaji**
 
-Conducting your data management and analysis through a programming language (compared to Excel or another primarily point-click/manual tool) enhances **reproducibility**, makes **error-detection** easier, and eases your workload.
+Kuendesha usimamizi na uchanganuzi wa data zako kupitia lugha ya kiprogramu (ikilinganishwa na Excel au zana nyingine za kubofya/za kutengeneza) huongeza **uzalishaji tena**, hurahisisha **ugunduzi wa makosa**, na kukupunguzia ukubwa wa kazi.
 
-**Community**
+**Jumuiya**
 
-The R community of users is enormous and collaborative. New packages and tools to address real-life problems are developed daily, and vetted by the community of users. As one example, [R-Ladies](https://rladies.org/) is a worldwide organization whose mission is to promote gender diversity in the R community, and is one of the largest organizations of R users. It likely has a chapter near you!
+Jumuiya ya watumiaji wa R ni kubwa na ni shirikishi. Vifurushi vipya na zana za kushughulikia matatizo halisi ya kimaisha hutengenezwa kila siku, na kukaguliwa na jumuiya ya watumiaji. Kama mfano mmojawapo, [R-Ladies](https://rladies.org/) ni shirika la ulimwenguni pote ambalo dhamira yake ni kukuza tofauti za kijinsia katika jumuiya ya R, na ni mojawapo ya mashirika makubwa ya watumiaji wa R. Inawezekana ina tawi karibu nawe!
 
-## Key terms
+## Misamiati muhimu
 
-**RStudio** - RStudio is a Graphical User Interface (GUI) for easier use of **R**. Read more [in the RStudio section](#rstudio).
+**RStudio** - RStudio ni kiolesura cha picha kwa mtumiaji (Graphical User Interface-GUI) kurahisisha utumiaji wa **R**. Soma zaidi [katika sehemu ya RStudio](#rstudio).
 
-**Objects** - Everything you store in R - datasets, variables, a list of village names, a total population number, even outputs such as graphs - are *objects* which are *assigned a name* and *can be referenced* in later commands. Read more [in the Objects section](#objects).
+**Masomo (Objects)** - Kila kitu unachohifadhi katika R - seti za data, kifofautishi, orodha ya majina ya vijiji, jumla ya idadi ya watu, hata matokeo kama vile grafu - ni *masomo* ambayo *yamepewa majina* na *yanayoweza kurejelewa* katika amri za baadaye. Soma zaidi [katika sehemu ya Masomo](#objects).
 
-**Functions** - A function is a code operation that accept inputs and returns a transformed output. Read more [in the Functions section](#functions).
+**Vikokotozi (Functions)** - Kikokotozi ni kitenda kazi cha msimbo ambao unachukua ingizo na kurejesha matokeo yaliyobadilishwa. Soma zaidi [katika sehemu ya Kazi](#functions).
 
-**Packages** - An R package is a shareable bundle of functions. Read more [in the Packages section](#packages).
+**Vifurushi (Packages)** - Kifurushi cha R ni fungu la vikokotozi linaloweza kushirikishwa/kugawa. Soma zaidi [katika sehemu ya Vifurushi](#packages).
 
-**Scripts** - A script is the document file that hold your commands. Read more [in the Scripts section](#scripts)
+**Hati (Scripts)** - Hati ni chapisho linaloshikilia amri zako. Soma zaidi [katika sehemu ya Hati](#scripts)
 
-## Resources for learning {#learning}
+## Rasilimali za kujifunzia {#learning}
 
-### Resources within RStudio {.unnumbered}
+### Rasilimali ndani ya RStudio {.unnumbered}
 
-**Help documentation**
+**Nyaraka za usaidizi**
 
-Search the RStudio "Help" tab for documentation on R packages and specific functions. This is within the pane that also contains Files, Plots, and Packages (typically in the lower-right pane). As a shortcut, you can also type the name of a package or function into the R console after a question-mark to open the relevant Help page. Do not include parentheses.
+Tafuta kichupo cha msaada ("Help") cha RStudio kwa nyaraka za vifurushi vya R na vikokotozi maalum. Hii ni ndani ya kidirisha ambacho pia kina mafaili (Files), michoro (Plots), na Vifurushi (kawaida kwenye kidirisha cha chini kulia). Kama njia ya mkato, unaweza pia kuandika alama ya kuuliza ikifuatiwa na jina la kifurushi au kikokotozi kwenye dashibodi ya R ili kufungua ukurasa wa usaidizi husika. Usijumuishe mabano.
 
-For example: `?filter` or `?diagrammeR`.
+Kwa mfano: `?filter` or `?diagrammeR`.
 
-**Interactive tutorials**
+**Mafunzo shirikishi**
 
-There are several ways to learn R interactively *within* RStudio.
+Kuna mbinu kadhaa za kujifunza R kwa njia shirikishi *ndani ya* RStudio.
 
-RStudio itself offers a Tutorial pane that is powered by the [**learnr**](https://blog.rstudio.com/2020/02/25/rstudio-1-3-integrated-tutorials/) R package. Simply install this package and open a tutorial via the new "Tutorial" tab in the upper-right RStudio pane (which also contains Environment and History tabs).
+RStudio yenyewe inatoa kidirisha cha Mafunzo ambacho kinatumia kifurushi cha [**learnr**](https://blog.rstudio.com/2020/02/25/rstudio-1-3-integrated-tutorials/) R. Sakinisha kifurushi hiki na ufungue mafunzo kupitia kichupo kipya cha mafunzo (Tutorial) kwenye kidirisha kilicho juu kulia ya kidirisha cha RStudio (ambacho pia kina vichupo vya mazingira (Environment) na historia (History)).
 
-The R package [**swirl**](https://swirlstats.com/) offers interactive courses in the R Console. Install and load this package, then run the command `swirl()` (empty parentheses) in the R console. You will see prompts appear in the Console. Respond by typing in the Console. It will guide you through a course of your choice.
+Kifurushi cha R [**swirl**](https://swirlstats.com/) hutoa kozi shirikishi katika dashibodi ya R. Sakinisha na upakie kifurushi hiki, kisha andika amri `swirl()` (mabano yawe tupu) kwenye dashibodi ya R. Utaona vidokezo vinatokea kwenye Dashibodi. Jibu kwa kuandika kwenye Dashibodi. Njia hii, itakuongoza kupitia kozi ya chaguo lako.
 
-### Cheatsheets {.unnumbered}
+### Nakala za kuibia (Madesa/Cheatsheets) {.unnumbered}
 
-There are many PDF "cheatsheets" available on the [RStudio website](https://rstudio.com/resources/cheatsheets/), for example:
+Kuna "nakala za kuibia/madesa" nyingi za PDF zinazopatikana kwenye [tovuti ya RStudio](https://rstudio.com/resources/cheatsheets/), kwa mfano:
 
--   Factors with **forcats** package\
--   Dates and times with **lubridate** package\
--   Strings with **stringr** package\
--   iterative opertaions with **purrr** package\
--   Data import\
--   Data transformation cheatsheet with **dplyr** package\
--   R Markdown (to create documents like PDF, Word, Powerpoint...)\
--   Shiny (to build interactive web apps)\
--   Data visualization with **ggplot2** package\
--   Cartography (GIS)\
--   **leaflet** package (interactive maps)\
--   Python with R (**reticulate** package)
+-   Makundi kamilifu (Factors) kutoka kifurushi cha **forcats**\
+-   Tarehe na muda kutoka kifurushi cha **lubridate**\
+-   Maneno (strings) with **stringr** package\
+-   Opereshi za kujirudia kutoka kifurushi cha **purrr**\
+-   Ingiza data (Data import)\
+-   Desa la kubadilisha/nyambulisha data kutoka kifurushi cha **dplyr**\
+-   R Markdown (kutengeneza nyaraka kama PDF, Word, Powerpoint...)\
+-   Shiny (kutengeneza tovuti shirikishi)\
+-   Michoro ya data kwa kutumia kifurushi cha **ggplot2**\
+-   Kutengeneza ramani (GIS)\
+-   Kifurushi cha **leaflet** (ramani shirikishi)\
+-   Kutumia Python kwenye R (kifurushi cha **reticulate**)
 
-This is an online R resource specifically for [Excel users](https://jules32.github.io/r-for-excel-users/)
+Hii ni rasilimali ya R mtandaoni mahususi kwa ajili ya [Watumiaji wa Excel](https://jules32.github.io/r-for-excel-users/)
 
 ### Twitter {.unnumbered}
 
-R has a vibrant twitter community where you can learn tips, shortcuts, and news - follow these accounts:
+R ina jumuiya mahiri ya twitter ambapo unaweza kujifunza vidokezo, njia za mkato na kupashana habari - fuata akaunti hizi:
 
 -   Follow us! [\@epiRhandbook](https://twitter.com/epirhandbook)\
--   R Function A Day [\@rfuntionaday](https://twitter.com/rfunctionaday) is an *incredible* resource\
+-   R Function A Day [\@rfuntionaday](https://twitter.com/rfunctionaday) ni rasilimali *bora*\
 -   R for Data Science [\@rstats4ds](https://twitter.com/rstats4ds?lang=en)\
 -   RStudio [\@RStudio](https://twitter.com/rstudio?lang=en)\
 -   RStudio Tips [\@rstudiotips](https://twitter.com/rstudiotips)\
@@ -98,19 +98,21 @@ R has a vibrant twitter community where you can learn tips, shortcuts, and news 
 -   R-ladies [\@RLadiesGlobal](https://twitter.com/RLadiesGlobal)\
 -   Hadley Wickham [\@hadleywickham](https://twitter.com/hadleywickham?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor)
 
-Also:
+Pia:
 
-**\#epitwitter** and **\#rstats**
+**\#epitwitter** na **\#rstats**
 
-### Free online resources {.unnumbered}
+### Rasilimali za bure mtandaoni {.unnumbered}
 
-A definitive text is the [R for Data Science](https://r4ds.had.co.nz/) book by Garrett Grolemund and Hadley Wickham
+Nakala muhimu ni kitabu cha [R for Data Science](https://r4ds.had.co.nz/) kilichoandikwa na Garrett Grolemund and Hadley Wickham
+
+Tovuti ya mradi wa [R4Epis](https://r4epis.netlify.app/) inalenga "kutengeneza zana sanifu za kusafisha data, kuchanganua na kuripoti aina za magonjwa ya mlipuko ya kawaida na dodoso za kijamii ambazo zingefanywa katika jibu la dharura la MSF. mpangilio." Unaweza kupata nyenzo za mafunzo ya misingi ya R, violezo vya ripoti za RMarkdown kuhusu milipuko na tafiti, na mafunzo ya kukusaidia kuziweka.
 
 The [R4Epis](https://r4epis.netlify.app/) project website aims to "develop standardised data cleaning, analysis and reporting tools to cover common types of outbreaks and population-based surveys that would be conducted in an MSF emergency response setting." You can find R basics training materials, templates for RMarkdown reports on outbreaks and surveys, and tutorials to help you set them up.
 
-### Languages other than English {.unnumbered}
+### Lugha tofauti na kiingereza {.unnumbered}
 
-[Materiales de RStudio en Español](https://www.rstudio.com/collections/espanol/)
+[Nyenzo za RStudio kwa lugha ya kihispaniola](https://www.rstudio.com/collections/espanol/)
 
 [Introduction à R et au tidyverse (Francais)](https://juba.github.io/tidyverse/index.html)
 
@@ -282,7 +284,7 @@ Some very useful keyboard shortcuts are below. See all the keyboard shortcuts fo
 
 <!-- ======================================================= -->
 
-## Functions {#functions}
+## Vikokotozi {#functions}
 
 Functions are at the core of using R. Functions are how you perform tasks and operations. Many functions come installed with R, many more are available for download in *packages* (explained in the [packages](#packages) section), and you can even write your own custom functions!
 
@@ -462,7 +464,7 @@ ggplot(case_incidence, aes(x = dates))+
 
 <!-- ======================================================= -->
 
-## Packages {#packages}
+## Vifurushi {#packages}
 
 **Packages contain functions.**
 
@@ -644,7 +646,7 @@ See the page on [Suggested packages] for a listing of packages we recommend for 
 
 <!-- ======================================================= -->
 
-## Scripts {#scripts}
+## Hati {#scripts}
 
 Scripts are a fundamental part of programming. They are documents that hold your commands (e.g. functions to create and modify datasets, print visualizations, etc). You can save a script and run it again later. There are many advantages to storing and running your commands from a script (vs. typing commands one-by-one into the R console "command line"):
 
@@ -772,7 +774,7 @@ As noted above, although we do not recommend this approach in most circumstances
 setwd("C:/Documents/R Files/My analysis")
 ```
 
-[***DANGER:*** Setting a working directory with `setwd()` *can* be "brittle" if the file path is specific to one computer. Instead, use file paths relative to an R Project root directory (with the **here** package). ]{style="color: red;"}
+[***DANGER:*** Setting a working directory with `setwd()` *can* be "brittle" if the file path is specific to one computer. Instead, use file paths relative to an R Project root directory (with the **here** package).]{style="color: red;"}
 
 <!-- ======================================================= -->
 
@@ -1380,15 +1382,15 @@ Relational operators compare values and are often used when defining new variabl
 
 Logical operators, such as AND and OR, are often used to connect relational operators and create more complicated criteria. Complex statements might require parentheses ( ) for grouping and order of application.
 
-+---------------------+-----------------------------------------------------------------------+
-| Meaning             | Operator                                                              |
-+=====================+=======================================================================+
-| AND                 | `&`                                                                   |
-+---------------------+-----------------------------------------------------------------------+
-| OR                  | `|` (vertical bar)                                                    |
-+---------------------+-----------------------------------------------------------------------+
-| Parentheses         | `( )` Used to group criteria together and clarify order of operations |
-+---------------------+-----------------------------------------------------------------------+
++-------------+-----------------------------------------------------------------------+
+| Meaning     | Operator                                                              |
++=============+=======================================================================+
+| AND         | `&`                                                                   |
++-------------+-----------------------------------------------------------------------+
+| OR          | `|` (vertical bar)                                                    |
++-------------+-----------------------------------------------------------------------+
+| Parentheses | `( )` Used to group criteria together and clarify order of operations |
++-------------+-----------------------------------------------------------------------+
 
 For example, below, we have a linelist with two variables we want to use to create our case definition, `hep_e_rdt`, a test result and `other_cases_in_hh`, which will tell us if there are other cases in the household. The command below uses the function `case_when()` to create the new variable `case_def` such that:
 
@@ -1482,7 +1484,7 @@ options(scipen=999)
 
 #### Rounding {.unnumbered}
 
-[***DANGER:*** `round()` uses "banker's rounding" which rounds up from a .5 only if the upper number is even. Use `round_half_up()` from **janitor** to consistently round halves up to the nearest whole number. See [this explanation](https://cran.r-project.org/web/packages/janitor/vignettes/janitor.html#explore-records-with-duplicated-values-for-specific-combinations-of-variables-with-get_dupes) ]{style="color: red;"}
+[***DANGER:*** `round()` uses "banker's rounding" which rounds up from a .5 only if the upper number is even. Use `round_half_up()` from **janitor** to consistently round halves up to the nearest whole number. See [this explanation](https://cran.r-project.org/web/packages/janitor/vignettes/janitor.html#explore-records-with-duplicated-values-for-specific-combinations-of-variables-with-get_dupes)]{style="color: red;"}
 
 ```{r}
 # use the appropriate rounding function for your work
