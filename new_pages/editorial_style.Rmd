@@ -1,4 +1,4 @@
-# Editorial and technical notes { }
+# Editorial and technical notes {#editorial_style}
 
 In this page we describe the philosophical approach, style, and specific editorial decisions made during the creation of this handbook.  
 

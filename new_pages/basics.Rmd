@@ -106,63 +106,61 @@ Pia:
 
 Nakala muhimu ni kitabu cha [R for Data Science](https://r4ds.had.co.nz/) kilichoandikwa na Garrett Grolemund and Hadley Wickham
 
-Tovuti ya mradi wa [R4Epis](https://r4epis.netlify.app/) inalenga "kutengeneza zana sanifu za kusafisha data, kuchanganua na kuripoti aina za magonjwa ya mlipuko ya kawaida na dodoso za kijamii ambazo zingefanywa katika jibu la dharura la MSF. mpangilio." Unaweza kupata nyenzo za mafunzo ya misingi ya R, violezo vya ripoti za RMarkdown kuhusu milipuko na tafiti, na mafunzo ya kukusaidia kuziweka.
-
-The [R4Epis](https://r4epis.netlify.app/) project website aims to "develop standardised data cleaning, analysis and reporting tools to cover common types of outbreaks and population-based surveys that would be conducted in an MSF emergency response setting." You can find R basics training materials, templates for RMarkdown reports on outbreaks and surveys, and tutorials to help you set them up.
+Tovuti ya mradi wa [R4Epis](https://r4epis.netlify.app/) inalenga "kutengeneza zana sanifu za kusafisha data, kuchanganua na kuripoti aina za magonjwa ya mlipuko ya kawaida na dodoso za kijamii ambazo zingeweza kutumiwa na MSF katika mazingira ya dharura". Unaweza kupata nyenzo za mafunzo ya misingi ya R, vielelezo vya ripoti za RMarkdown kuhusu milipuko na dodoso, na mafunzo ya kukuwezesha kuzitengeneza.
 
 ### Lugha tofauti na kiingereza {.unnumbered}
 
 [Nyenzo za RStudio kwa lugha ya kihispaniola](https://www.rstudio.com/collections/espanol/)
 
-[Utangulizi à R et au tidyverse (Francais)](https://juba.github.io/tidyverse/index.html)
+[Utangulizi kuhusu R au tidyverse kwa lugha ya kifaransa](https://juba.github.io/tidyverse/index.html)
 
 <!-- ======================================================= -->
 
-## Installation
+## Usakinishaji
 
-### R and RStudio {.unnumbered}
+### R na RStudio {.unnumbered}
 
-**How to install R**
+**Jinsi ya kusakinisha R**
 
-Visit this website <https://www.r-project.org/> and download the latest version of R suitable for your computer.
+Tembelea tovuti ya <https://www.r-project.org/> kisha pakua toleo litumikalo sasa la R sahihi kwa ajili ya kompyuta yako.
 
-**How to install RStudio**
+**Jinsi ya kusakinisha RStudio**
 
-Visit this website <https://rstudio.com/products/rstudio/download/> and download the latest free Desktop version of RStudio suitable for your computer.
+Tembelea tovuti ya <https://rstudio.com/products/rstudio/download/> kisha pakua bure toleo la sasa la RStudio kwa ajili ya kompyuta yako.
 
-**Permissions**\
-Note that you should install R and RStudio to a drive where you have read and write permissions. Otherwise, your ability to install R packages (a frequent occurrence) will be impacted. If you encounter problems, try opening RStudio by right-clicking the icon and selecting "Run as administrator". Other tips can be found in the page [R on network drives].
+**Ruhusa**\
+Kumbuka kwamba unapaswa kusakinisha R na RStudio kwenye diski ambayo una ruhusa ya kusoma na kuandika. Vinginevyo, uwezo wako wa kusakinisha vifurushi vya R (tukio la mara kwa mara) utaathiriwa. Ikiwa utapata shida, jaribu kufungua RStudio kwa kubofya kitufe cha kulia na uchague "Run as administrator (Endesha kama msimamizi)". Vidokezo vingine vinaweza kupatikana katika ukurasa [R kwenye diski za mtandaoni](#network_drives).
 
-**How to update R and RStudio**
+**Jinsi ya kusasisha (update) R na RStudio**
 
-Your version of R is printed to the R Console at start-up. You can also run `sessionInfo()`.
+Toleo lako la R huchapishwa kwenye dashibodi ya R wakati wa kuanza. Unaweza pia kuamuru majibu kupitia `sessionInfo()`.
 
-To update R, go to the website mentioned above and re-install R. Alternatively, you can use the **installr** package (on Windows) by running `installr::updateR()`. This will open dialog boxes to help you download the latest R version and update your packages to the new R version. More details can be found in the **installr** [documentation](https://www.r-project.org/nosvn/pandoc/installr.html).
+Ili kusasisha R, nenda kwenye tovuti iliyotajwa hapo juu na usakinishe tena R. Vinginevyo, unaweza kutumia kifurushi cha **installr** (kwenye kompyuta aina ya Windows) kwa kuamuru `installr::updateR()`. Hii itafungua visanduku vya majibishano ili kukusaidia kupakua toleo jipya zaidi la R na kusasisha vifurushi vyako kwenye toleo jipya la R. Maelezo zaidi yanaweza kupatikana katika [hati](https://www.r-project.org/nosvn/pandoc/installr.html) ya **installr**.
 
-Be aware that the old R version will still exist in your computer. You can temporarily run an older version (older "installation") of R by clicking "Tools" -\> "Global Options" in RStudio and choosing an R version. This can be useful if you want to use a package that has not been updated to work on the newest version of R.
+Fahamu kuwa toleo la zamani la R bado litakuwepo kwenye kompyuta yako. Unaweza kutumia toleo la zamani kwa muda ("usakinishaji" wa zamani) wa R kwa kubofya kitufe cha zana "Tools" -\> "Global Options" katika RStudio na kuchagua toleo la R. Hii inaweza kuwa muhimu ikiwa unataka kutumia kifurushi ambacho hakijasasishwa kwenye toleo jipya zaidi la R.
 
-To update RStudio, you can go to the website above and re-download RStudio. Another option is to click "Help" -\> "Check for Updates" within RStudio, but this may not show the very latest updates.
+Ili kusasisha RStudio, unaweza kwenda kwenye tovuti iliyo hapo juu na upakue upya RStudio. Chaguo jingine ni kubofya kwenye kitufe cha msaada "Help" -\> "Check for Updates" ndani ya RStudio, lakini hii inaweza isionyeshe masasisho mapya zaidi.
 
-To see which versions of R, RStudio, or packages were used when this Handbook as made, see the page on [Editorial and technical notes].
+Ili kuona ni matoleo yapi ya R, RStudio, au vifurushi vilivyotumika wakati Kitabu hiki cha Mwongozo kilipotengenezwa, angalia ukurasa kwenye [Maelezo ya uhariri na kiufundi](#editorial_style).
 
-### Other software you *may* need to install {.unnumbered}
+### Programu nyingine ambayo *huenda* ukahitaji kusanikisha {.unnumbered}
 
--   TinyTeX (*for compiling an RMarkdown document to PDF*)\
--   Pandoc (*for compiling RMarkdown documents*)\
--   RTools (*for building packages for R*)\
--   phantomjs (*for saving still images of animated networks, such as transmission chains*)
+-   TinyTeX (*kwa ajili ya kutengeneza faili za PDF kwa kutumia RMarkdown*)\
+-   Pandoc (*kwa ajili ya kutengeneza faili za RMarkdown*)\
+-   RTools (*kwa ajili ya kuunda vifurushi vya R*)\
+-   phantomjs (*kwa ajili ya kuhifadhi picha za michoro inayotembea (animations) kama vile minyororo ya maambukizi*)
 
 #### TinyTex {.unnumbered}
 
-TinyTex is a custom LaTeX distribution, useful when trying to produce PDFs from R.\
-See <https://yihui.org/tinytex/> for more informaton.
+TinyTex ni programu maalum ya usambazaji wa LaTeX, muhimu wakati wa kutengeneza faili za PDF kwenye R.\
+Kwa taarifa zaidi tembelea <https://yihui.org/tinytex/>.
 
-To install TinyTex from R:
+Kusanikisha TinyTex kutoka R:
 
 ```{r, eval=F}
 install.packages('tinytex')
 tinytex::install_tinytex()
-# to uninstall TinyTeX, run tinytex::uninstall_tinytex()
+# kuondoa TinyTeX, amrisha kupitia tinytex::uninstall_tinytex()
 ```
 
 #### Pandoc {.unnumbered}
