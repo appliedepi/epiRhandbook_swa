@@ -37,7 +37,11 @@ Kwa onyesho, tutatumia mfano wa limbiko data ambalo limeundwa kwa msimbo wa R ha
 
 The data are records of COVID-19 phone encounters, including encounters with contacts and with cases. The columns include `recordID` (computer-generated), `personID`, `name`, `date` of encounter, `time` of encounter, the `purpose` of the encounter (either to interview as a case or as a contact), and `symptoms_ever` (whether the person in that encounter reported *ever* having symptoms).  
 
+Data tutakazotumia kwa mfano ni rekodi za matukio ya UVIKO-19 kwenye simu, zinajumuisha waliokutana na wagonjwa na waliopata UVIKO-19. Safu wima ni pamoja na `recordID` (kilichotengenezwa kwa kompyuta), `personID`, `name`, `date` ya kukutana, `time` wa kukutana, `purpose` la mkutano (ama kuhoji kama kesi au kama mtu anayewasiliana naye. ), na `symptoms_ever` (kama mtu katika tukio hilo aliripoti *kuwahi* kuwa na dalili).
+
 Here is the code to create the `obs` dataset:  
+
+Hapa kanuni ya R ya kuunda limbikodata ya `obs`:
 
 ```{r}
 obs <- data.frame(
@@ -59,9 +63,13 @@ obs <- data.frame(
 ```
 
 
-#### Here is the data frame {#dedup_data .unnumbered}  
+#### Here is the data frame {#dedup_data .unnumbered} 
+
+#### Hapa kuna sura ya data {#dedup_data .unnumbered} 
 
 Use the filter boxes along the top to review the encounters for each person.  
+
+Tumia visanduku vya vichungi vilivyo juu ili kukagua mikutano ya kila mtu.
 
 ```{r message=FALSE, echo=F}
 DT::datatable(obs, rownames = FALSE, filter = "top", options = list(pageLength = nrow(obs), scrollX=T), class = 'white-space: nowrap' )
@@ -75,18 +83,31 @@ A few things to note as you review the data:
 * Several people had multiple phone encounters, at various dates and times, and as contacts and/or cases  
 * At each encounter, the person was asked if they had **ever** had symptoms, and some of this information is missing.  
 
+Mambo machache ya kuzingatia unapokagua data:
 
-And here is a quick summary of the people and the purposes of their encounters, using `tabyl()` from **janitor**:  
+* Rekodi mbili za kwanza ni nakala kamili 100% ikijumuisha nakala `recordID` (lazima iwe hitilafu ya kompyuta!)
+* Safu mlalo mbili za pili ni nakala, katika safu wima zote *isipokuwa `recordID`*
+* Watu kadhaa walikuwa na mawasiliano mengi ya simu, kwa tarehe na nyakati tofauti, na kama anwani na/au visa
+* Katika kila kukutana, mtu huyo aliulizwa ikiwa  **aliwahi** kuwa na dalili, na baadhi ya habari hizi hazipo.
+
+
+And here is a quick summary of the people and the purposes of their encounters, using `tabyl()` from **janitor**:
+
+Na hapa kuna mukhtasari wa haraka wa watu na makusudio ya kukutana kwao, kwa kutumia `tabyl()` kutoka kwa **janitor**:
 
 ```{r}
 obs %>% 
   tabyl(name, purpose)
 ```
 <!-- ======================================================= -->
+
 ## Deduplication { }
+## Kuondoa Kujirudia { }
 
 
 This section describes how to review and remove duplicate rows in a data frame. It also show how to handle duplicate elements in a vector.  
+
+Sehemu hii inaeleza jinsi ya kukagua na kuondoa nakala za safu mlalo katika fremu ya data. Inaonyesha pia jinsi ya kushughulikia vitu vinavyojirudia kwenye vekta.
 
 
 <!-- ======================================================= -->
