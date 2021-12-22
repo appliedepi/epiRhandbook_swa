@@ -19,6 +19,9 @@ Ukurasa huu unagusia njia zifuatazo za kuondoa kujirudia:
 
 This code chunk shows the loading of packages required for the analyses. In this handbook we emphasize `p_load()` from **pacman**, which installs the package if necessary *and* loads it for use. You can also load installed packages with  `library()` from **base** R. See the page on [R basics] for more information on R packages.  
 
+
+Sehemu hii ya msimbo inaonyesha upakiaji wa vifurushi vinavyohitajika kwa uchanganuzi. Katika kitabu hiki cha mwongozo tunasisitiza matumizi ya kikotozi cha `p_load()` kutoka kifushi kiitwacho **pacman**, ambacho husakinisha kifurushi kikihitajika wakati bado hakipo kwenye RStudio *na* kukipakia kwa matumizi. Unaweza pia kupakia vifurushi vilivyosakinishwa kwa kutumia kifurushi cha `library()` kutoka R ya **msingi**. Tazama ukurasa kwenye [Misingi ya R] kwa maelezo zaidi kuhusu vifurushi vya R.
+
 ```{r}
 pacman::p_load(
   tidyverse,   # deduplication, grouping, and slicing functions
@@ -26,9 +29,11 @@ pacman::p_load(
   stringr)      # for string searches, can be used in "rolling-up" values
 ```
 
-### Import data {.unnumbered}
+### Kuingiza data {.unnumbered}
 
-For demonstration, we will use an example dataset that is created with the R code below.  
+For demonstration, we will use an example dataset that is created with the R code below.
+
+Kwa onyesho, tutatumia mfano wa limbiko data ambalo limeundwa kwa msimbo wa R hapa chini.
 
 The data are records of COVID-19 phone encounters, including encounters with contacts and with cases. The columns include `recordID` (computer-generated), `personID`, `name`, `date` of encounter, `time` of encounter, the `purpose` of the encounter (either to interview as a case or as a contact), and `symptoms_ever` (whether the person in that encounter reported *ever* having symptoms).  
 
