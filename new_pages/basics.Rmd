@@ -284,7 +284,7 @@ Baadhi ya njia muhimu sana za mkato za kibodi ziko hapa chini. Tazama mikato yot
 
 ## Vikokotozi {#functions}
 
-Vikokotozi Functions are at the core of using R. Functions are how you perform tasks and operations. Many functions come installed with R, many more are available for download in *packages* (explained in the [packages](#packages) section), and you can even write your own custom functions!
+Functions are at the core of using R. Functions are how you perform tasks and operations. Many functions come installed with R, many more are available for download in *packages* (explained in the [packages](#packages) section), and you can even write your own custom functions!
 
 This basics section on functions explains:
 
