@@ -7,33 +7,33 @@ knitr::include_graphics(here::here("images", "Import_Export_1500x500.png"))
 
 
 
-In this page we describe ways to locate, import, and export files:  
+Katika ukurasa huu tunaelezea njia za kupata, kuagiza na kuhamisha faili: 
 
-* Use of the **rio** package to flexibly `import()` and `export()` many types of files  
-* Use of the **here** package to locate files relative to an R project root - to prevent complications from file paths that are specific to one computer  
-* Specific import scenarios, such as:  
-  * Specific Excel sheets  
+* Matumizi ya **rio** kifurushi kwa urahisi ku `import()` na `export()` aina nyingi za faili
+* Matumizi ya **here** kifurushi kupata faili zinazohusiana na R project root - ili kuzuia matatizo kutoka kwa njia za faili ambazo ni maalum kwa kompyuta moja
+* Matukio mahususi ya uingizaji, kama vile:  
+  * Laha maalum ya Excel  
   * Messy headers and skipping rows  
-  * From Google sheets  
-  * From data posted to websites  
-  * With APIs  
-  * Importing the *most recent* file  
-* Manual data entry  
-* R-specific file types such as RDS and RData  
-* Exporting/saving files and plots  
+  * Kutoka laha za Google  
+  * Kutoka kwa data iliyowekwa kwenye tovuti 
+  * Na APIs  
+  * Kuingiza faili ya *hivi karibuni*  
+* Uingizaji wa data kwa mikono 
+* Aina za faili maalum za R kama vile RDS na RData  
+* Kusafirisha/kuhifadhi faili na viwanja  
 
 
 <!-- ======================================================= -->
 ## Overview
 
-When you import a "dataset" into R, you are generally creating a new *data frame* object in your R environment and defining it as an imported file (e.g. Excel, CSV, TSV, RDS) that is located in your folder directories at a certain file path/address.  
+Unapoingiza "dataset" katika R, kwa ujumla unaunda kipengee kipya cha *data frame* katika mazingira yako ya R na kukifafanua kama faili iliyoagizwa kutoka nje (kwa mfano, Excel, CSV, TSV, RDS) ambayo iko katika saraka za folda yako katika njia/anwani fulani ya faili.
 
-You can import/export many types of files, including those created by other statistical programs (SAS, STATA, SPSS). You can also connect to relational databases.  
+Unaweza kuagiza/kusafirisha aina nyingi za faili, ikiwa ni pamoja na zile zilizoundwa na programu nyingine za takwimu (SAS, STATA, SPSS). Unaweza pia kuunganisha kwenye hifadhidata za uhusiano.
 
-R even has its own data formats:  
+R hata ina fomati zake za data:
 
-* An RDS file (.rds) stores a single R object such as a data frame. These are useful to store cleaned data, as they maintain R column classes. Read more in [this section](#import_rds).    
-* An RData file (.Rdata) can be used to store multiple objects, or even a complete R workspace. Read more in [this section](#import_rdata).  
+* Faili ya RDS (.rds) huhifadhi kitu kimoja cha R kama vile fremu ya data. Hizi ni muhimu kuhifadhi data iliyosafishwa, kwani hudumisha madarasa ya safu wima ya R. Soma zaidi katika [sehemu hii](#import_rds).    
+*Faili ya RData (.Rdata) inaweza kutumika kuhifadhi vitu vingi, au hata nafasi kamili ya kazi ya R. Soma zaidi katika [sehemu hii](#import_rdata).  
 
 
 <!-- ======================================================= -->
