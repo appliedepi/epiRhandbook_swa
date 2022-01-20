@@ -40,11 +40,11 @@ Jumuiya ya watumiaji wa R ni kubwa na ni shirikishi. Vifurushi vipya na zana za 
 
 **RStudio** - RStudio ni kiolesura cha picha kwa mtumiaji (Graphical User Interface-GUI) kurahisisha utumiaji wa **R**. Soma zaidi [katika sehemu ya RStudio](#rstudio).
 
-**Masomo (Objects)** - Kila kitu unachohifadhi katika R - seti za data, kifofautishi, orodha ya majina ya vijiji, jumla ya idadi ya watu, hata matokeo kama vile grafu - ni *masomo* ambayo *yamepewa majina* na *yanayoweza kurejelewa* katika amri za baadaye. Soma zaidi [katika sehemu ya Masomo](#objects).
+**Vifaakazi (Objects)** - Kila kitu unachohifadhi katika R - seti za data, kitendanishi, orodha ya majina ya vijiji, jumla ya idadi ya watu, hata matokeo kama vile grafu - ni *vifaakazi* ambavyo *vimepewa majina* na *vinaweza kurejelewa* katika amri za baadaye. Soma zaidi [katika sehemu ya Vifaakazi](#objects).
 
-**Vikokotozi (Functions)** - Kikokotozi ni kitenda kazi cha msimbo ambao unachukua ingizo na kurejesha matokeo yaliyobadilishwa. Soma zaidi [katika sehemu ya Kazi](#functions).
+**Vitendakazi (Functions)** - Kikokotozi ni kitenda kazi cha msimbo ambao unachukua ingizo na kurejesha matokeo yaliyobadilishwa. Soma zaidi [katika sehemu ya Kazi](#functions).
 
-**Vifurushi (Packages)** - Kifurushi cha R ni fungu la vikokotozi linaloweza kushirikishwa/kugawa. Soma zaidi [katika sehemu ya Vifurushi](#packages).
+**Vifurushi (Packages)** - Kifurushi cha R ni fungu la vitendakazi linaloweza kushirikishwa/kugawa. Soma zaidi [katika sehemu ya Vifurushi](#packages).
 
 **Hati (Scripts)** - Hati ni chapisho linaloshikilia amri zako. Soma zaidi [katika sehemu ya Hati](#scripts)
 
@@ -54,7 +54,7 @@ Jumuiya ya watumiaji wa R ni kubwa na ni shirikishi. Vifurushi vipya na zana za 
 
 **Nyaraka za usaidizi**
 
-Tafuta kichupo cha msaada ("Help") cha RStudio kwa nyaraka za vifurushi vya R na vikokotozi maalum. Hii ni ndani ya kidirisha ambacho pia kina mafaili (Files), michoro (Plots), na Vifurushi (kawaida kwenye kidirisha cha chini kulia). Kama njia ya mkato, unaweza pia kuandika alama ya kuuliza ikifuatiwa na jina la kifurushi au kikokotozi kwenye dashibodi ya R ili kufungua ukurasa wa usaidizi husika. Usijumuishe mabano.
+Tafuta kichupo cha msaada ("Help") cha RStudio kwa nyaraka za vifurushi vya R na vitendakazi maalum. Hii ni ndani ya kidirisha ambacho pia kina mafaili (Files), michoro (Plots), na Vifurushi (kawaida kwenye kidirisha cha chini kulia). Kama njia ya mkato, unaweza pia kuandika alama ya kuuliza ikifuatiwa na jina la kifurushi au kikokotozi kwenye dashibodi ya R ili kufungua ukurasa wa usaidizi husika. Usijumuishe mabano.
 
 Kwa mfano: `?filter` or `?diagrammeR`.
 
@@ -209,7 +209,7 @@ R Console, kwa asili huwa ni kidirisha cha kushoto au cha chini-kushoto katika R
 Ikiwa unaifahamu Stata, R Console ni kama 'Command Window' na pia 'Results Window'.
 
 **Kidirisha cha 'Environment' (Environment Pane)**\
-Kidirisha hiki, kwa asili huwa katika sehemu ya juu kulia, mara nyingi hutumika kuona muhtasari mfupi wa [Masomo (Objects)](#objects) katika Mazingira ya R (R environment) katika kipindi cha sasa. Masomo haya huweza kujumuisha seti za data zilizoingizwa, zilizorekebishwa au kuundwa, vigezo ulivyofafanua (k.m. wiki maalum ya epi kwa uchanganuzi), au vekta au orodha ambazo umefafanua wakati wa uchanganuzi (k.m. majina ya maeneo). Unaweza kubofya mshale karibu na jina la fremu ya data ili kuona vigeuzo vyake.
+Kidirisha hiki, kwa asili huwa katika sehemu ya juu kulia, mara nyingi hutumika kuona muhtasari mfupi wa [Vifaakazi (Objects)](#objects) katika Mazingira ya R (R environment) katika kipindi cha sasa. Vifaakazi hivi huweza kujumuisha seti za data zilizoingizwa, zilizorekebishwa au kuundwa, vigezo ulivyofafanua (k.m. wiki maalum ya epi kwa uchanganuzi), au vekta au orodha ambazo umefafanua wakati wa uchanganuzi (k.m. majina ya maeneo). Unaweza kubofya mshale karibu na jina la fremu ya data ili kuona vigeuzo vyake.
 
 Katika Stata, hii inafanana zaidi na dirisha la Kudhibiti cha Vigeuzo (Variables Manager window).
 
@@ -238,94 +238,94 @@ Endapo R yako itaganda, unaweza kuanzisha upya R kwa kwenda kwenye menyu ya Kipi
 
 Baadhi ya njia muhimu sana za mkato za kibodi ziko hapa chini. Tazama mikato yote ya kibodi kwenye compyuta ya Windows, Max, na Linux katika ukurasa wa pili wa desa hili la [kiolesura cha mtumiaji wa RStudio (user interface cheatsheet)](https://www.rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf).
 
-+----------------------------------+------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| Windows/Linux                    | Mac                    | Action                                                                                                                         |
-+==================================+========================+================================================================================================================================+
-| Esc                              | Esc                    | Interrupt current command (useful if you accidentally ran an incomplete command and cannot escape seeing "+" in the R console) |
-+----------------------------------+------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| Ctrl+s                           | Cmd+s                  | Save (script)                                                                                                                  |
-+----------------------------------+------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| Tab                              | Tab                    | Auto-complete                                                                                                                  |
-+----------------------------------+------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| Ctrl + Enter                     | Cmd + Enter            | Run current line(s)/selection of code                                                                                          |
-+----------------------------------+------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| Ctrl + Shift + C                 | Cmd + Shift + c        | comment/uncomment the highlighted lines                                                                                        |
-+----------------------------------+------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| Alt + -                          | Option + -             | Insert `<-`                                                                                                                    |
-+----------------------------------+------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| Ctrl + Shift + m                 | Cmd + Shift + m        | Insert `%>%`                                                                                                                   |
-+----------------------------------+------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| Ctrl + l                         | Cmd + l                | Clear the R console                                                                                                            |
-+----------------------------------+------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| Ctrl + Alt + b                   | Cmd + Option + b       | Run from start to current line                                                                                                 |
-+----------------------------------+------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| Ctrl + Alt + t                   | Cmd + Option + t       | Run the current code section (R Markdown)                                                                                      |
-+----------------------------------+------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| Ctrl + Alt + i                   | Cmd + Shift + r        | Insert code chunk (into R Markdown)                                                                                            |
-+----------------------------------+------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| Ctrl + Alt + c                   | Cmd + Option + c       | Run current code chunk (R Markdown)                                                                                            |
-+----------------------------------+------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| up/down arrows in R console      | Same                   | Toggle through recently run commands                                                                                           |
-+----------------------------------+------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| Shift + up/down arrows in script | Same                   | Select multiple code lines                                                                                                     |
-+----------------------------------+------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| Ctrl + f                         | Cmd + f                | Find and replace in current script                                                                                             |
-+----------------------------------+------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| Ctrl + Shift + f                 | Cmd + Shift + f        | Find in files (search/replace across many scripts)                                                                             |
-+----------------------------------+------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| Alt + l                          | Cmd + Option + l       | Fold selected code                                                                                                             |
-+----------------------------------+------------------------+--------------------------------------------------------------------------------------------------------------------------------+
-| Shift + Alt + l                  | Cmd + Shift + Option+l | Unfold selected code                                                                                                           |
-+----------------------------------+------------------------+--------------------------------------------------------------------------------------------------------------------------------+
++----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| Windows/Linux                    | Mac                    | Tukio                                                                                                                           |
++==================================+========================+=================================================================================================================================+
+| Esc                              | Esc                    | Katisha amri ya sasa (inafaa ikiwa kwa bahati mbaya uliamrisha amri isiyokamilika na huwezi kuepuka kuona "+" kwenye koni ya R) |
++----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| Ctrl+s                           | Cmd+s                  | Hifadhi (hati)                                                                                                                  |
++----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| Tab                              | Tab                    | Kamilisha Kiotomatiki                                                                                                           |
++----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| Ctrl + Enter                     | Cmd + Enter            | Amrisha m(i)stari wa sasa/chaguo la kodi                                                                                        |
++----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| Ctrl + Shift + C                 | Cmd + Shift + c        | Toa maoni/toa maoni kwa mistari iliyoangaziwa                                                                                   |
++----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| Alt + -                          | Option + -             | Ingiza `<-`                                                                                                                     |
++----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| Ctrl + Shift + m                 | Cmd + Shift + m        | Ingiza `%>%`                                                                                                                    |
++----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| Ctrl + l                         | Cmd + l                | Safisha koni ya R                                                                                                               |
++----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| Ctrl + Alt + b                   | Cmd + Option + b       | Endesha kutoka mwanzo hadi mstari wa sasa                                                                                       |
++----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| Ctrl + Alt + t                   | Cmd + Option + t       | Endesha mpaka sehemu ya sasa (R Markdown)                                                                                       |
++----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| Ctrl + Alt + i                   | Cmd + Shift + r        | Pachika sehemu ya msimbo (into R Markdown)                                                                                      |
++----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| Ctrl + Alt + c                   | Cmd + Option + c       | Endesha sehemu ya msimbo (R Markdown)                                                                                             |
++----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| up/down arrows in R console      | Same                   | Pitia amri zilizoendeshwa hivi punde                                                                                            |
++----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| Shift + up/down arrows in script | Same                   | Chagua mstari zaidi ya mmoja wa msimbo                                                                                                      |
++----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| Ctrl + f                         | Cmd + f                | Tafuta na badilisha kwenye hati ya sasa                                                                                              |
++----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| Ctrl + Shift + f                 | Cmd + Shift + f        | Tafuta kwenye mafaili (Tafuta/badilisha kwenye hati nyingi)                                                                              |
++----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| Alt + l                          | Cmd + Option + l       | Kunja msimbo uliochaguliwa                                                                                                              |
++----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| Shift + Alt + l                  | Cmd + Shift + Option+l | Kunjua msimbo uliochaguliwa                                                                                                            |
++----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
 
-[***KIDOKEZO:*** Tumia ufunguo wako 'Tab' unapoandika ili kupata vidokezo kamilifu vya kiotomatiki vya RStudio. Hii inaweza kuzuia makosa ya kiuandishi. Bonyeza Tab unapoandika ili kutoa menyu kunjuzi ya vikokotozi na vipengele vinavyowezekana, kulingana na ulichokwishandika.]{style="color: darkgreen;"}
-
-<!-- ======================================================= -->
-
-## Vikokotozi {#functions}
-
-Functions are at the core of using R. Functions are how you perform tasks and operations. Many functions come installed with R, many more are available for download in *packages* (explained in the [packages](#packages) section), and you can even write your own custom functions!
-
-This basics section on functions explains:
-
--   What a function is and how they work\
--   What function *arguments* are\
--   How to get help understanding a function
-
-*A quick note on syntax:* In this handbook, functions are written in code-text with open parentheses, like this: `filter()`. As explained in the [packages](#packages) section, functions are downloaded within *packages*. In this handbook, package names are written in **bold**, like **dplyr**. Sometimes in example code you may see the function name linked explicitly to the name of its package with two colons (`::`) like this: `dplyr::filter()`. The purpose of this linkage is explained in the packages section.
+[***KIDOKEZO:*** Tumia ufunguo wako 'Tab' unapoandika ili kupata vidokezo kamilifu vya kiotomatiki vya RStudio. Hii inaweza kuzuia makosa ya kiuandishi. Bonyeza Tab unapoandika ili kutoa menyu kunjuzi ya vitendakazi na vipengele vinavyowezekana, kulingana na ulichokwishandika.]{style="color: darkgreen;"}
 
 <!-- ======================================================= -->
 
-### Simple functions {.unnumbered}
+## Vitendakazi {#functions}
 
-**A function is like a machine that receives inputs, does some action with those inputs, and produces an output.** What the output is depends on the function.
+Vitendakazi ndio msingi wa kutumia R. Vitendakazi ndio nyenzo ya kufanya kazi na uendeshaji. Vitendakazi vingi huja vimeshasanikishwa kwenye R, vingi zaidi hupatikana kwa kupakuliwa katika *vifurushi* (zilizofafanuliwa katika sehemu ya [vifurushi](#packages), na unaweza hata kuandika vitendakazi vyako maalum!
 
-**Functions typically operate upon some object placed within the function's parentheses**. For example, the function `sqrt()` calculates the square root of a number:
+Sehemu hii ya misingi ya vitendakazi inaelezea:
+
+-   Vitendakazi ni nini na ni vipi vinafanya kazi\
+-   Kitendakazi *arguments* ni nini\
+-   Jinsi ya kupata msaada kuhusu kuelewa kitendakazi
+
+*Kidokezo kuhusu maandishi (syntax) kwa ufupi:* Katika kitabu hiki, vitendakazi vimeandikwa kwa maandishi ikifuatiwa na mabano, kama hivi: `filter()`. Kama ilivyoelezwa kwenye sehemu ya [vifurushi](#packages), vitendakazi hupakuwaliwa ndani ya *vifurushi*. katika kitabu hiki, majina ya vifurushi yameandikwa kwa **msisitizo (bold)**, kama hivi **dplyr**. Mara nyingine kwenye maandishi ya mfano unaweza kuona majina ya vitendakazi yameunganishwa moja kwa moja kwenye jina la kifurushi ikifuatiwa na alama hizi (`::`) kama hivi: `dplyr::filter()`. Dhumuni la kuunganishwa hivi imeelezwa kwenye sehemu ya vifurushi.
+
+<!-- ======================================================= -->
+
+### Vitendakazi rahisi {.unnumbered}
+
+**Vitendakazi ni sawa na mashine ambayo inapokea malighafi, kuchakata malighafi hizo, na kutoa jawabu.** Jinsi jawabu litakavyokuwa inategemeana na kitendakazi husika.
+
+**Kiuhalisia vitendakazi hufanya kazi kwenye vitu vinavyowekwa ndani ya mabano yanayofuatia kitendakazi**. Kwa mfano, kitendakazi `sqrt()` huchakata kipeuo cha namba:
 
 ```{r basics_function_sqrt}
 sqrt(49)
 ```
 
-The object provided to a function also can be a column in a dataset (see the [Objects](#objects) section for detail on all the kinds of objects). Because R can store multiple datasets, you will need to specify both the dataset and the column. One way to do this is using the `$` notation to link the name of the dataset and the name of the column (`dataset$column`). In the example below, the function `summary()` is applied to the numeric column `age` in the dataset `linelist`, and the output is a summary of the column's numeric and missing values.
+Vitu vinayoweza kuwekwa kwenye kitendakazi vinaweza pia kuwa orodha ya kwenda chini (orodhachini) ya limbiko la takwimu (dataset) (angalia sehemu ya [Vitu](#objects) kupata taarifa zaidi kuhusu aina tofauti za vitu). Kwa kuwa R inaweza kutunza limbiko tofauti za takwimu, utahitaji kuainisha limbiko na orodhachini (variable). Njia mojawapo ya kufanya hivi ni kwa kutumia alama ya `$` kuunganisha jina la limbiko na orodhachini (`limbiko$orodhachini`). Mfano, kitendakazi `summary()` kinachakata orodhachini ya umri (`age`) kwenye limbiko la safu ya nambari (`linelist)`, na jawabu ni muhtasari wa idadi ya namba za orodhachini pamoja na nambari zisizokuwepo.
 
 ```{r basics_functions_summary}
-# Print summary statistics of column 'age' in the dataset 'linelist'
+# Chapisha muhtasari wa takwimu za orodhachini ya umri 'age' katika limbiko la safu ya nambari 'linelist'
 summary(linelist$age)
 ```
 
-[***NOTE:*** Behind the scenes, a function represents complex additional code that has been wrapped up for the user into one easy command.]{style="color: black;"}
+[***TAMBUA:*** Nyuma ya pazia, kitendakazi kinawakilisha msimbo changamano wa ziada ambao mtumiaji amefungasha kuwa amri moja rahisi.]{style="color: black;"}
 
 <!-- ======================================================= -->
 
-### Functions with multiple arguments {.unnumbered}
+### Vitendakazi vyenye hoja/amri nyingi {.unnumbered}
 
-Functions often ask for several inputs, called ***arguments***, located within the parentheses of the function, usually separated by commas.
+Mara nyingi vitendakazi huomba maingizo kadhaa, yanayoitwa ***hoja au arguments (English)***, huwa ndani ya mabano ya vitendakazi, huku vikitenganishwa na koma.
 
--   Some arguments are required for the function to work correctly, others are optional\
--   Optional arguments have default settings\
--   Arguments can take character, numeric, logical (TRUE/FALSE), and other inputs
+-   Unahitaji kukidhi hoja kadhaa ili kifaakazi kifanye kazi kwa usahihi, hoja zingine huwa za hiari\
+-   Hoja za hiari huwa na chaguo za asili\
+-   Hoja huweza kuwa ni mwingizo wa neno, tarakimu, kitendanishi cha mantiki (NDIO/HAPANA), na kadhalika
 
-Here is a fun fictional function, called `oven_bake()`, as an example of a typical function. It takes an input object (e.g. a dataset, or in this example "dough") and performs operations on it as specified by additional arguments (`minutes =` and `temperature =`). The output can be printed to the console, or saved as an object using the assignment operator `<-`.
+Hiki hapa ni kitendakazi cha kubuni kinachoitwa `oven_bake()`, kama mfano wa kawaida wa kifaa. Huchukua kifaakazi kama kiingizi (k.m. seti ya data, au katika mfano huu "unga") na kuifanyia shughuli kama inavyobainishwa na hoja za ziada (dakika, `minutes =` na jotoridi, `temperature =`). Toleo linaweza kuchapishwa kwenye dashibodi, au kuhifadhiwa kama kifaakazi kwa kutumia kitendaji `<-`.
 
 ```{r basics_functions_image, echo=F, out.width = "75%", fig.align = "center"}
 knitr::include_graphics(here::here("images", "Function_Bread_Example.png"))
@@ -829,7 +829,7 @@ Even if using relative file paths within an R project, you can still use absolut
 
 <!-- ======================================================= -->
 
-## Objects {#objects}
+## Vitu {#objects}
 
 Everything in R is an object, and R is an "object-oriented" language. These sections will explain:
 
