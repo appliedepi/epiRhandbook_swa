@@ -394,7 +394,6 @@ Jinsi ya kuandika vitendakazi imeelezwa kwa kina zaidi kwenye ukurasa wa [Kuandi
 
 <!-- Kitendaji hupewa jina na kufafanuliwa kwa kutumia opereta `<-` kwa kitendaji maalum ndani ya **base** R inayoitwa `function()`. Ndani ya mabano, kunakuwa na ufafanuzi wa hoja ambazo kitendaji kitakubali. Hii inafuatwa na mabano yaliyojipinda `{ }`, ambamo msimbo halisi wa kitendaji huandikwa.     -->
 
-
 ```{r, eval=F, echo=F}
 my_function <- function( HOJA HAPA ){ MSIMBO HAPA }
 ```
@@ -492,9 +491,9 @@ You can print the file path to your library by entering `.libPaths()` (empty par
 
 #### Install from CRAN {.unnumbered}
 
-Most often, R users download packages from CRAN. CRAN (Comprehensive R Archive Network) is an online public warehouse of R packages that have been published by R community members.
+Mara nyingi, watumiaji wa R hupakua vifurushi kutoka kwa CRAN. CRAN (Comprehensive R Archive Network) ni ghala la mtandaoni la vifurushi vya R ambavyo vimechapishwa na wanajamii wa R.
 
-Are you worried about viruses and security when downloading a package from CRAN? Read [this article](https://support.rstudio.com/hc/en-us/articles/360042593974-R-and-R-Package-Security) on the topic.
+Je, una wasiwasi kuhusu virusi na usalama unapopakua kifurushi kutoka CRAN? Soma [kurasa hii](https://support.rstudio.com/hc/en-us/articles/360042593974-R-and-R-Package-Security) kuhusu somo hili.
 
 #### How to install and load {.unnumbered}
 
