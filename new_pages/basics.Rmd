@@ -396,7 +396,7 @@ Jinsi ya kuandika vitendakazi imeelezwa kwa kina zaidi kwenye ukurasa wa [Kuandi
 
 
 ```{r, eval=F, echo=F}
-my_function <- function( ARGUMENTS HERE ){ CODE HERE }
+my_function <- function( HOJA HAPA ){ MSIMBO HAPA }
 ```
 
 <!-- The arguments should be provided in the syntax `argument = default`, separated by commas.   -->
