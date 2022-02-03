@@ -263,19 +263,19 @@ Baadhi ya njia muhimu sana za mkato za kibodi ziko hapa chini. Tazama mikato yot
 +----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
 | Ctrl + Alt + i                   | Cmd + Shift + r        | Pachika sehemu ya msimbo (into R Markdown)                                                                                      |
 +----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
-| Ctrl + Alt + c                   | Cmd + Option + c       | Endesha sehemu ya msimbo (R Markdown)                                                                                             |
+| Ctrl + Alt + c                   | Cmd + Option + c       | Endesha sehemu ya msimbo (R Markdown)                                                                                           |
 +----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
 | up/down arrows in R console      | Same                   | Pitia amri zilizoendeshwa hivi punde                                                                                            |
 +----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
-| Shift + up/down arrows in script | Same                   | Chagua mstari zaidi ya mmoja wa msimbo                                                                                                      |
+| Shift + up/down arrows in script | Same                   | Chagua mstari zaidi ya mmoja wa msimbo                                                                                          |
 +----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
-| Ctrl + f                         | Cmd + f                | Tafuta na badilisha kwenye hati ya sasa                                                                                              |
+| Ctrl + f                         | Cmd + f                | Tafuta na badilisha kwenye hati ya sasa                                                                                         |
 +----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
-| Ctrl + Shift + f                 | Cmd + Shift + f        | Tafuta kwenye mafaili (Tafuta/badilisha kwenye hati nyingi)                                                                              |
+| Ctrl + Shift + f                 | Cmd + Shift + f        | Tafuta kwenye mafaili (Tafuta/badilisha kwenye hati nyingi)                                                                     |
 +----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
-| Alt + l                          | Cmd + Option + l       | Kunja msimbo uliochaguliwa                                                                                                              |
+| Alt + l                          | Cmd + Option + l       | Kunja msimbo uliochaguliwa                                                                                                      |
 +----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
-| Shift + Alt + l                  | Cmd + Shift + Option+l | Kunjua msimbo uliochaguliwa                                                                                                            |
+| Shift + Alt + l                  | Cmd + Shift + Option+l | Kunjua msimbo uliochaguliwa                                                                                                     |
 +----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
 
 [***KIDOKEZO:*** Tumia ufunguo wako 'Tab' unapoandika ili kupata vidokezo kamilifu vya kiotomatiki vya RStudio. Hii inaweza kuzuia makosa ya kiuandishi. Bonyeza Tab unapoandika ili kutoa menyu kunjuzi ya vitendakazi na vipengele vinavyowezekana, kulingana na ulichokwishandika.]{style="color: darkgreen;"}
@@ -306,7 +306,7 @@ Sehemu hii ya misingi ya vitendakazi inaelezea:
 sqrt(49)
 ```
 
-Vitu vinayoweza kuwekwa kwenye kitendakazi vinaweza pia kuwa orodha ya kwenda chini (orodhachini) ya limbiko la takwimu (dataset) (angalia sehemu ya [Vitu](#objects) kupata taarifa zaidi kuhusu aina tofauti za vitu). Kwa kuwa R inaweza kutunza limbiko tofauti za takwimu, utahitaji kuainisha limbiko na orodhachini (variable). Njia mojawapo ya kufanya hivi ni kwa kutumia alama ya `$` kuunganisha jina la limbiko na orodhachini (`limbiko$orodhachini`). Mfano, kitendakazi `summary()` kinachakata orodhachini ya umri (`age`) kwenye limbiko la safu ya nambari (`linelist)`, na jawabu ni muhtasari wa idadi ya namba za orodhachini pamoja na nambari zisizokuwepo.
+Vitu vinayoweza kuwekwa kwenye kitendakazi vinaweza pia kuwa orodha ya kwenda chini (orodhachini) ya limbiko la takwimu (dataset) (angalia sehemu ya [Vifaakazi](#objects) kupata taarifa zaidi kuhusu aina tofauti za vitu). Kwa kuwa R inaweza kutunza limbiko tofauti za takwimu, utahitaji kuainisha limbiko na orodhachini (variable). Njia mojawapo ya kufanya hivi ni kwa kutumia alama ya `$` kuunganisha jina la limbiko na orodhachini (`limbiko$orodhachini`). Mfano, kitendakazi `summary()` kinachakata orodhachini ya umri (`age`) kwenye limbiko la safu ya nambari (`linelist)`, na jawabu ni muhtasari wa idadi ya namba za orodhachini pamoja na nambari zisizokuwepo.
 
 ```{r basics_functions_summary}
 # Chapisha muhtasari wa takwimu za orodhachini ya umri 'age' katika limbiko la safu ya nambari 'linelist'
@@ -331,66 +331,69 @@ Hiki hapa ni kitendakazi cha kubuni kinachoitwa `oven_bake()`, kama mfano wa kaw
 knitr::include_graphics(here::here("images", "Function_Bread_Example.png"))
 ```
 
-**In a more realistic example**, the `age_pyramid()` command below produces an age pyramid plot based on defined age groups and a binary split column, such as `gender`. The function is given three arguments within the parentheses, separated by commas. The values supplied to the arguments establish `linelist` as the dataframe to use, `age_cat5` as the column to count, and `gender` as the binary column to use for splitting the pyramid by color.
+**Katika mfano halisi zaidi**, amri ya `age_pyramid()` hapa chini hutoa mpangilio wa piramidi ya umri kulingana na makundi vya umri vilivyobainishwa na safu wima iliyogawanyika kwa jozi, kama vile jinsia (`gender`). Kitendaji hupewa hupewa hoja tatu ndani ya mabano, zikitenganishwa na koma. Vitu vinavyowekwa kwenye kama hoja hutengeneza orodha mstari `linelist` kama fremu ya data kwa kutumia, `age_cat5` kama safu wima ili kuhesabu, na `gender` kama safuwima ya jozi kwa ajili ya kugawanya piramidi kwa rangi.
 
 ```{r basics_functions_arguments, include=FALSE, results='hide', message=FALSE, warning=FALSE,}
-## create an age group variable by specifying categorical breaks
+## tengeneza makundi ya umri kwa kubainisha vitenganishi vya ki-umri
 linelist$age_group <- cut(linelist$age, breaks = c(0, 5, 10, 15, 20, 30, 45, 60))
 ```
 
 ```{r message=FALSE, warning=FALSE,  out.width = "75%", out.height="75%"}
-# Create an age pyramid
+# Tengeneza piramidi ya umri
 age_pyramid(data = linelist, age_group = "age_cat5", split_by = "gender")
 ```
 
-The above command can be equivalently written as below, in a longer style with a new line for each argument. This style can be easier to read, and easier to write "comments" with `#` to explain each part (commenting extensively is good practice!). To run this longer command you can highlight the entire command and click "Run", or just place your cursor in the first line and then press the Ctrl and Enter keys simultaneously.
+Amri iliyo hapo juu inaweza kuandikwa kwa usawa kama ilivyo hapo chini, kwa mtindo mrefu na kuweka kila hoja kwenye mstari wake. Mtindo huu unaweza kuwa rahisi kusoma, na rahisi kuandika "maoni" na `#` kuelezea kila sehemu (kutoa maoni kwa upana ni zoezi zuri!). Ili kutekeleza amri hii ndefu unaweza kuangazia amri nzima na ubofye "Run", au weka tu mshale wako kwenye mstari wa kwanza na kisha bofya Ctrl na Enter kwa wakati mmoja.
 
 ```{r message=FALSE, warning=FALSE,  out.width = "75%", out.height="75%"}
 # Create an age pyramid
 age_pyramid(
-  data = linelist,        # use case linelist
-  age_group = "age_cat5", # provide age group column
-  split_by = "gender"     # use gender column for two sides of pyramid
+  data = linelist,        # tumia orodha mstari (use case linelist)
+  age_group = "age_cat5", # tumia safuwima ya makundi ya umri (provide age group column)
+  split_by = "gender"     # tumia safuwima ya jinsia kwa ajili ya pande mbili za piramidi (use gender column for two sides of pyramid)
   )
 ```
 
-The first half of an argument assignment (e.g. `data =`) does not need to be specified if the arguments are written in a specific order (specified in the function's documentation). The below code produces the exact same pyramid as above, because the function expects the argument order: data frame, `age_group` variable, `split_by` variable.
+Nusu ya kwanza ya kuweka hoja (k.m. `data =`) haihitaji kubainishwa ikiwa hoja zimeandikwa kwa mpangilio maalum (uliobainishwa katika hati za vitendaji). Msimbo ulio hapa chini hutoa piramidi sawa kabisa na ilivyo hapo juu, kwa sababu kitendaji kinatarajia mpangilio wa hoja: fremu ya data, kigezo cha `age_group`, na kile cha `split_by`.
 
 ```{r, basics_functions_pyramid2, eval = FALSE, warning=FALSE, message=FALSE, , out.width = "75%", out.height="75%", eval=F}
-# This command will produce the exact same graphic as above
+# Amri hii itatengeneza mchoro sawa kabisa na hapo juu
 age_pyramid(linelist, "age_cat5", "gender")
 ```
 
-**A more complex `age_pyramid()` command might include the *optional* arguments to:**
+**Amri tata zaidi ya kutengeneza piramidi ya umri `age_pyramid()` inaweza kuhusisha hoja ya *optional* ili:**
 
--   Show proportions instead of counts (set `proportional = TRUE` when the default is `FALSE`)\
--   Specify the two colors to use (`pal =` is short for "palette" and is supplied with a vector of two color names. See the [objects](#objectstructure) page for how the function `c()` makes a vector)
+-   Onyesha uwiano badala ya hesabu (weka `proportional = TRUE` kwenye lugha asili huwa ni `FALSE`)\
+-   Bainisha rangi mbili ungependa kutumia (`pal =` ni kifupi cha neno "palette" na hutolewa na vekta ya majima mawili ya rangi. Angalia kwenye kurasa ya [vifaakazi](#objectstructure) jinsi ya kitendakazi `c()` hutengeneza vekta)
 
-[***NOTE:*** For arguments that you specify with both parts of the argument (e.g. `proportional = TRUE`), their order among all the arguments does not matter.]{style="color: black;"}
+[***KUMBUKA:*** Kwa hoja unazobainisha kwa kutumia sehemu zote mbili za hoja (mfano, `proportional = TRUE`), mpangilio wake katika hoja zote haujalishi.]{style="color: black;"}
 
 ```{r message=FALSE, warning=FALSE, out.width = "75%", out.height="75%"}
 age_pyramid(
-  linelist,                    # use case linelist
-  "age_cat5",                  # age group column
-  "gender",                    # split by gender
-  proportional = TRUE,         # percents instead of counts
-  pal = c("orange", "purple")  # colors
+  linelist,                    # tumia orodha mstari ya wagonjwa(use case linelist)
+  "age_cat5",                  # safuwima ya makundi ya umri (age group column)
+  "gender",                    # enganisha kwa jinsia (split by gender)
+  proportional = TRUE,         # asilimia badala ya hesabu (percents instead of counts)
+  pal = c("orange", "purple")  # rangi (colors)
   )
 ```
 
 <!-- ======================================================= -->
 
-### Writing Functions {.unnumbered}
+### Uandishi wa Vitendakazi {.unnumbered}
 
-R is a language that is oriented around functions, so you should feel empowered to write your own functions. Creating functions brings several advantages:
+R ni lugha inayoendeshwa kwa kutumia vitendaji, kwa hivyo unapaswa kujisikia kuwa na uwezo wa kuandika vitendaji vyako mwenyewe. Kuunda vitendakazi huleta faida kadhaa:
 
--   To facilitate modular programming - the separation of code in to independent and manageable pieces\
--   Replace repetitive copy-and-paste, which can be error prone\
--   Give pieces of code memorable names
+-   Ili kuwezesha programu za msimu - mgawanyo wa msimbo kwenda kwenye vipande huru na vinavyoweza kudhibitiwa\
+-   Badilisha nakala-na-kubandika inayorudiwa, ambayo inaweza kuwa na makosa\
+-   Toa majina yaliyo rahisi kukumbuka kwenye vipande vya msimbo
 
-How to write a function is covered in-depth in the [Writing functions] page.
+Jinsi ya kuandika chaguo la kukokotoa imefunikwa kwa kina katika ukurasa wa [Vitendaji vya Kuandika].
 
-<!-- A function is given a name and defined with the assignment operator `<-` to a special **base** R function called `function()`. Within the parentheses, the arguments that the function will accept are defined. This is followed by curly brackets `{ }`, within which the actual code of the function is written.     -->
+Jinsi ya kuandika vitendakazi imeelezwa kwa kina zaidi kwenye ukurasa wa [Kuandika vitendakazi](#writing_functions).
+
+<!-- Kitendaji hupewa jina na kufafanuliwa kwa kutumia opereta `<-` kwa kitendaji maalum ndani ya **base** R inayoitwa `function()`. Ndani ya mabano, kunakuwa na ufafanuzi wa hoja ambazo kitendaji kitakubali. Hii inafuatwa na mabano yaliyojipinda `{ }`, ambamo msimbo halisi wa kitendaji huandikwa.     -->
+
 
 ```{r, eval=F, echo=F}
 my_function <- function( ARGUMENTS HERE ){ CODE HERE }
@@ -829,7 +832,7 @@ Even if using relative file paths within an R project, you can still use absolut
 
 <!-- ======================================================= -->
 
-## Vitu {#objects}
+## Vifaakazi {#objects}
 
 Everything in R is an object, and R is an "object-oriented" language. These sections will explain:
 
