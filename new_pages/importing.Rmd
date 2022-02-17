@@ -17,7 +17,7 @@ Katika ukurasa huu tunaelezea njia za kupata, kuagiza na kuhamisha faili:
   * Kutoka laha za Google  
   * Kutoka kwa data iliyowekwa kwenye tovuti 
   * Na APIs  
-  * Kuingiza faili ya *hivi karibuni*  
+  * Kupakia faili ya *hivi karibuni*  
 * Uingizaji wa data kwa mikono 
 * Aina za faili maalum za R kama vile RDS na RData  
 * Kusafirisha/kuhifadhi faili na viwanja  
@@ -26,7 +26,7 @@ Katika ukurasa huu tunaelezea njia za kupata, kuagiza na kuhamisha faili:
 <!-- ======================================================= -->
 ## Overview
 
-Unapoingiza "dataset" katika R, kwa ujumla unaunda kipengee kipya cha *data frame* katika mazingira yako ya R na kukifafanua kama faili iliyoagizwa kutoka nje (kwa mfano, Excel, CSV, TSV, RDS) ambayo iko katika saraka za folda yako katika njia/anwani fulani ya faili.
+Unapoingiza seti ya data katika R, kwa ujumla unaunda kipengee kipya cha *data frame* katika mazingira yako ya R na kukifafanua kama faili iliyoagizwa kutoka nje (kwa mfano, Excel, CSV, TSV, RDS) ambayo iko katika saraka za folda yako katika njia/anwani fulani ya faili.
 
 Unaweza kuagiza/kusafirisha aina nyingi za faili, ikiwa ni pamoja na zile zilizoundwa na programu nyingine za takwimu (SAS, STATA, SPSS). Unaweza pia kuunganisha kwenye hifadhidata za uhusiano.
 
@@ -39,70 +39,75 @@ R hata ina fomati zake za data:
 <!-- ======================================================= -->
 ## The **rio** package {}  
 
-The R package we recommend is: **rio**. The name "rio" is an abbreviation of "R I/O" (input/output).  
+Kifurushi cha R tunachopendekeza ni: **rio**. Jina "rio" ni ufupisho wa "R I/O" (input/output. 
 
-Its functions `import()` and `export()` can handle many different file types (e.g. .xlsx, .csv, .rds, .tsv). When you provide a file path to either of these functions (including the file extension like ".csv"), **rio** will read the extension and use the correct tool to import or export the file.  
+Vitendakazi `import()` na `export()` inaweza kushughulikia aina nyingi za faili (k.m. .xlsx, .csv, .rds, .tsv). Unapotoa njia ya faili kwa mojawapo ya chaguo hizi za vitendakazi (ikijumuisha kiendelezi cha faili kama ".csv"), **rio** itasoma kiendelezi na kutumia zana sahihi kupakia au kupakua faili.
 
-The alternative to using **rio** is to use functions from many other packages, each of which is specific to a type of file. For example, `read.csv()` (**base** R), `read.xlsx()` (**openxlsx** package), and `write_csv()` (**readr** pacakge), etc. These alternatives can be difficult to remember, whereas using `import()` and `export()` from **rio** is easy.  
 
-**rio**'s functions `import()` and `export()` use the appropriate package and function for a given file, based on its file extension. See the end of this page for a complete table of which packages/functions **rio** uses in the background. It can also be used to import STATA, SAS, and SPSS files, among dozens of other file types.  
+Njia mbadala ya kutumia **rio** ni kutumia vitendakazi kutoka kwa vifurushi vingine vingi, ambavyo kila moja ni maalum kwa aina ya faili. Kwa mfano, `read.csv()` (**base** R), `read.xlsx()` (**openxlsx** kifurushi), na `write_csv()` (**readr** pacakge), n.k. Hizi mbadala zinaweza kuwa ngumu kukumbuka, ilhali kutumia `import()` na `export()` kutoka **rio** ni rahisi.
+
+
+Vitendakazi vya **rio** `import()` na `export()` hutumia kifurushi kinachofaa na chaguo la kukokotoa kwa faili fulani, kulingana na kiendelezi cha faili yake. Tazama mwisho wa ukurasa huu kwa jedwali kamili ambalo vifurushi/vitendakazi zake **rio** hutumia chinichini. Inaweza pia kutumika kuleta faili za STATA, SAS, na SPSS, kati ya aina nyingi za faili.
 
 Import/export of shapefiles requires other packages, as detailed in the page on [GIS basics].    
 
+Kupakia/Kupakua  faili za ramani kunahitaji vifurushi vingine, kama ilivyofafanuliwa kwenye ukurasa kwenye [misingi ya GIS].
 
 
 
+## Kifurushi cha **here** {#here} 
+Kifurushi **here** na kitendakazi chake `here()` hurahisisha kuambia R mahali pa kupata na kuhifadhi faili zako - kimsingi, huunda njia za faili.
 
-## The **here** package {#here}
+Inatumika kwa kushirikiana na mradi wa R, **here** hukuruhusu kuelezea eneo la faili katika mradi wako wa R kuhusiana na *root directory* ya mradi wa R (folda ya kiwango cha juu). Hii ni muhimu wakati mradi wa R unaweza kushirikiwa au kufikiwa na watu/kompyuta nyingi. Huzuia matatizo kutokana na njia za kipekee za faili kwenye kompyuta tofauti (k.m. `"C:/Users/Laura/Documents..."` kwa "kuanzisha" njia ya faili mahali panapojulikana kwa watumiaji wote (msingi wa mradi wa R).
 
-The package **here** and its function `here()` make it easy to tell R where to find and to save your files - in essence, it builds file paths.  
 
-Used in conjunction with an R project, **here** allows you to describe the location of files in your R project in relation to the R project's *root directory* (the top-level folder). This is useful when the R project may be shared or accessed by multiple people/computers. It prevents complications due to the unique file paths on different computers (e.g. `"C:/Users/Laura/Documents..."` by "starting" the file path in a place common to all users (the R project root).  
 
-This is how `here()` works within an R project:  
+Hivi ndivyo `here()` inavyofanya kazi ndani ya mradi wa R:
 
-* When the **here** package is first loaded within the R project, it places a small file called ".here" in the root folder of your R project as a "benchmark" or "anchor"  
-* In your scripts, to reference a file in the R project's sub-folders, you use the function `here()` to build the file path *in relation to that anchor*
-* To build the file path, write the names of folders beyond the root, within quotes, separated by commas, finally ending with the file name and file extension as shown below  
-* `here()` file paths can be used for both importing and exporting  
+* Wakati kifurushi cha **here** kinapopakiwa kwa mara ya kwanza ndani ya mradi wa R, huweka faili ndogo inayoitwa ".here" kwenye folda ya msingi ya mradi wako wa R kama "kigezo" au "nanga"
 
-For example, below, the function `import()` is being provided a file path constructed with `here()`.  
+* Katika hati zako, kurejelea faili kwenye folda ndogo za mradi wa R, unatumia kazi `here()` kuunda njia ya faili *kuhusiana na nanga hiyo*
+* Ili kuunda njia ya faili, andika majina ya folda zaidi ya mzizi, ndani ya nukuu, ikitenganishwa na koma, mwishowe kuishia na jina la faili na ugani wa faili kama inavyoonyeshwa hapa chini.
+* `here()` njia za faili zinaweza kutumika kwa kupakia na kupakua.
+
+Kwa mfano, hapa chini, chaguo za kukokotoa `import()` inatolewa kwa njia ya faili iliyoundwa na `hapa()`.  
 
 ```{r, eval=F}
 linelist <- import(here("data", "linelists", "ebola_linelist.xlsx"))
 ```
 
-The command `here("data", "linelists", "ebola_linelist.xlsx")` is actually providing the full file path that is *unique to the user's computer*:  
+
+Msimbo `here("data", "linelists", "ebola_linelist.xlsx")` inatoa njia kamili ya faili ambayo ni *ya kipekee kwa kompyuta ya mtumiaji*:
 
 ```
 "C:/Users/Laura/Documents/my_R_project/data/linelists/ebola_linelist.xlsx"
 ```
 
-The beauty is that the R command using `here()` can be successfully run on any computer accessing the R project.   
+Uzuri ni kwamba amri ya R inayotumia `here()` inaweza kuendeshwa kwa mafanikio kwenye kompyuta yoyote inayopata mradi wa R.
 
+<span style="color: darkgreen;">**_TIP:_** Ikiwa huna uhakika ambapo mzizi wa ".here" umewekwa, endesha chaguo la kukokotoa `here()` kwa mabano tupu.</span>  
 
-<span style="color: darkgreen;">**_TIP:_** If you are unsure where the “.here” root is set to, run the function `here()` with empty parentheses.</span>  
-
-Read more about the **here** package [at this link](https://here.r-lib.org/).  
+Soma zaidi kuhusu kifurushi cha **hapa** [kwenye kiungo hiki](https://here.r-lib.org/).  
 
 
 
 <!-- ======================================================= -->
 ## File paths  
 
-When importing or exporting data, you must provide a file path. You can do this one of three ways:  
-
-1) *Recommended:* provide a "relative" file path with the **here** package  
-2) Provide the "full" / "absolute" file path  
-3) Manual file selection  
+ 
+Wakati wa kupakia au kupakua data, lazima utoe njia ya faili. Unaweza kufanya hivyo kwa moja ya njia hizi tatu:
+1) *Inapendekezwa:* toa njia ya faili "sawa na" na kifurushi cha **here**
+2) Toa njia ya faili "kamili" / "kabisa".
+3) Uchaguzi wa faili mwenyewe
 
 
 
 ### "Relative" file paths {.unnumbered}
 
-In R, "relative" file paths consist of the file path *relative to* the root of an R project. They allow for more simple file paths that can work on different computers (e.g. if the R project is on a shared drive or is sent by email). As described [above](#here), relative file paths are facilitated by use of the **here** package.  
+Katika R, njia za faili "sawa" zinajumuisha njia ya faili *sawa na* mzizi wa mradi wa R. Huruhusu njia rahisi zaidi za faili zinazoweza kufanya kazi kwenye kompyuta tofauti (k.m. ikiwa mradi wa R uko kwenye hifadhi ya pamoja au unatumwa kwa barua pepe). Kama ilivyoelezwa [hapo juu](#here), njia za faili za jamaa zinawezeshwa na matumizi ya kifurushi cha **here**.
 
-An example of a relative file path constructed with `here()` is below. We assume the work is in an R project that contains a sub-folder "data" and within that a subfolder "linelists", in which there is the .xlsx file of interest.  
+
+Mfano wa njia ya faili ya jamaa iliyoundwa na `here()` iko hapa chini. Tunachukulia kuwa kazi iko katika mradi wa R ambao una folda ndogo ya "data" na ndani ya folda hiyo "orodha za mstari", ambamo kuna faili ya .xlsx ya kuvutia. 
 
 ```{r, eval=F}
 linelist <- import(here("data", "linelists", "ebola_linelist.xlsx"))
@@ -110,36 +115,36 @@ linelist <- import(here("data", "linelists", "ebola_linelist.xlsx"))
 
 
 
-### "Absolute" file paths {.unnumbered}  
+### Njia za faili "kamili". {.unnumbered}  
 
-Absolute or "full" file paths can be provided to functions like `import()` but they are "fragile" as they are unique to the user's specific computer and therefore *not recommended*. 
+Njia "kamili" za faili zinaweza kutolewa kwa utendaji kama vile `import()` lakini ni "tete" kwa kuwa ni za kipekee kwa kompyuta mahususi ya mtumiaji na kwa hivyo *haipendekezwi*.
 
-Below is an example of an absolute file path, where in Laura's computer there is a folder "analysis", a sub-folder "data" and within that a sub-folder "linelists", in which there is the .xlsx file of interest.  
+Chini ni mfano wa njia kamili ya faili, ambapo katika kompyuta ya Laura kuna folda "uchambuzi", "data" ndogo ya folda na ndani ya folda ndogo ya "linelists", ambayo kuna faili ya .xlsx ya riba. .
 
 ```{r, eval=F}
 linelist <- import("C:/Users/Laura/Documents/analysis/data/linelists/ebola_linelist.xlsx")
 ```
 
-A few things to note about absolute file paths:  
+Mambo machache ya kuzingatia kuhusu njia kamili za faili:
 
-* **Avoid using absolute file paths** as they will break if the script is run on a different computer
-* Use *forward* slashes (`/`), as in the example above (note: this is *NOT* the default for Windows file paths)  
-* File paths that begin with double slashes (e.g. "//...") will likely **not be recognized by R** and will produce an error. Consider moving your work to a "named" or "lettered" drive that begins with a letter (e.g. "J:" or "C:"). See the page on [Directory interactions] for more details on this issue.  
+* **Epuka kutumia njia za faili kabisa** kwani zitavunjika ikiwa hati itaendeshwa kwenye kompyuta tofauti.
+* Tumia mikwaju ya *mbele* (`/`), kama ilivyo kwenye mfano hapo juu (kumbuka: hii sio *SIO* chaguomsingi kwa njia za faili za Windows) 
+* Njia za faili zinazoanza kwa kufyeka mara mbili (k.m. "//...") kuna uwezekano ** hazitatambuliwa na R** na zitaleta hitilafu. Fikiria kuhamishia kazi yako kwenye hifadhi ya "iliyopewa jina" au "iliyo na herufi" inayoanza na herufi (k.m. "J:" au "C:"). Tazama ukurasa kwenye [Maingiliano ya Saraka] kwa maelezo zaidi kuhusu suala hili. 
 
-One scenario where absolute file paths may be appropriate is when you want to import a file from a shared drive that has the same full file path for all users.  
+Hali moja ambapo njia kamili za faili zinaweza kufaa ni wakati unataka kuleta faili kutoka kwa hifadhi ya pamoja ambayo ina njia sawa ya faili kwa watumiaji wote.
 
-<span style="color: darkgreen;">**_TIP:_** To quickly convert all `\` to `/`, highlight the code of interest, use Ctrl+f (in Windows), check the option box for "In selection", and then use the replace functionality to convert them.</span>  
+<span style="color: darkgreen;">**_TIP:_** Ili kubadilisha kwa haraka `\` zote kuwa `/`, onyesha msimbo unaokuvutia, tumia Ctrl+f (katika Windows), chagua kisanduku cha chaguo "Katika uteuzi", kisha utumie utendakazi wa kubadilisha ili kuzibadilisha.</span>  
 
 
 
 <!-- ======================================================= -->
-### Select file manually {.unnumbered}
+### Chagua faili mwenyewe {.unnumbered}
 
-You can import data manually via one of these methods:  
+Unaweza kuingiza data mwenyewe kupitia mojawapo ya njia hizi:
 
-1) Environment RStudio Pane, click "Import Dataset", and select the type of data 
-2) Click File / Import Dataset / (select the type of data)  
-3) To hard-code manual selection, use the *base R* command `file.choose()` (leaving the parentheses empty) to trigger appearance of a **pop-up window** that allows the user to manually select the file from their computer. For example:  
+1) Kidirisha cha RStudio cha Mazingira, bofya "Import Dataset", na uchague aina ya data
+2) Bonyeza Faili / Pakia seti ya data / (chagua aina ya data)
+3) Ili kuchagua kwa mikono kwa msimbo ngumu, tumia amri ya *msingi R* `file.choose()` (ukiacha mabano tupu) ili kuanzisha **dirisha ibukizi** linalomruhusu mtumiaji kuchagua mwenyewe faili. kompyuta zao. Kwa mfano:
 
 ```{r import_choose, eval=F}
 # Manual selection of a file. When this command is run, a POP-UP window will appear. 
@@ -148,7 +153,7 @@ You can import data manually via one of these methods:
 my_data <- import(file.choose())
 ```
 
-<span style="color: darkgreen;">**_TIP:_** The **pop-up window** may appear BEHIND your RStudio window.</span>
+<span style="color: darkgreen;">**_TIP:_** **dirisha ibukizi** linaweza kuonekana NYUMA ya dirisha lako la RStudio.</span>
 
 
 
