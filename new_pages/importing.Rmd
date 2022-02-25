@@ -159,23 +159,23 @@ my_data <- import(file.choose())
 
 ## Import data  
 
-To use `import()` to import a dataset is quite simple. Simply provide the path to the file (including the file name and file extension) in quotes. If using `here()` to build the file path, follow the instructions above. Below are a few examples:  
 
-Importing a csv file that is located in your "working directory" or in the R project root folder:  
+Kutumia `import()` kuleta seti za data ni rahisi sana. Toa tu njia ya faili (pamoja na jina la faili na ugani wa faili) katika nukuu. Ikiwa unatumia `here()` kuunda njia ya faili, fuata maagizo hapo juu. Ifuatayo ni mifano michache:
+
+Kupakia faili ya csv ambayo iko kwenye "saraka yako ya kufanya kazi" au kwenye folda ya mizizi ya mradi wa R:
 
 ```{r, eval=F}
 linelist <- import("linelist_cleaned.csv")
 ```
 
-
-Importing the first sheet of an Excel workbook that is located in "data" and "linelists" sub-folders of the R project (the file path built using `here()`):  
+Kupakia laha la kwanza la kitabu cha kazi cha Excel ambacho kiko katika "data" na "orodha" ndogo za mradi wa R (njia ya faili iliyojengwa kwa kutumia `here()`):
 
 ```{r, eval=F}
 linelist <- import(here("data", "linelists", "linelist_cleaned.xlsx"))
 ```
 
 
-Importing a data frame (a .rds file) using an absolute file path:  
+Kupakia dataseti (faili ya .rds) kwa kutumia njia ya faili kamili:
 
 ```{r, eval=F}
 linelist <- import("C:/Users/Laura/Documents/tuberculosis/data/linelists/linelist_cleaned.rds")
@@ -187,24 +187,24 @@ linelist <- import("C:/Users/Laura/Documents/tuberculosis/data/linelists/linelis
 
 ### Specific Excel sheets {.unnumbered}
 
-By default, if you provide an Excel workbook (.xlsx) to `import()`, the workbook's first sheet will be imported. If you want to import a specific **sheet**, include the sheet name to the `which = ` argument. For example:  
+Kwa chaguo-msingi, ukitoa kitabu cha kazi cha Excel (.xlsx) ili `import()`, laha ya kwanza ya kitabu hicho itapakiwa Ikiwa unataka kuleta **laha** maalum, jumuisha jina la laha kwa hoja ya `which =`. Kwa mfano:
 
 ```{r eval=F}
 my_data <- import("my_excel_file.xlsx", which = "Sheetname")
 ```
 
-If using the `here()` method to provide a relative pathway to `import()`, you can still indicate a specific sheet by adding the `which = ` argument after the closing parentheses of the `here()` function.  
+Iwapo unatumia mbinu ya `here()` kutoa njia jamaa ya `import()`, bado unaweza kuonyesha laha mahususi kwa kuongeza hoja ya `which =` baada ya mabano ya kufunga ya chaguo za kukokotoa `here()`.
 
 ```{r import_sheet_here, eval=F}
 # Demonstration: importing a specific Excel sheet when using relative pathways with the 'here' package
 linelist_raw <- import(here("data", "linelist.xlsx"), which = "Sheet1")`  
 ```
 
-To *export* a data frame from R to a specific Excel sheet and have the rest of the Excel workbook remain unchanged, you will have to import, edit, and export with an alternative package catered to this purpose such as **openxlsx**. See more information in the page on [Directory interactions] or [at this github page](https://ycphs.github.io/openxlsx/).
 
-If your Excel workbook is .xlsb (binary format Excel workbook) you may not be able to import it using **rio**. Consider re-saving it as .xlsx, or using a package like **readxlsb** which is built for [this purpose](https://cran.r-project.org/web/packages/readxlsb/vignettes/read-xlsb-workbook.html).  
+Ili *kupakia* dataseti kutoka kwa R hadi laha mahususi ya Excel na kufanya kitabu kingine cha kazi cha Excel kibaki bila kubadilika, itabidi upakie, uhariri, na usafirishaji ukitumia kifurushi mbadala kilichoainishwa kwa madhumuni haya kama vile **openxlsx** . Tazama habari zaidi kwenye ukurasa kwenye [Maingiliano ya Saraka] au [kwenye ukurasa huu wa github](https://ycphs.github.io/openxlsx/).
 
 
+Ikiwa kitabu chako cha kazi cha Excel ni .xlsb (kitabu cha kazi cha umbizo la binary) huenda usiweze kukipakia kwa kutumia **rio**. Fikiria kuihifadhi tena kama .xlsx, au kutumia kifurushi kama **readxlsb** ambacho kimeundwa kwa ajili ya [kusudi hili](https://cran.r-project.org/web/packages/readxlsb/vignettes/read-xlsb-workbook.html). 
 
 
 
@@ -212,17 +212,20 @@ If your Excel workbook is .xlsb (binary format Excel workbook) you may not be ab
 <!-- ======================================================= -->
 ### Missing values {#import_missing .unnumbered} 
 
-You may want to designate which value(s) in your dataset should be considered as missing. As explained in the page on [Missing data], the value in R for missing data is `NA`, but perhaps the dataset you want to import uses 99, "Missing", or just empty character space "" instead.  
+Unaweza kutaka kubainisha ni thamani gani katika dataseti zinazopaswa kuzingatiwa kuwa hazipo. Kama ilivyoelezwa kwenye ukurasa wa [Data inayokosekana], thamani katika R kwa data inayokosekana ni `NA`, lakini labda dataseti unayotaka kuleta hutumia 99, "Inakosa", au nafasi tupu ya herufi "" badala yake.
 
-Use the `na = ` argument for `import()` and provide the value(s) within quotes (even if they are numbers). You can specify multiple values by including them within a vector, using `c()` as shown below.  
+  
+Tumia `na =` hoja ya `import()` na toa thamani ndani ya nukuu (hata kama ni nambari). Unaweza kubainisha thamani nyingi kwa kuzijumuisha ndani ya vekta, kwa kutumia `c()` kama inavyoonyeshwa hapa chini.
 
-Here, the value "99" in the imported dataset is considered missing and converted to `NA` in R.  
+Hapa, thamani "99" katika mkusanyiko wa data ulioingizwa inachukuliwa kuwa haipo na kubadilishwa kuwa `NA` katika R. 
 
 ```{r, eval=F}
 linelist <- import(here("data", "my_linelist.xlsx"), na = "99")
 ```
 
 Here, any of the values "Missing", "" (empty cell), or " " (single space) in the imported dataset are converted to `NA` in R.  
+
+Hapa, thamani zozote za "Haipo", "" (kisanduku tupu), au " " (nafasi moja) katika dataseti zilizopakiwa zinabadilishwa kuwa `NA` katika R.
 
 ```{r, eval=F}
 linelist <- import(here("data", "my_linelist.csv"), na = c("Missing", "", " "))
@@ -232,20 +235,19 @@ linelist <- import(here("data", "my_linelist.csv"), na = c("Missing", "", " "))
 <!-- ======================================================= -->
 ### Skip rows {.unnumbered} 
 
-Sometimes, you may want to avoid importing a row of data. You can do this with the argument `skip = ` if using `import()` from **rio** on a .xlsx or .csv file. Provide the number of rows you want to skip. 
-
+Wakati mwingine, unaweza kutaka kuepuka kupakia safu mlalo ya data. Unaweza kufanya hivi kwa hoja `ruka =` ikiwa unatumia `import()` kutoka **rio** kwenye faili ya .xlsx au .csv. Toa idadi ya safu mlalo unayotaka kuruka.
 
 ```{r, eval=F}
 linelist_raw <- import("linelist_raw.xlsx", skip = 1)  # does not import header row
 ```
 
-Unfortunately `skip = ` only accepts one integer value, *not* a range (e.g. "2:10" does not work). To skip import of specific rows that are not consecutive from the top, consider importing multiple times and using `bind_rows()` from **dplyr**. See the example below of skipping only row 2.  
-
+Kwa bahati mbaya `skip = ` inakubali thamani moja kamili pekee, *sio* masafa (k.m. "2:10" haifanyi kazi). Ili kuruka kupakia safu mlalo mahususi zisizofuatana kutoka juu, zingatia kupakia mara nyingi na kutumia `bind_rows()` kutoka **dplyr**. Tazama mfano hapa chini wa kuruka safu mlalo ya 2 pekee.
 
 
 ### Manage a second header row {.unnumbered}  
 
-Sometimes, your data may have a *second* row, for example if it is a "data dictionary" row as shown below. This situation can be problematic because it can result in all columns being imported as class "character".  
+Wakati mwingine, data yako inaweza kuwa na safu mlalo *ya pili*, kwa mfano ikiwa ni safu mlalo ya "kamusi ya data" kama inavyoonyeshwa hapa chini. Hali hii inaweza kuwa ya shida kwa sababu inaweza kusababisha safu wima zote kuingizwa kama "tabia" ya darasa.
+
 
 ```{r, echo=F}
 # HIDDEN FROM READER
@@ -278,7 +280,8 @@ linelist_2headers <- rio::import(here::here("data", "case_linelists", "linelist_
                 time_admission = "time of hospital admission HH:MM")
 ```
 
-Below is an example of this kind of dataset (with the first row being the data dictionary).  
+ 
+Ufuatao ni mfano wa aina hii ya dataseti (na safu mlalo ya kwanza ikiwa kamusi ya data).
 
 ```{r message=FALSE, echo=F}
 # display the linelist data as a table
