@@ -432,3 +432,11 @@ adding-and-updating-to-data-tables
 resources-41
 output-bookdowngitbook
 show-all-levels
+misingi-ya-r
+kwanini-utumie-r
+masharti-muhimu
+ufungaji
+saraka-ya-kufanya-kazi
+suggested-packages
+shiny
+writing-functions

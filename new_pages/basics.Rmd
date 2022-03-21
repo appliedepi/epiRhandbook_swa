@@ -259,45 +259,26 @@ Ikiwa R yako itaganda, unaweza kuanzisha upya R kwa kwenda kwenye menyu ya Kipin
 
 Baadhi ya njia za mkato za kibodi muhimu sana ziko hapa chini. Tazama mikato yote ya kibodi ya Windows, Max, na Linux katika ukurasa wa pili wa [kiolesura hiki cha RStudio](https://www.rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf).
 
-+----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
 | Windows/Linux                    | Mac                    | Kitendo                                                                                                                         |
-+==================================+========================+=================================================================================================================================+
+|----------------------------------|------------------------|---------------------------------------------------------------------------------------------------------------------------------|
 | Esc                              | Esc                    | Katisha amri ya sasa (inafaa ikiwa kwa bahati mbaya uliendesha amri isiyokamilika na huwezi kuepuka kuona "+" kwenye koni ya R) |
-+----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
 | Ctrl+s                           | Cmd+s                  | Hifadhi(hati)                                                                                                                   |
-+----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
 | Tab                              | Tab                    | Kamilisha kiotomatiki                                                                                                           |
-+----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
 | Ctrl + Enter                     | Cmd + Enter            | Endesha laini za sasa/uteuzi wa msimbo                                                                                          |
-+----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
 | Ctrl + Shift + C                 | Cmd + Shift + c        | toa maoni/toa maoni kwa mistari iliyoangaziwa                                                                                   |
-+----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
 | Alt + -                          | Option + -             | Weka`<-`                                                                                                                        |
-+----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
 | Ctrl + Shift + m                 | Cmd + Shift + m        | Weka `%>%`                                                                                                                      |
-+----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
 | Ctrl + l                         | Cmd + l                | Futa koni ya R                                                                                                                  |
-+----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
 | Ctrl + Alt + b                   | Cmd + Option + b       | Endesha kutoka mwanzo hadi mstari wa sasa                                                                                       |
-+----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
 | Ctrl + Alt + t                   | Cmd + Option + t       | Endesha sehemu ya msimbo wa sasa (R Markdown)                                                                                   |
-+----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
 | Ctrl + Alt + i                   | Cmd + Shift + r        | Ingiza sehemu ya msimbo (kwenye R Markdown)                                                                                     |
-+----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
 | Ctrl + Alt + c                   | Cmd + Option + c       | Tekeleza sehemu ya msimbo wa sasa (R Markdown)                                                                                  |
-+----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
 | up/down arrows in R console      | Same                   | Geuza kupitia amri zinazoendeshwa hivi karibuni                                                                                 |
-+----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
 | Shift + up/down arrows in script | Same                   | Chagua mistari mingi ya msimbo                                                                                                  |
-+----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
 | Ctrl + f                         | Cmd + f                | Tafuta na ubadilishe katika hati ya sasa                                                                                        |
-+----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
 | Ctrl + Shift + f                 | Cmd + Shift + f        | Pata faili (tafuta / badilisha katika hati nyingi)                                                                              |
-+----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
 | Alt + l                          | Cmd + Option + l       | Mara msimbo uliochaguliwa                                                                                                       |
-+----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
 | Shift + Alt + l                  | Cmd + Shift + Option+l | Fungua msimbo uliochaguliwa                                                                                                     |
-+----------------------------------+------------------------+---------------------------------------------------------------------------------------------------------------------------------+
 
 [***TIP:***]{style="color: darkgreen;"}*Tumia ufunguo wako wa Kichupo unapoandika ili kuhusisha utendakazi wa kukamilisha kiotomatiki wa RStudio. Hii inaweza kuzuia makosa ya tahajia. Bonyeza Tab unapoandika ili kutoa menyu kunjuzi ya vitendaji na vipengee vinavyowezekana, kulingana na ulichoandika kufikia sasa*[.]{style="color: darkgreen;"}
 
@@ -965,8 +946,7 @@ gen_out_table
 
 **Safu**
 
-Safu wima katika mkusanyiko wa data pia ni vitu na vinaweza kufafanuliwa, kuandikwa
-zaidi, na kuundwa kama ilivyoelezwa hapa chini katika sehemu ya Safu wima.
+Safu wima katika mkusanyiko wa data pia ni vitu na vinaweza kufafanuliwa, kuandikwa zaidi, na kuundwa kama ilivyoelezwa hapa chini katika sehemu ya Safu wima.
 
 Unaweza kutumia opereta ya kazi kutoka msingi R kuunda safu wima mpya. Hapo chini, safu wima mpya ya bmi (Kielezo cha Misa ya Mwili) imeundwa, na kwa kila safu thamani mpya ni matokeo ya uendeshaji wa hisabati kwenye thamani ya safu katika safu wima za wt_kg na ht_cm.
 
@@ -987,11 +967,9 @@ linelist <- linelist %>%
 
 ### Muundo wa kitu {.unnumbered}
 
-**Vipengee vinaweza kuwa kipande kimoja cha data (k.m. my_number \<- 24), au vinaweza
-kujumuisha data iliyopangwa.**
+**Vipengee vinaweza kuwa kipande kimoja cha data (k.m. my_number \<- 24), au vinaweza kujumuisha data iliyopangwa.**
 
-TMchoro
-ulio hapa chini umekopwa kutoka kwa mafunzo haya ya [mtandaoni ya R](http://venus.ifca.unican.es/Rintro/dataStruct.html). Inaonyesha baadhi ya miundo ya kawaida ya data na majina yao. Haijajumuishwa katika picha hii ni data ya anga, ambayo inajadiliwa katika ukurasa wa misingi ya GIS.
+TMchoro ulio hapa chini umekopwa kutoka kwa mafunzo haya ya [mtandaoni ya R](http://venus.ifca.unican.es/Rintro/dataStruct.html). Inaonyesha baadhi ya miundo ya kawaida ya data na majina yao. Haijajumuishwa katika picha hii ni data ya anga, ambayo inajadiliwa katika ukurasa wa misingi ya GIS.
 
 ```{r basics_objects_structures, echo=F, out.width = "75%", out.height="50%", fig.align = "center"}
 knitr::include_graphics(here::here("images", "R_data_structures.png"))
@@ -999,16 +977,15 @@ knitr::include_graphics(here::here("images", "R_data_structures.png"))
 
 Katika epidemiolojia (na haswa epidemiolojia ya uwanja), kwa kawaida utakutana na fremu za data na vekta:
 
-+------------------+--------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+
-| Common structure | Explanation                                                                                      | Example                                                                             |
-+==================+==================================================================================================+=====================================================================================+
-| Vectors          | A container for a sequence of singular objects, all of the same class (e.g. numeric, character). | **"Variables" (columns) in data frames are vectors** (e.g. the column `age_years`). |
-+------------------+--------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+
-| Data Frames      | Vectors (e.g. columns) that are bound together that all have the same number of rows.            | `linelist` is a data frame.                                                         |
-+------------------+--------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------+
++------------------+-----------------------------------------------------------------------------------------+----------------------------------------------------------------------------+
+| Common structure | Maelezo                                                                                 | Mfano                                                                      |
++==================+=========================================================================================+============================================================================+
+| Vectors          | Chombo cha mlolongo wa vitu vya umoja, vyote vya darasa moja (k.m. nambari, herufi).    | "Vigezo" (safu wima) katika fremu za data ni vekta (k.m. safu wima_miaka). |
++------------------+-----------------------------------------------------------------------------------------+----------------------------------------------------------------------------+
+| Data Frames      |     Vekta (k.m. safuwima) ambazo zimefungwa pamoja ambazo zote zina idadi sawa ya safu. | `linelist` ni fremu ya data.                                               |
++------------------+-----------------------------------------------------------------------------------------+----------------------------------------------------------------------------+
 
-Kumbuka kuwa kuunda vekta ambayo "inasimama peke yake" (sio sehemu ya fremu ya data) chaguo la kukokotoa c() linatumika kuchanganya vipengele tofauti. Kwa mfano, ikiwa unaunda vekta ya rangi ukubwa wa rangi ya kiwanja: vekta_ya_rangi \<- c("bluu", "red2", "chungwa",
-"kijivu").
+Kumbuka kuwa kuunda vekta ambayo "inasimama peke yake" (sio sehemu ya fremu ya data) chaguo la kukokotoa c() linatumika kuchanganya vipengele tofauti. Kwa mfano, ikiwa unaunda vekta ya rangi ukubwa wa rangi ya kiwanja: vekta_ya_rangi \<- c("bluu", "red2", "chungwa", "kijivu").
 
 <!-- ======================================================= -->
 
@@ -1016,28 +993,17 @@ Kumbuka kuwa kuunda vekta ambayo "inasimama peke yake" (sio sehemu ya fremu ya d
 
 Vitu vyote vilivyohifadhiwa katika R vina darasa ambalo huambia R jinsi ya kushughulikia kitu. Kuna madarasa mengi yanayowezekana, lakini yale ya kawaida ni pamoja na:
 
-+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------+
-| Class      | Explanation                                                                                                                                                                                         | Examples                                                                                                 |
-+============+=====================================================================================================================================================================================================+==========================================================================================================+
+| Darasa     | Maelezo                                                                                                                                                                                             | Mfano                                                                                                    |
+|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
 | Character  | Haya ni maandishi/maneno/sentensi "ndani ya alama za nukuu". Hisabati haiwezi kufanywa kwa vitu hivi.                                                                                               | "Vitu vya wahusika viko katika alama za nukuu"                                                           |
-+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------+
 | Integer    | Nambari ambazo ni kamili tu (hakuna desimali)                                                                                                                                                       | -5, 14, au 2000                                                                                          |
-+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------+
 | Numeric    | Hizi ni nambari na zinaweza kujumuisha desimali. Ikiwa ndani ya alama za kunukuu watazingatiwa darasa la wahusika.                                                                                  | 23.1 au 14                                                                                               |
-+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------+
 | Factor     | Hizi ni vekta ambazo zina mpangilio maalum au safu ya maadili                                                                                                                                       | Tofauti ya hali ya kiuchumi na maadili yaliyopangwa                                                      |
-+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------+
 | Date       | Mara R inapoambiwa kuwa data fulani ni Tarehe, data hizi zinaweza kubadilishwa na kuonyeshwa kwa njia maalum. Tazama ukurasa wa Kufanya kazi na tarehe kwa habari zaidi.                            | 2018-04-12 au 15/3/1954 au Wed 4 Jan 1980                                                                |
-+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------+
 | Logical    | Thamani lazima ziwe mojawapo ya zile thamani mbili maalum TRUE au FALSE (kumbuka hizi si "TRUE" na "FALSE" katika alama za nukuu)                                                                   | KWELI au UONGO                                                                                           |
-+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------+
 | data.frame | Fremu ya data ni jinsi R huhifadhi mkusanyiko wa kawaida wa data. Inajumuisha vekta (safu) za data zilizounganishwa pamoja, ambazo zote zina idadi sawa ya uchunguzi (safu).                        | Mfano seti ya data ya AJS inayoitwa linelist_raw ina vigeu 68 vilivyo na uchunguzi (safu) 300 kila moja. |
-+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------+
 | tibble     | tibbles ni tofauti kwenye fremu ya data, tofauti kuu ya utendaji ni kwamba huchapisha vizuri zaidi kwenye dashibodi (onyesha safu mlalo 10 za kwanza na safu wima pekee zinazotoshea kwenye skrini) | Fremu yoyote ya data, orodha, au matrix inaweza kubadilishwa kuwa kidonge kwa as_tibble()                |
-+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------+
-| list       | Orodha ni kama vekta, lakini inashikilia vitu vingine                                                                                                                                               | Orodha inaweza kushikilia nambari moja, na mfumo wa data, na vekta, na hata orodha nyingine ndani yake!  |
-|            | ambavyo vinaweza kuwa aina zingine tofauti                                                                                                                                                          |                                                                                                          |
-+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------+
+| list       | Orodha ni kama vekta, lakini inashikilia vitu vingine ambavyo vinaweza kuwa aina zingine tofauti                                                                                                    | Orodha inaweza kushikilia nambari moja, na mfumo wa data, na vekta, na hata orodha nyingine ndani yake!  |
 
 **Unaweza kujaribu darasa la kitu kwa kutoa jina lake kwa darasa la kazi ().** Kumbuka: unaweza kurejelea safu wima mahususi ndani ya mkusanyiko wa data kwa kutumia nukuu ya \$ ili kutenganisha jina la mkusanyiko wa data na jina la safu wima.
 
@@ -1060,27 +1026,21 @@ class(num_vector)          # vector is now character class
 
 Mfano mmoja wa kawaida wa hii ni wakati wa kudhibiti fremu ya data ili kuchapisha jedwali - ikiwa utafanya safu mlalo jumla na kujaribu kubandika/kuunganisha pamoja asilimia katika kisanduku sawa na nambari (km 23 (40%)), nambari nzima. safu wima iliyo hapo juu itabadilika kuwa herufi na haiwezi tena kutumika kwa ukokotoaji wa hisabati. Wakati mwingine, utahitaji kubadilisha vitu au safu wima hadi darasa lingine**.**
 
-+------------------+------------------------------------------------------------------------------------------------------------+
 | Function         | Action                                                                                                     |
-+==================+============================================================================================================+
+|------------------|------------------------------------------------------------------------------------------------------------|
 | `as.character()` | Inabadilika kuwa darasa la wahusika                                                                        |
-+------------------+------------------------------------------------------------------------------------------------------------+
 | `as.numeric()`   | Inabadilisha kuwa darasa la nambari                                                                        |
-+------------------+------------------------------------------------------------------------------------------------------------+
 | `as.integer()`   | Hubadilisha hadi darasa kamili                                                                             |
-+------------------+------------------------------------------------------------------------------------------------------------+
 | `as.Date()`      | Hubadilisha hadi Darasa la Tarehe - Kumbuka: Tazama sehemu ya [tarehe](#dates) kwa maelezo                 |
-+------------------+------------------------------------------------------------------------------------------------------------+
 | `factor()`       | Hugeuza kuwa kipengele - Kumbuka: kufafanua upya mpangilio wa viwango vya thamani kunahitaji hoja za ziada |
-+------------------+------------------------------------------------------------------------------------------------------------+
 
 Vile vile, kuna chaguo za kukokotoa za msingi za R ili kuangalia kama kitu NI cha darasa mahususi, kama vile `is.numeric()`, `is.character()`, `is.double()`, `is.factor()`, `is.integer()`
 
-[Hapa ](https://swcarpentry.github.io/r-novice-inflammation/13-supp-data-structures/)kuna nyenzo zaidi za mkondoni kwenye madarasa na muundo wa data katika R.
+[Hapa](https://swcarpentry.github.io/r-novice-inflammation/13-supp-data-structures/)kuna nyenzo zaidi za mkondoni kwenye madarasa na muundo wa data katika R.
 
 <!-- ======================================================= -->
 
-### Columns/Variables (`$`) {.unnumbered}
+### Safu wima/Vigezo (\$) {.unnumbered}
 
 **A column in a data frame is technically a "vector" (see table above)** - a series of values that must all be the same class (either character, numeric, logical, etc).
 
@@ -1406,37 +1366,24 @@ This is used to add data to phylogenetic trees with the **ggtree** package. See 
 
 Relational operators compare values and are often used when defining new variables and subsets of datasets. Here are the common relational operators in R:
 
-+--------------------------+------------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Meaning                  | Operator   | Example      | Example Result                                                                                                                                         |
-+==========================+============+==============+========================================================================================================================================================+
+|--------------------------|------------|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Equal to                 | `==`       | `"A" == "a"` | `FALSE` (because R is case sensitive) *Note that == (double equals) is different from = (single equals), which acts like the assignment operator `<-`* |
-+--------------------------+------------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Not equal to             | `!=`       | `2 != 0`     | `TRUE`                                                                                                                                                 |
-+--------------------------+------------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Greater than             | `>`        | `4 > 2`      | `TRUE`                                                                                                                                                 |
-+--------------------------+------------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Less than                | `<`        | `4 < 2`      | `FALSE`                                                                                                                                                |
-+--------------------------+------------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Greater than or equal to | `>=`       | `6 >= 4`     | `TRUE`                                                                                                                                                 |
-+--------------------------+------------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Less than or equal to    | `<=`       | `6 <= 4`     | `FALSE`                                                                                                                                                |
-+--------------------------+------------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Value is missing         | `is.na()`  | `is.na(7)`   | `FALSE` (see page on \[Missing data\])                                                                                                                 |
-+--------------------------+------------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Value is not missing     | `!is.na()` | `!is.na(7)`  | `TRUE`                                                                                                                                                 |
-+--------------------------+------------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Logical operators, such as AND and OR, are often used to connect relational operators and create more complicated criteria. Complex statements might require parentheses ( ) for grouping and order of application.
 
-+-------------+-----------------------------------------------------------------------+
 | Meaning     | Operator                                                              |
-+=============+=======================================================================+
+|-------------|-----------------------------------------------------------------------|
 | AND         | `&`                                                                   |
-+-------------+-----------------------------------------------------------------------+
 | OR          | `|` (vertical bar)                                                    |
-+-------------+-----------------------------------------------------------------------+
 | Parentheses | `( )` Used to group criteria together and clarify order of operations |
-+-------------+-----------------------------------------------------------------------+
 
 For example, below, we have a linelist with two variables we want to use to create our case definition, `hep_e_rdt`, a test result and `other_cases_in_hh`, which will tell us if there are other cases in the household. The command below uses the function `case_when()` to create the new variable `case_def` such that:
 
@@ -1450,17 +1397,12 @@ linelist_cleaned <- linelist %>%
   ))
 ```
 
-+------------------------------------------------------------------------------------------------+--------------------------------------------+
 | Criteria in example above                                                                      | Resulting value in new variable "case_def" |
-+================================================================================================+============================================+
+|------------------------------------------------------------------------------------------------|--------------------------------------------|
 | If the value for variables `rdt_result` and `other_cases_in_home` are missing                  | `NA` (missing)                             |
-+------------------------------------------------------------------------------------------------+--------------------------------------------+
 | If the value in `rdt_result` is "Positive"                                                     | "Confirmed"                                |
-+------------------------------------------------------------------------------------------------+--------------------------------------------+
 | If the value in `rdt_result` is NOT "Positive" AND the value in `other_cases_in_home` is "Yes" | "Probable"                                 |
-+------------------------------------------------------------------------------------------------+--------------------------------------------+
 | If one of the above criteria are not met                                                       | "Suspected"                                |
-+------------------------------------------------------------------------------------------------+--------------------------------------------+
 
 *Note that R is case-sensitive, so "Positive" is different than "positive"...*
 
@@ -1571,17 +1513,12 @@ mean(c(1, 6, 12, 10, 5, 0)) # CORRECT
 
 #### Other useful functions {.unnumbered}
 
-+----------------------------+-------------------+-------------------------------------------------+
 | Objective                  | Function          | Example                                         |
-+============================+===================+=================================================+
+|----------------------------|-------------------|-------------------------------------------------|
 | create a sequence          | seq(from, to, by) | `seq(1, 10, 2)`                                 |
-+----------------------------+-------------------+-------------------------------------------------+
 | repeat x, n times          | rep(x, ntimes)    | `rep(1:3, 2)` or `rep(c("a", "b", "c"), 3)`     |
-+----------------------------+-------------------+-------------------------------------------------+
 | subdivide a numeric vector | cut(x, n)         | `cut(linelist$age, 5)`                          |
-+----------------------------+-------------------+-------------------------------------------------+
 | take a random sample       | sample(x, size)   | `sample(linelist$id, size = 5, replace = TRUE)` |
-+----------------------------+-------------------+-------------------------------------------------+
 
 <!-- ======================================================= -->
 
